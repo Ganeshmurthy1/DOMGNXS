@@ -1,9 +1,11 @@
+import { LoaderService } from './../../services/loader.service';
 import { Response } from '@angular/http';
 import { TodoTableComponent } from './../todo-table/todo-table.component';
 import { TodoService } from './../../services/todo.service';
 import { Component, OnInit } from '@angular/core';
 import { Router} from '@angular/router';
 import * as _ from 'underscore';
+
 
 @Component({
   selector: 'app-todo',
@@ -58,25 +60,26 @@ export class TodoComponent implements OnInit {
   // public fileInfoId: number;
   // public tableDetails: any = {};
   
-  constructor(private router: Router, private todoInstance: TodoService) { }
+  constructor(private router: Router, private todoInstance: TodoService, private loaderService: LoaderService) { }
 
   ngOnInit() {
-
-    //this.dayBlock=false;
-    //this.weekBlock=false;
-    //this.hideBlock=true;
+    this.loaderService.display(true);
     this.riskBlock = true;
-    this.LoginDetails = JSON.parse(localStorage.getItem('LoginDetails'));  
+    // this.LoginDetails = JSON.parse(localStorage.getItem('LoginDetails'));  
    
-    if(this.LoginDetails != null){
-      this.getAllTasks();
-      this.gettoDoTask();
-      this.getGroupDefaultCount();
-      //this.getOneDayCount();
-    }else{
-      this.router.navigate(['login']);
-    }
-   
+    // if(this.LoginDetails != null){
+    //   this.getAllTasks();
+    //   this.gettoDoTask();
+    //   this.getGroupDefaultCount();
+    //   //this.getOneDayCount();
+    // }else{
+    //   this.router.navigate(['login']);
+    // }
+    this.getAllTasks();
+       this.gettoDoTask();
+       this.getGroupDefaultCount();
+    //this.getOneDayCount();
+    this.loaderService.display(false);
     
   }
 
@@ -150,7 +153,7 @@ this.todoInstance.toDoTask().subscribe(response =>{
 } 
 
 
-//Get Filter data for Time and Interventions block
+//Get Filter data for Time and Interventions
 getFilterdata(filter,type){
   this.todoInstance.getFilterToDoList().subscribe(response =>{
     if(type == 'TimeSensitiveCounts'){

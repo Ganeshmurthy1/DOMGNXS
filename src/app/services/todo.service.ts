@@ -25,7 +25,7 @@ export class TodoService {
 
   public getGroupCount(){
     
-    console.log("-----------------")
+    //console.log("-----------------")
     return this.http.get(environment.baseUrl+"/toDo/getGroupWiseCount",  this.globalService.getHeaders()).map(res => res.json()).map((response: any) => {
       return response.data ? response.data : [];
     });

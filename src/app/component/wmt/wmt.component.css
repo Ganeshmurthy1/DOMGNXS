@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i|Monoton");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+/*//////////////////////////////////////////////////////////////////
+[ FONT ]*/
+
+/*@font-face {
+  font-family: Poppins-Regular;
+  src: url('../fonts/poppins/Poppins-Regular.ttf'); 
+}*/
+
+/*@font-face {
+  font-family: Poppins-Medium;
+  src: url('../fonts/poppins/Poppins-Medium.ttf'); 
+}*/
+
+/*@font-face {
+  font-family: Poppins-Bold;
+  src: url('../fonts/poppins/Poppins-Bold.ttf'); 
+}
+
+@font-face {
+  font-family: Poppins-SemiBold;
+  src: url('../fonts/poppins/Poppins-SemiBold.ttf'); 
+}*/
+
+
+/*@font-face {
+  font-family: ProximaNova-Regular;
+  src: url('../fonts/proxima-nova/PROXIMANOVA-REGULAR_3.ttf'); 
+}
+
+@font-face {
+  font-family: ProximaNova-Regular;
+  src: url('../fonts/proxima-nova/PROXIMANOVA-REGULAR_3.ttf'); 
+}
+
+@font-face {
+  font-family: Chicagogonf-Regular;
+  src: url('../fonts/Chicagogonf/CHICAGOGONF_0.ttf'); 
+}
+
+
+@font-face {
+  font-family: Chicagogonf-Bold;
+  src: url('../fonts/Chicagogonf/CHICAGOGONF-BOLD_1.ttf'); 
+}*/
+
+/*//////////////////////////////////////////////////////////////////
+[ RESTYLE TAG ]*/
+
+
+body, html {
+    height: 100%;
+    font-family: Poppins-Regular, sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+    color: #000000;
+    font-weight: 300;
+}
+
+#page-wrapper {
+    position: absolute;
+    top: 0px;
+    left: 35px;
+    width: calc(100% - 35px);
+    height: calc(100% - 0px);
+}
+
+#page-wrapper {
+    padding: 0 15px 12px 55px;
+     /*min-height: 913px;*/
+     background: #edf1f5 !important;
+ }
+ .first-box-row {
+     padding-top: 10px;
+     margin-bottom: 20px;
+ }
+ .white-box {
+     background: #fff;
+     padding: 8px 5px 0px 20px;
+     margin-bottom: 15px;
+     height: 65px;
+     /*box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);*/
+     box-shadow: 0 0px 1px -2px rgba(0,0,0,.2), 0 0px 0px 0 rgba(0,0,0,.14), 0 1px 2px 0 rgba(0,0,0,.12)
+ }
+ .col-in {
+     padding: 0px;
+     margin-bottom: 5px;
+ }
+ .col-in h3 {
+     /*font-size: 30px;*/
+     font-size: 55px;
+     font-weight: 400;
+     vertical-align: bottom;
+ }
+ 
+ .top-header{
+     margin-top: 15px;
+     margin-bottom: 0px;
+ }
+ .text-common{
+     color: #1fdee5;
+     padding-bottom: 10px;
+ }
+ .common-header-box{
+     padding-right: 0px;
+ }

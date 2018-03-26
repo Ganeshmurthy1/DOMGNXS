@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -5,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './component/login/login.component';
 import { TodoComponent } from './component/todo/todo.component';
 import { TodoTableComponent } from './component/todo-table/todo-table.component';
+import { WmtComponent } from './component/wmt/wmt.component';
 import { MegaPreferenceComponent } from './component/mega-preference/mega-preference.component';
 
 const appRoutes: Routes = [
@@ -19,6 +21,9 @@ const appRoutes: Routes = [
   { path: 'todo/:fileInfoId/:path', component: TodoTableComponent },
   { path: '', redirectTo: '/todo/:fileInfoId/:path', pathMatch: 'full'},
 
+  { path: 'wmt', component: WmtComponent},
+  { path: '', redirectTo: '/wmt', pathMatch: 'full'},
+  
   { path: 'mega-preference', component: MegaPreferenceComponent },
   { path: '', redirectTo: '/mega-preference', pathMatch: 'full'},
 
