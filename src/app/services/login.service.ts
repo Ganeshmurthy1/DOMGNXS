@@ -20,11 +20,11 @@ export class LoginService {
     //this accesses the API
     return this.http.post(envUrl+"/login",formData).map((response: Response, headers: any) => {
       // debugger;
-      let user = response.json();
+     // let user = response.json();
      //console.log(user);
-      user.responseStatus = response.status;
+     // user.responseStatus = response.status;
       //console.log( response.status);
-      return user;
+      return response;
 
     });
   }

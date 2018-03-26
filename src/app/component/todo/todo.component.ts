@@ -65,21 +65,18 @@ export class TodoComponent implements OnInit {
   ngOnInit() {
     this.loaderService.display(true);
     this.riskBlock = true;
-    // this.LoginDetails = JSON.parse(localStorage.getItem('LoginDetails'));  
+    this.LoginDetails = JSON.parse(localStorage.getItem('LoginDetails'));  
    
-    // if(this.LoginDetails != null){
-    //   this.getAllTasks();
-    //   this.gettoDoTask();
-    //   this.getGroupDefaultCount();
-    //   //this.getOneDayCount();
-    // }else{
-    //   this.router.navigate(['login']);
-    // }
-    this.getAllTasks();
-       this.gettoDoTask();
-       this.getGroupDefaultCount();
-    //this.getOneDayCount();
-    this.loaderService.display(false);
+    if(this.LoginDetails != null){
+      this.getAllTasks();
+      this.gettoDoTask();
+      this.getGroupDefaultCount();
+   //this.getOneDayCount();
+   this.loaderService.display(false);
+    }else{
+      this.router.navigate(['login']);
+    }
+    
     
   }
 
