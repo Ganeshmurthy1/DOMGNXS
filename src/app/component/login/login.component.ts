@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
      this.router.navigate(['todo']);
     }else{
       var msg="check username and password";
-      //this.router.navigate(['login']);
+      this.router.navigate(['login']);
     }
     });
   }

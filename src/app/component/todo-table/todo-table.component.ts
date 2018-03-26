@@ -1,3 +1,4 @@
+import { LoaderService } from './../../services/loader.service';
 import { OrderPipe } from './../../directive/orderByPipe.directive';
 import { TodoComponent } from './../todo/todo.component';
 import { TodoService } from './../../services/todo.service';
@@ -39,10 +40,10 @@ export class TodoTableComponent implements OnInit {
   public isDesc: boolean = false;
   public column: string = 'CategoryName';
   public direction: number;
-  constructor(private route: ActivatedRoute, private todoInstance: TodoService, private router:Router) { }
+  constructor(private route: ActivatedRoute, private todoInstance: TodoService, private router:Router, private loaderService: LoaderService) { }
 
   ngOnInit() {
-
+   
     this.addBlock = true;
     //this.orgService.getOrgDetails(this.org_id).subscribe(response => {
       //this.orgDetails=response;
@@ -69,25 +70,25 @@ export class TodoTableComponent implements OnInit {
       //   console.log(this.check_id);
       //   });
     //let sub1 = this.route.queryParams.subscribe(params =>this.usrnm=params.username)
-  
+    this.loaderService.display(true);
     this.todoInstance.toDoTableDetails(this.file_Id,this.path).subscribe(response =>{  
       var header_data:any = [];
      //debugger;
      this.tableDetails = [];
-     response.map((obj,i)=>{
-      var tmp:any ={};
-      for(let key in obj){
-        if(i==0)
-          header_data.push(key)
-          tmp[key.replace(/\)/g,"").replace(/\(/g,"").replace(/ /g,"_").replace(/:/g,"")] = obj[key];
-      }
-      this.tableDetails.push(tmp);
-      //console.log(this.tableDetails);
-     })
-     //console.log(this.tableDetails);
+      response.map((obj,i)=>{
+        var tmp:any ={};
+        for(let key in obj){
+          if(i==0)
+            header_data.push(key)
+            tmp[key.replace(/\)/g,"").replace(/\(/g,"").replace(/ /g,"_").replace(/:/g,"")] = obj[key];
+        }
+        this.tableDetails.push(tmp);
+      })
       this.header_details=header_data;
-     // console.log(this.tableDetails);
-      });
+      this.loaderService.display(false);
+    });
+
+      
   }
 
   public checkingField(indx){
