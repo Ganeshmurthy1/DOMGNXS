@@ -18,7 +18,7 @@ export class LoginService {
       'password': password
     }
     //this accesses the API
-    return this.http.post(envUrl+"/login/authorize",formData).map((response: Response, headers: any) => {
+    return this.http.post(envUrl+"/login",formData).map((response: Response, headers: any) => {
       // debugger;
       let user = response.json();
      //console.log(user);
