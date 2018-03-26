@@ -33,11 +33,14 @@ export class LoginComponent implements OnInit {
     }
   }
 
+ 
+
   loginUser(formData:any){
    //debugger;
     this.LoginInstance.login(formData.username,formData.password).subscribe(response => {
+      let token = response.headers.get("Authorization");
     var loginResp=response;
-    console.log(loginResp);
+    console.log("token",token);
     if (loginResp.responseStatus === 200){
       //debugger;
      this.router.navigate(['todo']);
