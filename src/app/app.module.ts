@@ -26,6 +26,8 @@ import { MegaPreferenceComponent } from './component/mega-preference/mega-prefer
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { CookieService } from 'ngx-cookie-service';
 import { WmtComponent } from './component/wmt/wmt.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';  
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -49,6 +51,9 @@ import { WmtComponent } from './component/wmt/wmt.component';
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
+    BrowserAnimationsModule, 
+    ToastrModule.forRoot( ), 
+    
     AppRoutingModule
   ],
   providers: [AppComponent, LoginService, GlobalService, TodoService, CookieService, LoaderService],

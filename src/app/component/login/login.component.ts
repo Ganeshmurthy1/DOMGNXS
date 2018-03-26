@@ -1,9 +1,10 @@
 import { LoaderService } from './../../services/loader.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , ViewContainerRef} from '@angular/core';
 import { FormControl,FormGroup,FormBuilder,Validators } from '@angular/forms';
 import { Router} from '@angular/router';
 import { LoginService } from '../../services/login.service';
 import { GlobalService } from '../../services/global.service';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   loginBlock:boolean;
   forgotEmail:FormGroup;
   logData:any;
-  constructor(private router:Router, private LoginInstance: LoginService, private fb: FormBuilder, private loaderService: LoaderService) {
+  constructor( private router:Router, private LoginInstance: LoginService, private fb: FormBuilder, private loaderService: LoaderService,private toastr: ToastrService) {
     this.signinForm = fb.group({
       'username': [null,Validators.required],
       'password': [null,Validators.required],
@@ -23,6 +24,7 @@ export class LoginComponent implements OnInit {
     this.forgotEmail = fb.group({
       'email': [null,Validators.required],
     });
+     
    }
 
   ngOnInit() {
@@ -37,7 +39,12 @@ export class LoginComponent implements OnInit {
     // }
     localStorage.clear();
   }
-
+  showSuccess() {
+    this.toastr.success('Successfully logged In');
+  }
+  showErrorFlash(){
+    this.toastr.error('Please Enter Proper Credentials');
+  }
   loginUser(formData:any){
   
     this.LoginInstance.login(formData.username,formData.password).subscribe(response => {
@@ -58,17 +65,21 @@ export class LoginComponent implements OnInit {
 
     if(response.status == 200){
       var loginResp=response;   
-        let token = response.headers.get("Authorization"); 
-        console.log("response",response);          
+        let token = response.headers.get("Authorization");         
        localStorage.setItem("token",JSON.stringify(token));     
        localStorage.setItem("LoginDetails",JSON.stringify(loginResp));
       this.router.navigate(['todo']);
-    }else{
-      var msg="check username and password";
-      this.router.navigate(['login']);
+      this.showSuccess();
+    } 
+    else{
+        this.router.navigate(['login']);
     }
     
-    });
+    },err => {
+       
+      this.showErrorFlash();
+      
+   });
   }
-
+  
 }
