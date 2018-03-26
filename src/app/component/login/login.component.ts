@@ -58,8 +58,7 @@ export class LoginComponent implements OnInit {
 
     if(response.status == 200){
       var loginResp=response;   
-        let token = response.headers.get("Authorization"); 
-        console.log("response",response);          
+        let token = response.headers.get("Authorization");         
        localStorage.setItem("token",JSON.stringify(token));     
        localStorage.setItem("LoginDetails",JSON.stringify(loginResp));
       this.router.navigate(['todo']);
