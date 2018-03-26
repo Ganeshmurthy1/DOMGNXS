@@ -1,0 +1,66 @@
+
+  <div id="page-wrapper">
+      <div class="container-fluid">
+          <div class="row top-header">
+              <h5 class="col-sm-12">To do &gt; {{file_desc}}
+                  <div class="icon-box">
+                      <a (click)="getExportExcel(file_Id)" class="excel-link"><img src="assets/images/export_excel.svg" width="20px" height="20px"></a>
+                      <a   (click)="getCheckedRecord()" class="excel-link"><img src="assets/images/select.svg" width="20px" height="20px"></a>
+                      <a class="excel-link"><img src="assets/images/ic_preferences.svg" width="20px" height="20px"></a>
+                  </div>
+                  </h5>
+          </div>
+          <div class="white-box">
+            <div class="row-fluid">        
+                 
+                  <div class="table-responsive" *ngIf="tableDetails && tableDetails.length > 0">
+                      <table class="table" id="mytable">
+                          <thead>  
+                              <tr>
+                                  <th class="th-sm header-text"></th>
+                                  <th class="th-sm header-text" *ngFor="let list of header_details" (click)="getSortDetails(list)">    
+                                    {{list}}
+                                    <i class="fa" [ngClass]="{'fa-sort': column != list, 'fa-sort-asc': (column == list && isDesc), 'fa-sort-desc': (column == list && !isDesc) }" aria-hidden="true"> </i>
+                                  </th>
+
+                              </tr>
+                          </thead>
+                          <tbody>
+
+                              <!-- <tr id="first-row" style="display: none;">
+                                 
+                              </tr> -->
+                              <tr id="first-row" *ngFor="let tableCol of tableDetails;   let i = index" [ngClass]="tableCol.isChecked? 'active' : '' ">
+                                  <td class="txt-oflo first-cell col-xs-1" *ngIf="addBlock">
+                                      <div class="checkbox checkbox-success checkbox-inline">
+                                          <input type="checkbox" name="check_box"  id="content-checkbox-{{i+1}}" value="{{i+1}}" [(ngModel)]="tableCol.isChecked"/>
+                                          <label for="content-checkbox-{{i+1}}"></label>
+                                      </div>    
+                                  </td>                                   
+                                  <td class="" *ngFor="let entry of tableCol | keys"  [title]="entry.value">           
+                                   <div [class]="entry.key"> {{entry.value}}</div>
+                                  </td>                                 
+                              </tr>   
+                              <!-- <tr id="first-row{{i+1}}" *ngFor="let list of tableDetails | orderBy:column:isDesc:'case-insensitive';  let i = index" >
+                                  <td class="txt-oflo first-cell col-xs-1" *ngIf="addBlock">
+                                      <div class="checkbox checkbox-success checkbox-inline">
+                                          <input type="checkbox" name="check_box"  id="content-checkbox-{{i+1}}" (click)="checkingField(i)" [(ngModel)]="list.isChecked"/>
+                                          <label for="content-checkbox-{{i+1}}"></label>
+                                      </div>    
+                                  </td>                                   
+                                  <td class="" *ngFor="let entry of list | keys"  [title]="entry.value">           
+                                   <div [class]="entry.key">{{entry.value}}</div>
+                                  </td>                                 
+                              </tr>   -->
+                          </tbody>
+                      </table>
+                  </div>    
+                  
+                  <div class="table-responsive" *ngIf="tableDetails && tableDetails.length==0" style="text-align: center;">
+                      <br/><br/> <h4>No data</h4> <br/><br/></div>
+              </div> <!-- /.container end --> 
+        </div>
+      </div>
+  </div>  
+
+

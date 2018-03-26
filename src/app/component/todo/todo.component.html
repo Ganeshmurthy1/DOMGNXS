@@ -1,0 +1,242 @@
+<div class="preloader" style="display: none;">
+  <div class="cssload-speeding-wheel"></div>
+</div>
+<!-- Navigation -->
+<!-- <nav class="navbar navbar-default navbar-static-top">
+  <div class="navbar-header">
+          <div class="top-left-part sidebar-left">
+              <a class="logo" href="index.html">
+                  <b class="sidebar-logo"><img src="assets/images/logo_small.png" alt="home" /></b>
+              </a>
+          </div>
+  </div>
+</nav> -->
+
+<!-- <div class="navbar-default sidebar active" role="navigation">
+  <div class="sidebar-nav navbar-collapse nav-box">
+      <div class="top-left-part sidebar-left">
+          <a class="logo" href="index.html">
+              <b class="sidebar-logo"><img src="assets/images/logo_small.png" alt="home" /></b>
+          </a>
+      </div>
+    <ul class="nav" id="side-menu">
+              
+      <li class="sidebar-profile sidebar-profile-left active tooltip">
+        <span class="tooltiptext profile-tooltip-text">MR. Les Brown</span>
+                  
+        <div class="profile-header-container">  
+          <a href="#"> 
+            <div class="profile-header-img sidebar-img-left">
+              <img class="img-circle img-left-circle" src="assets/images/resercher_avatar.png" />
+            </div>
+          </a>     
+        </div>
+      </li>
+
+              <li class="sidebar-menu sidebar-left-menu  tooltip ">
+                  <a href="#pageSubmenu" class=" waves-effect collapsed" id="main-menu">
+                      <span class="side-menu-common "><img src="assets/images/ic_todo.svg" alt="ic_todo" class="commom-icons"></span>
+                  </a>
+                  <span class="tooltiptext">Tooltip text</span>
+                  
+              </li>
+              <li class="sidebar-menu tooltip">
+
+                  <a href="#" class="waves-effect " id="">
+                      <span class="side-menu-common"><img src="assets/images/ic_wmt.svg" class="img img-responsive commom-icons" alt="researcher"></span>
+                  </a>
+                  <span class="custom-tooltip tooltiptext ">Work Management Tool</span>
+              </li>
+              <li class="tooltip">   
+                  <a href="#" class="waves-effect">
+                      <span class="hide-menu">
+                          <img src="assets/images/ic_performance.svg" alt="ic_todo" class="commom-icons">
+                      </span>
+                  </a>
+                  <span class="tooltiptext">Tooltip text</span>
+              </li>
+              <li class="tooltip">   
+                  <a href="#" class="waves-effect">
+                      <span class="hide-menu">
+                          <img src="assets/images/ic_preferences.svg" alt="ic_todo" class="commom-icons">
+                      </span>
+                  </a>
+                  <span class="tooltiptext">Tooltip text</span>
+              </li>
+          </ul>      
+  </div>    
+</div> -->
+
+<div id="page-wrapper">
+      <div class="container-fluid">
+          <div class="row top-header">
+              <h5 class="col-sm-6">To do</h5>
+          </div>
+
+        <div class="row first-box-row">
+              <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 common-header-box">
+                  <div class="white-box">
+                      <div class="col-in">
+                          <span class="text-common">CPA Cashire and GTR Manchester(CPA Cashire and GTR Manchister)</span>
+                          <p class="sub-text">Date For:</p>
+                      </div>
+                  </div>
+              </div><!-- /.col -->
+
+              
+              <!-- /.col -->
+              <!-- col -->
+              <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 common-header-box">
+                  <div class="white-box">
+                       <div class="col-in">
+                          <span class="text-common">{{totalCount}}</span>
+                          <p class="sub-text">Over All Tasks:</p>   
+                       </div>
+                  </div>
+              </div>
+              <!-- /.col -->
+              <!-- col -->
+              <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                  <div class="white-box">
+                       <div class="col-in">
+                          <span class="text-common">Local</span>
+                          <p class="sub-text">Data Source:</p>
+                       </div>
+                  </div>
+              </div><!-- /.col -->
+          </div><!--/.row -->
+
+          <div class="row-fluid"> 
+              <div class="white-box common-box filter-box">
+                  <div class="list-title">
+                      <span>To Do List(Time Sensitive)</span>
+                       <span class="list-total-count" >{{timeCount}}</span>                        
+                  </div>
+                  <div class="default-box">
+                    <div class="list-items"  *ngFor="let list of taskDetails.To_Do_List_Time_Sensitive ">   
+                        <a class="todo-links"  [routerLink]="['/todo', (list.fileInfoId || list.toDoId), time_duration]" [queryParams]="{ desc: list.sheetDescription }">  
+                        <div class="list-common">
+                            <span>{{list.sheetDescription}}</span>
+                                <span class="list-number">{{list.recordCount}}</span>
+                                <span style="display:none">{{list.fileInfoId}}</span>
+                        </div>
+                        </a>  
+                    </div>
+                  </div>
+                 
+                  <!-- <div class="day-box" *ngIf="dayBlock">
+                    <div class="list-items"  *ngFor="let list of taskFilterDetails.TimeSensitiveCounts">    
+                        <a class="todo-links"  routerLink="/todo/{{list.toDoId}}/{{count_data}}/" [queryParams]="{ desc: list.sheetDescription }">  
+                        <div class="list-common">
+                            {{list}}
+                            <span>{{list.sheetDescription}}</span>
+                            <span class="list-number" *ngIf="overAllCount">{{list.allCount}}</span>
+                                <span class="list-number" *ngIf="dayCount">{{list.oneDayCount}}</span>
+                                <span class="list-number" *ngIf="weekCount">{{list.oneWeekCount}}</span>
+                                <span class="list-number" *ngIf="dueCount">{{list.overDueCount}}</span>
+                                <span style="display:none">{{list.toDoId}}</span>
+                        </div>
+                        </a>  
+                    </div>
+                  </div> -->
+
+                  <div class="filter-container clearfix">
+                      <div  class="" id="submit" role="button" tabindex="0">
+                        <button  class="btn filter-btn btn-responsive" type="submit" (click)="getFilterdata('allCount','TimeSensitiveCounts')">All</button>
+                        <button  class="btn filter-btn btn-responsive" type="button" (click)="getFilterdata('oneDayCount','TimeSensitiveCounts')">1 Day</button>
+                        <button  class="btn filter-btn btn-responsive" type="submit" (click)="getFilterdata('oneWeekCount','TimeSensitiveCounts')">1 Week</button>
+                        <button  class="btn filter-btn btn-responsive" type="submit" (click)="getFilterdata('overDueCount','TimeSensitiveCounts')">Overdue</button>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="white-box common-box filter-box">
+                    <div class="list-title">
+                        <span>To Do List(Interventions)</span>
+                        <span class="list-total-count">{{interCount}}</span>
+                    </div>
+                  
+                    <div class="default-box" *ngIf="riskBlock">
+                        <div class="list-items" *ngFor="let list of taskDetails.To_Do_List_Interventions">    
+                            <a class="todo-links" [routerLink]="['/todo', (list.fileInfoId || list.toDoId), risk_factor]" [queryParams]="{desc: list.sheetDescription}">
+                                <div class="list-common"> 
+                                <span>{{list.sheetDescription}}</span>
+                                <span class="list-number">{{list.recordCount}}</span>
+                            </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- <div class="day-box" *ngIf="riskFilterBlock">
+                            <div class="list-items"  *ngFor="let list of taskFilterDetails.InterventionsCounts">    
+                                <a class="todo-links"  routerLink="/todo/{{list.toDoId}}/{{count_data}}/" [queryParams]="{ desc: list.sheetDescription }">  
+                                <div class="list-common">
+                                    <span>{{list.sheetDescription}}</span>
+                                    <span class="list-number" *ngIf="allRiskCount">{{list.allCount}}</span>
+                                    <span class="list-number" *ngIf="lowCount">{{list.lowRiskCount}}</span>
+                                    <span class="list-number" *ngIf="highCount">{{list.highRiskCount}}</span>
+                                    <span class="list-number" *ngIf="failingCount">{{list.failingCount}}</span>
+                                    <span style="display:none">{{list.toDoId}}</span>
+                                </div>
+                                </a>  
+                            </div>
+                          </div> -->
+
+
+                    <div class="filter-container clearfix">
+                      <div  class="" id="submit" role="button" tabindex="0">
+                        <button  class="btn filter1-btn btn-responsive" type="submit" (click)="getFilterdata('allCount','InterventionsCounts')">All</button>
+                        <button  class="btn filter1-btn btn-responsive" type="submit" (click)="getFilterdata('lowRiskCount','InterventionsCounts')">Low Risk</button>
+                        <button  class="btn filter1-btn btn-responsive" type="submit" (click)="getFilterdata('highRiskCount','InterventionsCounts')">High Risk</button>
+                        <button  class="btn filter1-btn btn-responsive" type="submit" (click)="getFilterdata('failingCount','InterventionsCounts')">Failing</button>
+                      </div>
+                    </div>    
+                </div>
+              
+              <div class="white-box common-box">
+                  <div class="list-title">
+                      <span>To Do List(Informational)</span>
+                      <span class="list-total-count">{{infoGroupCount}}</span>
+                  </div>
+                  <div class="list-items" *ngFor="let list of taskDetails.To_Do_List_Informational">    
+                      <a class="todo-links" [routerLink]="['/todo', list.fileInfoId]" [queryParams]="{desc: list.sheetDescription}">  
+                    <div class="list-common" >
+                          <span>{{list.sheetDescription}}</span>
+                          <span class="list-number">{{list.recordCount}}</span>
+                      </div>
+                    </a>  
+                  </div>
+              </div>
+
+              <div class="white-box common-box hete-box">
+                  <div class="list-title">
+                      <span>To Do List(HETE and Curfew)</span>
+                      <span style="float: right;color: #59e6ec;padding-right: 5px;">{{heteGroupCount}}</span>
+                  </div>
+                  <div class="list-items" *ngFor="let list of taskDetails.To_Do_List_HETE_and_Curfew">
+                      <a class="todo-links" [routerLink]="['/todo', list.fileInfoId]" [queryParams]="{desc: list.sheetDescription}">    
+                        <div class="list-common">
+                            <span>{{list.sheetDescription}}</span>
+                            <span class="list-number">{{list.recordCount}}</span>
+                        </div>
+                      </a>
+                  </div>
+              </div>
+          </div>  
+
+          <div class="white-box common-box outstanding-box">
+              <div class="list-title">
+                  <span>Outstanding Pending Transfer</span>
+                  <span style="float: right;color: #59e6ec;padding-right: 5px;">{{outGroupCount}}</span>
+              </div>
+              <div class="list-items" *ngFor="let list of taskDetails.OutStanding_Pending_Transfer">
+                <a class="todo-links" [routerLink]="['/todo', list.fileInfoId]" [queryParams]="{desc: list.sheetDescription}">    
+                  <div class="list-common">
+                      <span>{{list.sheetDescription}}</span>
+                      <span class="list-number">{{list.recordCount}}</span>
+                  </div>
+                </a>
+              </div>
+          </div>
+      </div>
+  </div>

@@ -1,0 +1,108 @@
+<div class="limiter">
+  <div class="container-login100" style="">
+    <div class="wrap-login">
+      <div id="login-form" style="display: block;">
+        <div class="tile-header">
+          <span class="login-form-logo"></span>
+          <span class="login-form-title">
+            Meganexus
+          </span>
+          
+        </div>
+        <div class="login-form-container">
+          <form class="" [formGroup]="signinForm" novalidate (submit)="loginUser(signinForm.value)">
+            <label class="form-input">
+                  <!-- <i class="material-icons">person</i> -->
+                 <!--  <img src="assets/images/ic_username_email.png" class="material-icons img img-responsive"> -->
+                  <input type="text" [formControl]="signinForm.controls['username']" autofocus="true" id="username" required />
+                  <span class="label">Username</span>
+                  <span class="underline"></span>
+                </label>
+                <label class="form-input">
+                 <!--  <i class="material-icons">lock</i> -->
+                   
+                  
+                  <input type="password"  [formControl]="signinForm.controls['password']" id="mypass" required />
+                  <span class="label">Password</span>
+                  <div class="underline"></div>
+                </label>
+                <div class="login-form-checkbox">
+              <input class="input-checkbox" id="ckb1" type="checkbox" [formControl]="signinForm.controls['remember']">
+              <label class="label-checkbox" for="ckb1">
+                Remember me
+              </label>
+              <div class="forgot-pass pull-right">
+                    <a href="#" id="forgot-pwd">Forgot Password</a>
+                  </div>
+            </div>
+
+                <div class="submit-container clearfix" style="margin-top: 2rem; margin-bottom: 2rem">          
+                 <!--  <div class="forgot-pass pull-left">
+                    <a href="#" id="forgot-pwd">Forgot Password?</a>
+                  </div> -->
+                  <div id="submit" role="button"  class="" tabindex="0">
+                    <button  class="btn add-btn btn-responsive" type="submit">Login</button>
+                     <button  class="btn signup btn-responsive" type="button">Sign up</button>
+                  </div>
+
+                  
+                  <div class="login-pending">
+                    <div class=spinner>
+                      <span class="dot1"></span>
+                      <span class="dot2"></span>
+                    </div>
+                    
+                    <div class="login-granted-content">
+                      <i class="material-icons">done</i>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>	
+
+            <!-- Forgot password form Starts -->
+        <div class="" style="display: none;" id="login-form">
+          <div class="tile-header">
+            <span class="forgot-form-title">
+              Forgot Passwrod
+            </span>
+            <span class="forgot-text">Submit your email address to receive a link to change your password.</span>
+        </div>
+        <div class="login-form">
+          <form class="">
+            <label class="form-input">
+                 <!--  <i class="material-icons forgot-icon">email</i> -->
+                  <!-- <img src="assets/images/ic_mail.png" class="material-icons img img-responsive"> -->
+                  <input type="text" autofocus="true" placeholder="email address" required />
+                  <span class="label forgot-email-text">Email</span>
+                  <span class="underline"></span>
+                </label>
+                
+                
+                <div class="submit-container clearfix" style="">          
+                 
+                  <div id="submit" role="button"  class=" float-right" tabindex="0">
+                    <button  class="btn add-btn btn-responsive" type="button">Submit</button>
+                  </div>
+                  <div class="login-pending">
+                    <div class=spinner>
+                      <span class="dot1"></span>
+                      <span class="dot2"></span>
+                    </div>
+                    
+                    <div class="login-granted-content">
+                      <i class="material-icons">done</i>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            </div>	
+            <!-- Forgit password forms Ends -->
+
+
+    </div>
+  </div>
+
+</div>

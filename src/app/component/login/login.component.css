@@ -1,0 +1,640 @@
+
+
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i|Monoton");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+/*//////////////////////////////////////////////////////////////////
+[ FONT ]*/
+
+/* @font-face {
+  font-family: Poppins-Regular;
+  src: url('../fonts/poppins/Poppins-Regular.ttf'); 
+}
+
+@font-face {
+  font-family: Poppins-Medium;
+  src: url('../fonts/poppins/Poppins-Medium.ttf'); 
+}
+
+@font-face {
+  font-family: Poppins-Bold;
+  src: url('../fonts/poppins/Poppins-Bold.ttf'); 
+}
+
+@font-face {
+  font-family: Poppins-SemiBold;
+  src: url('../fonts/poppins/Poppins-SemiBold.ttf'); 
+} */
+
+
+
+
+/*//////////////////////////////////////////////////////////////////
+[ RESTYLE TAG ]*/
+
+* {
+	margin: 0px; 
+	padding: 0px; 
+	box-sizing: border-box;
+}
+
+body, html {
+	height: 100%;
+	font-family: Poppins-Regular, sans-serif;
+}
+
+
+/*//////////////////////////////////////////////////////////////////
+[ Utility ]*/
+.txt1 {
+  font-family: Poppins-Regular;
+  font-size: 13px;
+  color: #e5e5e5;
+  /*line-height: 1.5;*/
+}
+
+
+/*//////////////////////////////////////////////////////////////////
+[ login ]*/
+
+.limiter {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #1d1d55;
+  background: url(/assets/images/bg_login.png) no-repeat center;
+  background-size: cover;
+}
+
+.login_body{
+    background: #1d1d55;
+    background: -webkit-linear-gradient(#5e3995, #1d1d55);
+    background: -o-linear-gradient(#5e3995, #1d1d55);
+    background: -moz-linear-gradient(#5e3995, #1d1d55);
+    background: linear-gradient(#5e3995, #1d1d55);
+}
+.container-login100 {
+  width: 100%;  
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: relative;
+  z-index: 1;  
+}
+
+.container-login100::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.wrap-login{
+  position: absolute;
+  top: 30px;
+}
+
+.wrap-login {
+  width: 495px;
+  border-radius: 1px;
+  overflow: hidden;
+  padding: 35px 30px 35px 45px;
+  background: none;
+  box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.1);
+  
+}
+
+.label {
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 75%;
+    font-weight: 400;
+    line-height: 1;
+    color: #fff;
+    text-align: left;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+
+/*------------------------------------------------------------------
+[ Form ]*/
+
+.login100-form {
+  width: 100%;
+}
+
+.login-form-logo {
+  background-image: url('/assets/images/login_logo.png');
+  background-position: right;
+  background-size: cover;
+  font-size: 60px; 
+  color: #333333;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #fff;
+  margin: 0 auto;
+}
+
+.login-form-title {
+  font-family: Arial;
+  font-size: 45px;
+  font-weight: 100;
+  color: #000000;
+  line-height: 1.2;
+  text-align: center;
+  display: block;
+  padding-top: 5px;
+}
+.forgot-form-title {
+  font-family: Arial;
+  font-size: 38px;
+  font-weight: 100;
+  color: #000000;
+  line-height: 1.2;
+  text-align: center;
+  display: inline-block;
+  padding-top: 27px;
+  padding-bottom: 10px;
+}
+.forgot-text{
+    display: block;
+    color: #787272;
+    font-family: Arial;
+    font-size: 15px;
+    padding-bottom: 30px;
+    opacity: 0.9;
+}
+
+
+
+
+.btn-show-pass {
+    font-size: 15px;
+    color: #65e2fe;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    z-index: 200;
+    height: 100%;
+    top: 5px;
+    right: 10px;
+    padding: 0px 5px;
+    cursor: pointer;
+    -webkit-transition: background 0.4s;
+    -o-transition: background 0.4s;
+    -moz-transition: background 0.4s;
+    transition: background 0.4s;
+}
+
+
+.form-input {
+  display: block;
+  position: relative;
+  margin-bottom: 0rem;
+}
+.form-input > .forgot-icon{
+  position: absolute;
+  top:  1.5rem !important;
+}
+.form-input > .material-icons {
+  position: absolute;
+  font-size: 1.5rem;
+  top: 1.2rem;
+}
+.form-input > .material-icons ~ input, .form-input > .material-icons ~ .label, .form-input > .material-icons ~ .underline {
+  margin-left: 2.25rem;
+  width: calc(100% - 2.25rem);
+}
+.form-input input {
+  border: none;
+  box-shadow: none;
+  padding-top: 2.5rem;
+  padding-right: 0;
+  padding-bottom: 0.5rem;
+  padding-left: 7px;
+  outline-style: none;
+  width: 100%;
+  /*height: 2.5rem;*/
+  height: 1.5rem;
+  transition: 0s;
+  margin: 0 auto;
+}
+.form-input input[type=text]:focus, .form-input input[type=password]:focus{
+  border-bottom: none;
+  box-shadow: 0 0 0 0;
+}
+
+
+.forgot-email-text{
+  position: absolute;
+  color: #000 !important;
+  top: 0rem !important;
+}
+.form-input input ~ .label {
+  color: #000000;
+  font-size: 14px;
+  margin: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 2.5rem;
+  left: 0;
+  transition: top .2s,font .2s;
+  z-index: 1;
+}
+.form-input input ~ .underline {
+  background-color: #676768;
+  height: 2px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+.form-input input:hover ~ .underline, .form-input input:focus ~ .underline {
+  background-color: #45e8ee;
+}
+.form-input input:hover ~ .label, .form-input input:focus ~ .label {
+  color: #45e8ee;
+}
+.form-input input:focus ~ .underline {
+  height: 2px;
+}
+.form-input input:focus ~ .label, .form-input input:valid ~ .label {
+  top: 0;
+  font-size: 0.85rem;
+}
+.form-input input:-webkit-autofill ~ .label {
+  top: 0;
+  font-size: 0.85rem;
+}
+input[type="password"]{
+  content: "26AB";
+  border-bottom: 0px solid #9e9e9e;
+}
+
+.forgot-pass{
+  padding-top: 0px;
+}
+.forgot-pass a{
+  color: #000000;
+}
+
+/**
+ * Buttons
+ */
+
+.btn.add-btn.active, .btn.add-btn:active {
+    background-image: none;
+    outline: 0;
+    box-shadow: inset 0 0px 0px rgba(0,0,0,.125) !important;
+}
+
+.btn.add-btn.focus, .btn.add-btn:focus, .btn.add-btn:hover {
+    color: #ffffff !important;
+    text-decoration: none;
+    outline: 0px auto #65e2fe !important;
+
+}
+
+.btn.add-btn {
+    display: inline-block;
+    height: unset;
+    background: #45e8ee;
+    color: #ffffff;
+    padding: 13px 65px;
+    margin-bottom: 0;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 0px solid transparent;
+    border-radius: 5px;
+    box-shadow: 0 0 0 0px rgba(0,123,255,.25);
+}
+
+
+
+
+.btn.signup.active, .btn.signup:active {
+    background-image: none;
+    outline: 0;
+    box-shadow: inset 0 0px 0px rgba(0,0,0,.125) !important;
+}
+
+.btn.signup.focus, .btn.add-btn:focus, .btn.signup:hover {
+    color: #4d4f5c;
+    text-decoration: none;
+    outline: 0px auto #65e2fe !important;
+
+}
+
+.btn.signup {
+    display: inline-block;
+    height: unset;
+    background: transparent;
+    color: #000;
+    padding: 13px 65px;
+    margin-left: 30px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid #43425d;
+    border-radius: 5px;
+    box-shadow: 0 0 0 0px rgba(0,123,255,.25);
+}
+
+
+
+/*button ends*/
+
+/**
+ * Utilities
+ */
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.float-right {
+  float: right;
+}
+
+/*Checkbox Starts*/
+.login-form-checkbox {
+  position: relative;
+  padding-left: 5px;
+  top: 15px;
+  padding-top: 5px;
+  padding-bottom: 35px;
+}
+
+.input-checkbox {
+  display: none;
+}
+
+.label-checkbox {
+  font-family: Poppins-Regular;
+  font-size: 16px;
+  color: #43425d;
+  line-height: 1.2;
+  display: inline-block;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+}
+ 
+[type="checkbox"]:checked+label:before {
+    content: url(/assets/images/ic_check_box.png);
+    top: 0;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    border-top: 0px solid transparent;
+    border-left: 0px solid transparent;
+    border-right: 0px solid #26a69a;
+    border-bottom: 0px solid #26a69a;
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+}
+
+[type="checkbox"]+label:before, [type="checkbox"]:not(.filled-in)+label:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    z-index: 0;
+    border: 1px solid #808495;
+    border-radius: 4px;
+    margin-top: 2px;
+    transition: .0s;
+}
+
+
+/*Checkbos Ends*/
+
+
+/**
+ *Subbmit
+ */
+.submit-container {
+  position: relative;
+  margin-top: 2rem; 
+  margin-bottom: 2rem
+}
+.submit-container #submit {
+  position: relative;
+  z-index: 2;
+  outline: none;
+  opacity: 1;
+  transition: transform .1s ease-in, opacity .1s ease-in, border-radius .1s ease-in;
+  right: -1px;
+}
+.submit-container #submit span {
+  opacity: 1;
+  transition: opacity .1s ease-in;
+}
+.submit-container #submit.pending {
+  transform: scale(0.55, 1.5);
+  background-color: #07beb8;
+  border-radius: 50%;
+  opacity: 1;
+}
+.submit-container #submit.pending span {
+  opacity: 0;
+}
+.submit-container #submit.pending ~ .login-pending {
+  opacity: 1;
+  transform: scale(1, 1);
+  z-index: 3;
+}
+.submit-container #submit.granted ~ .login-pending {
+  opacity: 1;
+  transform: translate(-9rem, -11rem) scale(18, 18);
+  z-index: 3;
+}
+.submit-container #submit.granted ~ .login-pending .spinner {
+  opacity: 0;
+}
+.submit-container #submit.granted ~ .login-pending .login-granted-content {
+  opacity: 1;
+}
+.submit-container .login-pending {
+  height: 3rem;
+  width: 3rem;
+  background-color: #07beb8;
+  position: absolute;
+  border-radius: 50%;
+  right: 1rem;
+  bottom: -0.5rem;
+  opacity: 0;
+  overflow: hidden;
+  transform: translate(0, 0) scale(0.5, 0.5);
+  transition: transform .2s ease-in, scale .2s ease-in;
+  z-index: 1;
+}
+.submit-container .login-pending .login-granted-content {
+  background-image: url(https://res.cloudinary.com/dgmilxzy7/image/upload/c_scale,w_700,o_25,b_rgb:07beb8/v1506735375/CodePen/ViddenPixel.jpg);
+  background-position: center;
+  background-size: cover;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity .2s ease-in .2s;
+  text-shadow: 0px 0px 20px #ffffff;
+}
+.submit-container .login-pending .login-granted-content .material-icons {
+  font-size: 5px;
+  position: relative;
+  left: 1.25px;
+}
+
+
+
+.spinner {
+  width: 3rem;
+  height: 3rem;
+  position: relative;
+  margin: 0 auto;
+}
+.spinner .dot1, .spinner .dot2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #68d8d6;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-animation: dot-bounce 2.0s infinite ease-in-out;
+  animation: dot-bounce 2.0s infinite ease-in-out;
+}
+.spinner .dot2 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+@-webkit-keyframes dot-bounce {
+  0%, 100% {
+    -webkit-transform: scale(0);
+  }
+  50% {
+    -webkit-transform: scale(1);
+  }
+}
+@keyframes dot-bounce {
+  0%, 100% {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+}
+.label {
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 75%;
+    font-weight: 400;
+    line-height: 1;
+    color: #fff;
+    text-align: left;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+
+
+
+
+/*------------------------------------------------------------------
+[ Responsive ]*/
+
+@media (max-width: 576px) {
+  .wrap-login {
+    padding: 55px 15px 37px 15px;
+  }
+}
+
+
+
+/*------------------------------------------------------------------
+[ Alert validate ]*/
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+/* Styles */
+}
+
+/* Desktops and laptops ----------- */
+@media only screen 
+and (min-width : 1224px) {
+/* Styles */
+}
+
+@media (max-width: 992px) {
+  .alert-validate::before {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+
+
