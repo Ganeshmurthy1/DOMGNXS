@@ -74,6 +74,7 @@ export class TodoComponent implements OnInit {
    //this.getOneDayCount();
    this.loaderService.display(false);
     }else{
+      this.loaderService.display(false);
       this.router.navigate(['login']);
     }
     

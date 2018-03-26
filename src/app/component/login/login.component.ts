@@ -1,3 +1,4 @@
+import { LoaderService } from './../../services/loader.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup,FormBuilder,Validators } from '@angular/forms';
 import { Router} from '@angular/router';
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   loginBlock:boolean;
   forgotEmail:FormGroup;
   logData:any;
-  constructor(private router:Router, private LoginInstance: LoginService, private fb: FormBuilder) {
+  constructor(private router:Router, private LoginInstance: LoginService, private fb: FormBuilder, private loaderService: LoaderService) {
     this.signinForm = fb.group({
       'username': [null,Validators.required],
       'password': [null,Validators.required],
@@ -25,6 +26,7 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.loaderService.display(false);
     this.loginBlock = true;
     // var rememberUser = JSON.parse(localStorage.getItem('rememberUser'));
     
