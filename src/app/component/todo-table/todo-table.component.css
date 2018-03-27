@@ -460,10 +460,10 @@ li.sidebar-profile {
 b.sidebar-logo {
     padding-left: 16px;
 }
-li.sidebar-profile.sidebar-profile-left {
-   /* border: 1px solid #49dcfc;*/
-   /* padding-bottom: 70px;*/
-}
+/* li.sidebar-profile.sidebar-profile-left {
+   border: 1px solid #49dcfc;
+   padding-bottom: 70px;
+} */
 .sidebar-img-left{
     padding: 13px 0px 10px 13px;
 }
@@ -538,9 +538,10 @@ thead{
 }
 .table{
     margin-bottom: 1rem !important;
+    border-collapse: unset;
 }
 .table-responsive{
-    max-height: 700px;
+    max-height: calc(100vh - 80px);
 }
 .excel-link{
     cursor: pointer;
@@ -558,6 +559,8 @@ th.header-text{
 }
 .table td, .table th {
     padding: .65rem;
+    font-size:12px;
+    border-radius: 0px;
 }
 tr#first-row.active {
     color: #ccc;
@@ -597,6 +600,38 @@ tr#first-row.active {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+
+
+/* fiexd headaer table strats */
+  
+  /* .table-fixed {
+    width: 100%;
+    background-color: ##fff;
+  }
+  .table-fixed tbody {
+    height: 200px;
+    overflow-y: auto;
+    width: 100%;
+  }
+  .table-fixed thead,
+  .table-fixed tbody,
+  .table-fixed tr,
+  .table-fixed td,
+  .table-fixed th {
+    display: block;
+  }
+  .table-fixed tbody td {
+    float: left;
+  }
+  .table-fixed thead tr th {
+    float: left;
+    background-color: #f3f2f0;
+    border-color: #f3f2f0;
+  } */
+  
+
+  /* Fixed Header Table Ends */
 
 /*-------------------Sorting Table Ends-------------------------- */
 
@@ -1297,7 +1332,7 @@ input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly
 }
 .sidebar {
     z-index: 10;
-    position: absolute;
+    position: fixed;
     width: 300px;
     padding-top: 0px;
     height: 100%;
@@ -1404,4 +1439,10 @@ input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly
         vertical-align: top;
     }
    /*-----------------Contact form ends-------------------*/ 
+}
+.width-1{
+    min-width: 1350px;
+}
+.width-191em {
+    min-width: 191em;
 }

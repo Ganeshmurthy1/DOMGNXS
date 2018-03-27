@@ -160,7 +160,7 @@
                         <div class="list-items" *ngFor="let list of taskDetails.To_Do_List_Interventions">    
                             <a class="todo-links" [routerLink]="['/todo', (list.fileInfoId || list.toDoId), risk_factor]" [queryParams]="{desc: list.sheetDescription}">
                                 <div class="list-common"> 
-                                <span>{{list.sheetDescription}}</span>
+                                <span class="commom-desc">{{list.sheetDescription}}</span>
                                 <span class="list-number">{{list.recordCount}}</span>
                             </div>
                             </a>
@@ -201,7 +201,7 @@
                   <div class="list-items" *ngFor="let list of taskDetails.To_Do_List_Informational">    
                       <a class="todo-links" [routerLink]="['/todo', list.fileInfoId]" [queryParams]="{desc: list.sheetDescription}">  
                     <div class="list-common" >
-                          <span>{{list.sheetDescription}}</span>
+                          <span class="commom-desc">{{list.sheetDescription}}</span>
                           <span class="list-number">{{list.recordCount}}</span>
                       </div>
                     </a>  
@@ -216,7 +216,7 @@
                   <div class="list-items" *ngFor="let list of taskDetails.To_Do_List_HETE_and_Curfew">
                       <a class="todo-links" [routerLink]="['/todo', list.fileInfoId]" [queryParams]="{desc: list.sheetDescription}">    
                         <div class="list-common">
-                            <span>{{list.sheetDescription}}</span>
+                            <span class="commom-desc">{{list.sheetDescription}}</span>
                             <span class="list-number">{{list.recordCount}}</span>
                         </div>
                       </a>
@@ -232,7 +232,7 @@
               <div class="list-items" *ngFor="let list of taskDetails.OutStanding_Pending_Transfer">
                 <a class="todo-links" [routerLink]="['/todo', list.fileInfoId]" [queryParams]="{desc: list.sheetDescription}">    
                   <div class="list-common">
-                      <span>{{list.sheetDescription}}</span>
+                      <span class="commom-desc">{{list.sheetDescription}}</span>
                       <span class="list-number">{{list.recordCount}}</span>
                   </div>
                 </a>

@@ -7,12 +7,12 @@ import { ActivatedRoute,Router} from '@angular/router';
 
 //import _ from 'underscore';
 import * as _ from 'underscore';
+//import { reverse } from 'dns';
 declare var jquery:any;
 declare var $ :any;
 //import{PipeTransform}
 //import { ActivatedRoute } from '@angular/router/src/router_state';
 //import { TableDetailsDirective, Pipe } from '@angular/core';
-
 
 
 @Component({
@@ -117,9 +117,13 @@ export class TodoTableComponent implements OnInit {
     this.column = property.replace(/\)/g,"").replace(/\(/g,"").replace(/ /g,"_").replace(/:/g,"");
    // if(this.direction){
       this.direction = this.isDesc ? 1 : -1;
+      
     //}
    //this.direction = this.isDesc ? 1 : -1;
-   this.tableDetails = _.sortBy(this.tableDetails, (obj:any)=> { return obj[this.column]});
+   this.tableDetails = _.sortBy(this.tableDetails, this.column);
+   console.log(this.tableDetails)
+   this.tableDetails= this.tableDetails.reverse();
+   
   }
   
 }

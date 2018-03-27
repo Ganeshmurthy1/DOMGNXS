@@ -46,13 +46,6 @@ export class TodoComponent implements OnInit {
   public interHighRiskCount:number;
   public interFailingCount:number;
   
-  //Risks Counts
-  public riskFilterBlock:boolean;
-  public allRiskCount:boolean;
-  public lowCount:boolean
-  public highCount:boolean
-  public failingCount:boolean
-
   public infoGroupCount:number;
   public heteGroupCount:number;
   public outGroupCount:number;
@@ -111,8 +104,8 @@ export class TodoComponent implements OnInit {
       this.groupCount=tmp
       //console.log(this.groupCount);
       //Time Sensitive filters Count
-      this.overAllGroupCount=true;
-      this.allRiskCount = true;
+     // this.overAllGroupCount=true;
+      //this.allRiskCount = true;
       this.timeCount=this.groupCount.To_Do_List_Time_Sensitive.allCount
       this.interCount=this.groupCount.To_Do_List_Interventions.allCount
       // this.timeGroupCount = this.groupCount.To_Do_List_Time_Sensitive.allCount;

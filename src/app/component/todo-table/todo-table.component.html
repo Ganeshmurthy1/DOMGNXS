@@ -15,10 +15,10 @@
                   </h5>
           </div>
           <div class="white-box">
-            <div class="row-fluid">        
+            <div class="row-fluid panel panel-default">        
                  
                   <div class="table-responsive" *ngIf="tableDetails && tableDetails.length > 0">
-                      <table class="table" id="mytable">
+                      <table class="table table-fixed" id="mytable">
                           <thead>  
                               <tr>
                                   <th class="th-sm header-text"></th>
@@ -29,13 +29,9 @@
 
                               </tr>
                           </thead>
-                          <tbody>
-
-                              <!-- <tr id="first-row" style="display: none;">
-                                 
-                              </tr> -->
+                          <tbody class="todoTab-body">
                               <tr id="first-row" *ngFor="let tableCol of tableDetails;   let i = index" [ngClass]="tableCol.isChecked? 'active' : '' ">
-                                  <td class="txt-oflo first-cell col-xs-1" *ngIf="addBlock">
+                                  <td class="txt-oflo first-cell" *ngIf="addBlock">
                                       <div class="checkbox checkbox-success checkbox-inline">
                                           <input type="checkbox" name="check_box"  id="content-checkbox-{{i+1}}" value="{{i+1}}" [(ngModel)]="tableCol.isChecked"/>
                                           <label for="content-checkbox-{{i+1}}"></label>
@@ -44,22 +40,10 @@
                                   <td class="" *ngFor="let entry of tableCol | keys"  [title]="entry.value">           
                                    <div [class]="entry.key"> {{entry.value}}</div>
                                   </td>                                 
-                              </tr>   
-                              <!-- <tr id="first-row{{i+1}}" *ngFor="let list of tableDetails | orderBy:column:isDesc:'case-insensitive';  let i = index" >
-                                  <td class="txt-oflo first-cell col-xs-1" *ngIf="addBlock">
-                                      <div class="checkbox checkbox-success checkbox-inline">
-                                          <input type="checkbox" name="check_box"  id="content-checkbox-{{i+1}}" (click)="checkingField(i)" [(ngModel)]="list.isChecked"/>
-                                          <label for="content-checkbox-{{i+1}}"></label>
-                                      </div>    
-                                  </td>                                   
-                                  <td class="" *ngFor="let entry of list | keys"  [title]="entry.value">           
-                                   <div [class]="entry.key">{{entry.value}}</div>
-                                  </td>                                 
-                              </tr>   -->
+                              </tr>
                           </tbody>
                       </table>
                   </div>    
-                  
                   <div class="table-responsive" *ngIf="tableDetails && tableDetails.length==0" style="text-align: center;">
                       <br/><br/> <h4>No data</h4> <br/><br/></div>
               </div> <!-- /.container end --> 

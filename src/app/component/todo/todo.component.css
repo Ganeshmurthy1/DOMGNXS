@@ -114,15 +114,9 @@ span.tooltiptext.custom-tooltip{
 }
 /*-----------------Tooltip for Sidebar Ends----------------------------  */
 
-
-/*#wrapper{
-  width: 100%;
-  background: #edf1f5;
-  position: relative;
-}*/
 #page-wrapper {
-   padding: 0 15px 12px 55px;
-    /*min-height: 913px;*/
+   /* padding: 0 15px 12px 55px; */
+   padding: 0 15px 12px 80px;
     background: #edf1f5 !important;
 }
 .first-box-row {
@@ -182,6 +176,14 @@ span.tooltiptext.custom-tooltip{
 .list-common{
     border-bottom: 1px solid #e6e6e6;
     padding: 10px 8px 10px 5px;
+}
+
+.commom-desc{
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 230px;
 }
 .common-box{
     width: calc((100% - 30px)/4);
@@ -1232,11 +1234,14 @@ input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly
     height: 100%;
 }
 #page-wrapper {
-    position: absolute;
+    /* position: absolute;
     top: 0px;
     left: 35px;
     width: calc(100% - 35px);
-    height: calc(100% - 0px);
+    height: calc(100% - 0px); */
+    display: inline-block;
+    width: 100%;
+    min-height: 100vh;
 }
 }
 
