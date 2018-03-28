@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
     this.toastr.success('Successfully logged In');
   }
   showErrorFlash(){
-    this.toastr.error('Please Enter Proper Credentials');
+    this.toastr.error('Invalid Credentials');
   }
   loginUser(formData:any){
   
