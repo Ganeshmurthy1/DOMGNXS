@@ -4,6 +4,7 @@ import { TodoComponent } from './../todo/todo.component';
 import { TodoService } from './../../services/todo.service';
 import { Component, OnInit, PipeTransform, Pipe, Directive } from '@angular/core';
 import { ActivatedRoute,Router} from '@angular/router';
+//import { DataTableResource } from 'angular-4-data-table-bootstrap-4';
 
 //import _ from 'underscore';
 import * as _ from 'underscore';
@@ -36,7 +37,7 @@ export class TodoTableComponent implements OnInit {
   public export:any = [];
   display='none';
   public check:boolean=true;
-
+  public queryparams:any = {}
   public isDesc: boolean = false;
   public column: string = 'CategoryName';
   public direction: number;
@@ -70,8 +71,28 @@ export class TodoTableComponent implements OnInit {
       //   console.log(this.check_id);
       //   });
     //let sub1 = this.route.queryParams.subscribe(params =>this.usrnm=params.username)
-    this.loaderService.display(true);
-    this.todoInstance.toDoTableDetails(this.file_Id,this.path).subscribe(response =>{  
+    
+    this.getTodoListItem()
+    //this.fixedHeader();
+      
+  }
+
+  public checkingField(indx){
+   var newIndex = indx + 1;
+    if( $('#first-row'+newIndex).hasClass('disableColor')){
+      $('#first-row'+newIndex).removeClass('disableColor');
+      $('#content-checkbox-'+newIndex).attr('checked', false);
+    }else{
+      $('#first-row'+newIndex).addClass('disableColor');
+      $('#content-checkbox-'+newIndex).attr('checked', true);
+    }
+    
+    
+  }
+
+  public getTodoListItem(){
+    this.loaderService.display(true); 
+    this.todoInstance.toDoSortTable(this.file_Id,this.path, this.queryparams).subscribe(response =>{  
       var header_data:any = [];
      //debugger;
      this.tableDetails = [];
@@ -87,22 +108,8 @@ export class TodoTableComponent implements OnInit {
       this.header_details=header_data;
       this.loaderService.display(false);
     });
-
-      
   }
 
-  public checkingField(indx){
-   var newIndex = indx + 1;
-    if( $('#first-row'+newIndex).hasClass('disableColor')){
-      $('#first-row'+newIndex).removeClass('disableColor');
-      $('#content-checkbox-'+newIndex).attr('checked', false);
-    }else{
-      $('#first-row'+newIndex).addClass('disableColor');
-      $('#content-checkbox-'+newIndex).attr('checked', true);
-    }
-  
-    
-  }
   public getExportExcel(file_Id){
     this.todoInstance.toDoExportExcel(file_Id);
   }
@@ -110,20 +117,22 @@ export class TodoTableComponent implements OnInit {
      this.tableDetails = _.filter(this.tableDetails, function(obj:any){ return !obj.isChecked});
   
   }
+
  public getSortDetails(property){
   
     
   this.isDesc = !this.isDesc; //change the direction    
-    this.column = property.replace(/\)/g,"").replace(/\(/g,"").replace(/ /g,"_").replace(/:/g,"");
-   // if(this.direction){
-      this.direction = this.isDesc ? 1 : -1;
+    // this.column = property.replace(/\)/g,"").replace(/\(/g,"").replace(/ /g,"_").replace(/:/g,"");
+    this.direction = this.isDesc ? 1 : -1;
       
-    //}
-   //this.direction = this.isDesc ? 1 : -1;
-   this.tableDetails = _.sortBy(this.tableDetails, this.column);
-   console.log(this.tableDetails)
-   this.tableDetails= this.tableDetails.reverse();
-   
+    this.queryparams.sortOrder =  this.isDesc ? "desc" : "asc"
+    this.queryparams.sortColumnname =  property
+    this.getTodoListItem()
   }
   
+  // public fixedHeader(){
+  //   $('#mytable').DataTable({
+  //     fixedHeader: true
+  //   });
+  // }
 }

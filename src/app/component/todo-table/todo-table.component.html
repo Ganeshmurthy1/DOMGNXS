@@ -8,9 +8,61 @@
           <div class="row top-header">
               <h5 class="col-sm-12">To do &gt; {{file_desc}}
                   <div class="icon-box">
-                      <a (click)="getExportExcel(file_Id)" class="excel-link"><img src="assets/images/export_excel.svg" width="20px" height="20px"></a>
-                      <a   (click)="getCheckedRecord()" class="excel-link"><img src="assets/images/select.svg" width="20px" height="20px"></a>
-                      <a class="excel-link"><img src="assets/images/ic_preferences.svg" width="20px" height="20px"></a>
+                    <a (click)="getExportExcel(file_Id)" class="excel-link">
+                          <!-- <img src="assets/images/export_excel.svg" width="20px" height="20px"> -->
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="4126 24 24 24" width="20px" height="20px">
+                            <defs>
+                              <style>
+                                /* .cls-1 {
+                                  fill: #fff;
+                                }
+                          
+                                .cls-2 {
+                                  fill: #17a6d1;
+                                } */
+                              </style>
+                            </defs>
+                            <g id="export_excel" transform="translate(2842 8)">
+                              <rect id="bg" class="cls-1" width="30" height="30" rx="3" transform="translate(1284 16)"/>
+                              <g id="excel" transform="translate(1289.647 19.529)">
+                                <path id="Path_360" data-name="Path 360" class="cls-2" d="M81.608,3.018,78.689.1A.338.338,0,0,0,78.45,0H69.692a.337.337,0,0,0-.337.337V16.6a.337.337,0,0,0,.337.337H81.369a.337.337,0,0,0,.337-.337V3.257A.338.338,0,0,0,81.608,3.018Zm-2.82-1.866,1.767,1.767H78.787Zm2.244,15.114h-11V.675h8.082V3.257a.337.337,0,0,0,.337.337h2.582Z" transform="translate(-69.355)"/>
+                                <path id="Path_361" data-name="Path 361" class="cls-2" d="M114.852,454.884h-5.383a.337.337,0,0,0,0,.675h5.383a.337.337,0,1,0,0-.675Z" transform="translate(-107.816 -439.833)"/>
+                                <path id="Path_362" data-name="Path 362" class="cls-2" d="M313.464,454.884H313.1a.337.337,0,1,0,0,.675h.366a.337.337,0,1,0,0-.675Z" transform="translate(-304.706 -439.833)"/>
+                                <path id="Path_363" data-name="Path 363" class="cls-2" d="M128.651,156.633l2.506-3.095a.337.337,0,0,0-.262-.55h-2.811a.337.337,0,0,0-.262.125l-1.01,1.248-1.01-1.248a.337.337,0,0,0-.262-.125h-2.811a.337.337,0,0,0-.262.55l2.506,3.095-2.506,3.095a.337.337,0,0,0,.262.55h2.811a.337.337,0,0,0,.262-.125l1.01-1.248,1.01,1.248a.337.337,0,0,0,.262.125h2.811a.337.337,0,0,0,.262-.55Zm-.406-2.97h1.942l-1.971,2.433-.971-1.2Zm-2.867,5.94h-1.942l1.97-2.433.971,1.2Zm2.867,0-4.809-5.94h1.942l4.809,5.94Z" transform="translate(-120.635 -147.926)"/>
+                              </g>
+                            </g>
+                          </svg>
+                    </a>
+                      <a  (click)="getCheckedRecord()" class="excel-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="4160 24 24 24" width="20px" height="20px">
+                                <defs>
+                                  <style>
+                                    /* .cls-1 {
+                                      fill: #4d4f5c;
+                                    }
+                              
+                                    .cls-2 {
+                                      fill: #fff;
+                                    } */
+                                  </style>
+                                </defs>
+                                <g id="select" transform="translate(2840 8)">
+                                  <rect id="bg" class="cls-1" width="50" height="50" rx="3" transform="translate(1320 16)"/>
+                                  <g id="list" transform="translate(1325.647 19.529)">
+                                    <path id="Path_364" data-name="Path 364" class="cls-2" d="M82.459,0h-11.6a.337.337,0,0,0-.337.337V16.6a.337.337,0,0,0,.337.337h8.82a.338.338,0,0,0,.239-.1L82.7,14.063a.337.337,0,0,0,.1-.239V.337A.337.337,0,0,0,82.459,0ZM80.016,15.79V14.16h1.63Zm2.105-2.3-2.444,0h0a.337.337,0,0,0-.337.338l0,2.444H71.2V.675H82.121Z" transform="translate(-70.522)"/>
+                                    <path id="Path_365" data-name="Path 365" class="cls-2" d="M127.227,82.908a.337.337,0,0,0-.477,0l-.993.993-.247-.247a.337.337,0,0,0-.477.477l.485.485a.338.338,0,0,0,.477,0l1.232-1.232A.338.338,0,0,0,127.227,82.908Z" transform="translate(-123.133 -80.069)"/>
+                                    <path id="Path_366" data-name="Path 366" class="cls-2" d="M363.548,106.124h-.118a.337.337,0,1,0,0,.675h.118a.337.337,0,0,0,0-.675Z" transform="translate(-353.411 -102.613)"/>
+                                    <path id="Path_367" data-name="Path 367" class="cls-2" d="M220.372,106.124h-3.779a.337.337,0,1,0,0,.675h3.779a.337.337,0,0,0,0-.675Z" transform="translate(-211.434 -102.613)"/>
+                                    <path id="Path_368" data-name="Path 368" class="cls-2" d="M127.227,181.644a.337.337,0,0,0-.477,0l-.993.993-.247-.247a.337.337,0,0,0-.477.477l.485.485a.338.338,0,0,0,.477,0l1.232-1.232A.338.338,0,0,0,127.227,181.644Z" transform="translate(-123.133 -175.538)"/>
+                                    <path id="Path_369" data-name="Path 369" class="cls-2" d="M221.57,204.859h-4.977a.337.337,0,1,0,0,.675h4.977a.337.337,0,0,0,0-.675Z" transform="translate(-211.434 -198.081)"/>
+                                    <path id="Path_370" data-name="Path 370" class="cls-2" d="M127.227,280.066a.337.337,0,0,0-.477,0l-.993.993-.247-.247a.337.337,0,1,0-.477.477l.485.485a.338.338,0,0,0,.477,0l1.232-1.232A.338.338,0,0,0,127.227,280.066Z" transform="translate(-123.133 -270.703)"/>
+                                    <path id="Path_371" data-name="Path 371" class="cls-2" d="M221.57,303.281h-4.977a.337.337,0,1,0,0,.675h4.977a.337.337,0,0,0,0-.675Z" transform="translate(-211.434 -293.246)"/>
+                                  </g>
+                                </g>
+                              </svg>
+                        </a>
+
+                      <!-- <a class="excel-link"><img src="assets/images/ic_preferences.svg" width="20px" height="20px"></a> -->
                   </div>
                   </h5>
           </div>
@@ -18,17 +70,22 @@
             <div class="row-fluid panel panel-default">        
                  
                   <div class="table-responsive" *ngIf="tableDetails && tableDetails.length > 0">
-                      <table class="table table-fixed" id="mytable">
+                      <table class="table table-fixed width-1" id="mytable">
                           <thead>  
                               <tr>
                                   <th class="th-sm header-text"></th>
                                   <th class="th-sm header-text" *ngFor="let list of header_details" (click)="getSortDetails(list)">    
                                     {{list}}
-                                    <i class="fa" [ngClass]="{'fa-sort': column != list, 'fa-sort-asc': (column == list && isDesc), 'fa-sort-desc': (column == list && !isDesc) }" aria-hidden="true"> </i>
+                                    <i class="fa" [ngClass]="{'fa-sort': queryparams.sortColumnname != list, 'fa-sort-asc': (queryparams.sortColumnname == list && isDesc), 'fa-sort-desc': (queryparams.sortColumnname == list && !isDesc) }" aria-hidden="true"> </i>
                                   </th>
 
                               </tr>
                           </thead>
+                          </table>
+                          </div>
+                          
+                          <div class="table-responsive" *ngIf="tableDetails && tableDetails.length > 0">
+                          <table  class="table table-fixed width-1" id="mytable2">
                           <tbody class="todoTab-body">
                               <tr id="first-row" *ngFor="let tableCol of tableDetails;   let i = index" [ngClass]="tableCol.isChecked? 'active' : '' ">
                                   <td class="txt-oflo first-cell" *ngIf="addBlock">
@@ -43,6 +100,15 @@
                               </tr>
                           </tbody>
                       </table>
+
+                      <!-- <p-dataTable [value]="tableCol" resizableColumns="true" columnResizeMode="expand">
+                            <p-column field="{{list}}" header="{{entry.value}}"></p-column>
+                            <p-column field="year" header="Year"></p-column>
+                            <p-column field="brand" header="Brand"></p-column>
+                            <p-column field="color" header="Color"></p-column>
+                        </p-dataTable> -->
+
+
                   </div>    
                   <div class="table-responsive" *ngIf="tableDetails && tableDetails.length==0" style="text-align: center;">
                       <br/><br/> <h4>No data</h4> <br/><br/></div>

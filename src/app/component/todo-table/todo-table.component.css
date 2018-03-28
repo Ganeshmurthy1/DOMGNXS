@@ -546,6 +546,14 @@ thead{
 .excel-link{
     cursor: pointer;
 }
+.cls-1 {
+    fill: #1fdee5;
+    display: inline-block;
+}
+  .cls-2 {
+    fill: #fff;
+  }
+
 .table thead th{
     border-bottom: 0px solid #dee2e6;
 }
@@ -671,40 +679,6 @@ tr#first-row.active {
     border-radius: 0px !important;
 }
 
-/*a.add-img{
-    background: url('../assets/images/ic_add.png') no-repeat right;
-    margin-right: 10px;
-
-}
-a.add-img:hover{
-    background: url('../assets/images/ic_add_hover.png') no-repeat right;
-    margin-right: 10px;
-
-}
-a.export-img {
-    background: url('../assets/images/ic_json.png') no-repeat right;
-    margin-right: 10px;
-}
-a.export-img:hover {
-    background: url('../assets/images/ic_json_hover.png') no-repeat right;
-    margin-right: 10px;
-}
-a.export-img-csv.inactive {
-    background: url('../assets/images/ic_csv.png') no-repeat right;
-    margin-right: 10px;
-}
-a.export-img-csv.inactive:hover  {
-    background: url('../assets/images/ic_csv_hover.png') no-repeat right;
-    margin-right: 10px;
-}
-a.delete-img{
-    background: url('../assets/images/ic_delete.png') no-repeat right;
-    margin-right: 10px;
-}
-a.delete-img:hover{
-    background: url('../assets/images/ic_delete_hover.png') no-repeat right;
-    margin-right: 10px;
-}*/
 .dropdown-menu>li.active{
     background-color:#ececec;
 }
@@ -873,14 +847,6 @@ nav{
     color: #cbb2ae;
 }
 
-/* .white-box .box-title {
-    margin: 0 6px 15px 0px;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 30px;
-    border-bottom: 1px solid rgba(120,130,140,.13);
-    padding: 5px 0px 15px 0px;
-} */
 .gen-btn-box{
     padding-top: 0px;
     padding-right: 2px;
@@ -944,98 +910,7 @@ li span.list-text {
 }
 
 
-  /*-------------------------Genrate Key Modal Starts---------------------------------*/
-        .modal-dialog{
-            margin-top: 175px !important;
-        }
-        .modal-header {
-            background: #ffffff;
-            color: #000000;
-            border-bottom: none !important;
-        }
-
-
-        .modal-header .center {
-            position: relative;
-            margin: auto;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-        }
-        .user-key-title{
-            position: relative;
-            margin: 0 auto;
-            top: 0;
-            left: 0;
-            font-size: 18px;
-        }
-        .confirm-text{
-            position: relative;
-            left: 0;
-            right: 0;
-            margin: 0 auto;
-            width: auto;
-            font-size: 20px;
-            font-weight: 400;
-            color:  #000000;
-            text-align: center;
-        }
-        .modal-title{
-            margin-left: 10px;
-            margin-top: 9px;
-            float: left;
-            font-size: 23px;
-            color: #000;
-            font-weight: normal;
-        }
-        .modal-content {
-            width: 625px;;
-            /*height: 430px;*/
-        }
-        
-
-         .main-content{
-            margin-left: 10px;
-        }
-         .email-popup-footer {
-            position: relative;
-            margin: 0 auto;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            padding: 20px !important;
-            margin-top: 0px;
-            border-top: 0px !important;
-        }
-        .btn.copy-btn {
-            display: inline-block;
-            background: #65c1e3;
-            color: #ffffff;
-            padding: 15px 60px;
-            margin-bottom: 0;
-            font-size: 18px;
-            font-weight: 500;
-            line-height: 1.428571;
-            text-align: center;
-            text-transform: none;
-            white-space: nowrap;
-            vertical-align: middle;
-            -ms-touch-action: manipulation;
-            touch-action: manipulation;
-            cursor: pointer;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-            background-image: none;
-            border: 0px solid transparent;
-            border-radius: 1px;
-            box-shadow: 0 0 0 0px rgba(0,123,255,.25);
-        }
-
-/*-------------------------Genrate Key Modal Ends---------------------------------*/
+  
 
 .modal-content.exported-content{
     width: 510px;
@@ -1345,7 +1220,12 @@ input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly
     height: calc(100% - 0px);
 }
 }
-
+@media (max-width: 1440px) and (min-width: 992px) {
+    .width-1{
+        /* min-width: 1350px; */
+        min-width: 1450px;
+    }
+}
 
 @media (min-width: 1200px){
     .hidden-lg {
@@ -1440,9 +1320,9 @@ input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly
     }
    /*-----------------Contact form ends-------------------*/ 
 }
-.width-1{
+/* .width-1{
     min-width: 1350px;
-}
+} */
 .width-191em {
     min-width: 191em;
 }

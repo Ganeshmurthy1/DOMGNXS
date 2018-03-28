@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import * as _ from 'underscore';
+
 
 @Injectable()
 export class TodoService {
@@ -54,6 +56,17 @@ export class TodoService {
   public toDoExportExcel(fileInfoId: number){
     return window.location.href=environment.baseUrl+"/toDo/getToDoExporttoExcel/"+fileInfoId
   }
+  //for sorting table
+  public toDoSortTable(fileInfoId: number, count_data:string, queryParams:any){
+    var query = "?"
+   _.map(queryParams , (value:any, key:any)=> {
+     query+= "&"+key+"="+value
+   });
+    return this.http.get(environment.baseUrl+"/toDo/sortRecords/"+fileInfoId+"/"+count_data+query, this.globalService.getHeaders()).map(res => res.json()).map((response: any) => {
+      return response.data ? response.data : [];
+    });
+  }
+
 
   private _serverError(err) {
     if (err.status === 401) {

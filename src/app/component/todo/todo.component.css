@@ -144,8 +144,23 @@ span.tooltiptext.custom-tooltip{
 
 .top-header{
     margin-top: 15px;
-    margin-bottom: 0px;
+    margin-bottom: 25px;
 }
+.todo-text{
+    position: absolute;
+    top: 0;
+    left: 1px;
+    cursor: pointer;
+}
+.todo-icon-box{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.excel-link{
+    cursor: pointer;
+}
+
 .text-common{
     color: #1fdee5;
     padding-bottom: 10px;
@@ -178,13 +193,7 @@ span.tooltiptext.custom-tooltip{
     padding: 10px 8px 10px 5px;
 }
 
-.commom-desc{
-    display: inline-block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 230px;
-}
+
 .common-box{
     width: calc((100% - 30px)/4);
     height: auto;
@@ -1252,7 +1261,20 @@ input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly
     }
 
 }
+@media (max-width: 1440px) and (min-width: 992px) {
+    .commom-desc{
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 230px;
+    }
+}
+    
+
+
 @media (max-width: 1199px) and (min-width: 992px) {
+    
     .hidden-md {
         display: none!important;
     }
