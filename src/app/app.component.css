@@ -29,9 +29,4 @@
     -webkit-animation: cssload-spin 425ms infinite linear;
     -moz-animation: cssload-spin 425ms infinite linear;
  }
- @media only screen and (min-width: 993px){
-   
-    .toast-top-right {       
-        right: 12px !important;
-    }
- }
+ 
