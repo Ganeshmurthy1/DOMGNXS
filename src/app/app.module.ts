@@ -28,7 +28,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { WmtComponent } from './component/wmt/wmt.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';  
 import { ToastrModule } from 'ngx-toastr';
-import { DataTableModule } from 'angular-4-data-table-bootstrap-4';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 
 @NgModule({
@@ -54,6 +54,8 @@ import { DataTableModule } from 'angular-4-data-table-bootstrap-4';
     ModalModule.forRoot(),
     BrowserAnimationsModule, 
     ToastrModule.forRoot( ),
+     
+    NgxDatatableModule,
     AppRoutingModule
   ],
   providers: [AppComponent, LoginService, GlobalService, TodoService, CookieService, LoaderService],
