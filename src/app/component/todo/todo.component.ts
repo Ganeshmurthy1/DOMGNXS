@@ -5,14 +5,17 @@ import { TodoService } from './../../services/todo.service';
 import { Component, OnInit } from '@angular/core';
 import { Router} from '@angular/router';
 import * as _ from 'underscore';
-
-
+import { BsModalService } from 'ngx-bootstrap/modal';
+//import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+import { GlobalPreferenceModalComponent } from '../../component/global-preference-modal/global-preference-modal.component';
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.css']
 })
 export class TodoComponent implements OnInit {
+  public modalRef: BsModalRef;
   total_cnt:number;
   public totalCount: any = null; 
   public time_duration: any = "allCount"; 
@@ -53,7 +56,8 @@ export class TodoComponent implements OnInit {
   // public fileInfoId: number;
   // public tableDetails: any = {};
   
-  constructor(private router: Router, private todoInstance: TodoService, private loaderService: LoaderService) { }
+  constructor(private router: Router, private todoInstance: TodoService, private loaderService: LoaderService,
+    private modalService: BsModalService) { }
 
   ngOnInit() {
     this.loaderService.display(true);
@@ -174,5 +178,11 @@ getFilterdata(filter,type){
 //  });
 // }
 
+openConfirmDialog() {
+  this.modalRef = this.modalService.show(GlobalPreferenceModalComponent);
+  // this.modalRef.content.onClose.subscribe(result => {
+  //     console.log('results', result);
+  // })
+}
 
 }

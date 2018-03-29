@@ -8,7 +8,7 @@ import { TodoComponent } from './component/todo/todo.component';
 import { TodoTableComponent } from './component/todo-table/todo-table.component';
 import { WmtComponent } from './component/wmt/wmt.component';
 import { MegaPreferenceComponent } from './component/mega-preference/mega-preference.component';
-
+import { GlobalPreferenceComponent } from './component/global-preference/global-preference.component';
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -26,8 +26,8 @@ const appRoutes: Routes = [
   
   { path: 'mega-preference', component: MegaPreferenceComponent },
   { path: '', redirectTo: '/mega-preference', pathMatch: 'full'},
-
-
+  { path: 'global-preference', component: GlobalPreferenceComponent },
+  
 ]
 
 @NgModule({
