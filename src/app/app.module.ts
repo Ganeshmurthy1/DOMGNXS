@@ -10,7 +10,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
-import { ModalModule } from 'ngx-bootstrap/modal';
+//import { ModalModule } from 'ngx-bootstrap/modal';
+import { ModalModule } from 'ngx-bootstrap';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './component/login/login.component';
 import { LoginService } from './services/login.service';
@@ -27,9 +28,13 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { CookieService } from 'ngx-cookie-service';
 import { WmtComponent } from './component/wmt/wmt.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';  
-import { ToastrModule } from 'ngx-toastr';
+import { ToastrModule } from 'ngx-toastr'; 
+import { DataTableModule } from 'angular-4-data-table-bootstrap-4';
+import { GlobalPreferenceModalComponent } from './component/global-preference-modal/global-preference-modal.component';
+import { GlobalPreferenceComponent } from './component/global-preference/global-preference.component';
+import { GlobalPreferencesService } from './services/global-preferences.service'; 
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
-
+ 
 
 @NgModule({
   declarations: [
@@ -41,7 +46,10 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     OrderPipe,
     MegaPreferenceComponent,
     NavbarComponent,
-    WmtComponent
+    WmtComponent,
+    GlobalPreferenceModalComponent,
+    GlobalPreferenceComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -58,7 +66,10 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     NgxDatatableModule,
     AppRoutingModule
   ],
-  providers: [AppComponent, LoginService, GlobalService, TodoService, CookieService, LoaderService],
-  bootstrap: [AppComponent]
+  providers: [AppComponent, LoginService, GlobalService, TodoService, CookieService, LoaderService,GlobalPreferencesService],
+  bootstrap: [AppComponent],
+  entryComponents: [
+    GlobalPreferenceModalComponent
+]
 })
 export class AppModule { }
