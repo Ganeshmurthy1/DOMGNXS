@@ -73,7 +73,6 @@ export class TodoTableComponent implements OnInit {
     //let sub1 = this.route.queryParams.subscribe(params =>this.usrnm=params.username)
     
     this.getTodoListItem()
-    //this.fixedHeader();
       
   }
 
@@ -98,20 +97,23 @@ export class TodoTableComponent implements OnInit {
      this.tableDetails = [];
       response.map((obj,i)=>{
         var tmp:any ={};
+        console.log("obj",obj);
         for(let key in obj){
+          console.log("key",key);
           if(i==0)
             header_data.push(key)
             tmp[key.replace(/\)/g,"").replace(/\(/g,"").replace(/ /g,"_").replace(/:/g,"")] = obj[key];
         }
         this.tableDetails.push(tmp);
       })
+      console.log("headerData",header_data);
       this.header_details=header_data;
       this.loaderService.display(false);
     });
   }
 
   public getExportExcel(file_Id){
-    this.todoInstance.toDoExportExcel(file_Id);
+    this.todoInstance.toDoExportExcel(file_Id, this.path);
   }
   public getCheckedRecord(){
      this.tableDetails = _.filter(this.tableDetails, function(obj:any){ return !obj.isChecked});
@@ -130,9 +132,5 @@ export class TodoTableComponent implements OnInit {
     this.getTodoListItem()
   }
   
-  // public fixedHeader(){
-  //   $('#mytable').DataTable({
-  //     fixedHeader: true
-  //   });
-  // }
+  
 }

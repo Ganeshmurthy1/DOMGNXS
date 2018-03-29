@@ -67,46 +67,42 @@
                   </h5>
           </div>
           <div class="white-box">
-            <div class="row-fluid panel panel-default">        
+            <div class="row-fluid">        
                  
                   <div class="table-responsive" *ngIf="tableDetails && tableDetails.length > 0">
                       <table class="table table-fixed width-1" id="mytable">
                           <thead>  
                               <tr>
-                                  <th class="th-sm header-text"></th>
-                                  <th class="th-sm header-text" *ngFor="let list of header_details" (click)="getSortDetails(list)">    
-                                    {{list}}
+                                  <th scope="col" class="th-sm header-text checkboxClass"></th>
+                                  <th scope="col" class="th-sm  "  [class]="list" *ngFor="let list of header_details" (click)="getSortDetails(list)" [title]="list">    
+                                   <div class="header-text">{{list}}
                                     <i class="fa" [ngClass]="{'fa-sort': queryparams.sortColumnname != list, 'fa-sort-asc': (queryparams.sortColumnname == list && isDesc), 'fa-sort-desc': (queryparams.sortColumnname == list && !isDesc) }" aria-hidden="true"> </i>
-                                  </th>
+                                </div>
+                                </th>
 
                               </tr>
                           </thead>
-                          </table>
-                          </div>
-                          
-                          <div class="table-responsive" *ngIf="tableDetails && tableDetails.length > 0">
-                          <table  class="table table-fixed width-1" id="mytable2">
                           <tbody class="todoTab-body">
                               <tr id="first-row" *ngFor="let tableCol of tableDetails;   let i = index" [ngClass]="tableCol.isChecked? 'active' : '' ">
-                                  <td class="txt-oflo first-cell" *ngIf="addBlock">
+                                  <td class="txt-oflo first-cell checkboxClass" *ngIf="addBlock">
                                       <div class="checkbox checkbox-success checkbox-inline">
                                           <input type="checkbox" name="check_box"  id="content-checkbox-{{i+1}}" value="{{i+1}}" [(ngModel)]="tableCol.isChecked"/>
                                           <label for="content-checkbox-{{i+1}}"></label>
                                       </div>    
                                   </td>                                   
-                                  <td class="" *ngFor="let entry of tableCol | keys"  [title]="entry.value">           
+                                  <td  [class]="entry.key" *ngFor="let entry of tableCol | keys"  [title]="entry.value">           
                                    <div [class]="entry.key"> {{entry.value}}</div>
                                   </td>                                 
                               </tr>
                           </tbody>
-                      </table>
+                      </table>                    
 
-                      <!-- <p-dataTable [value]="tableCol" resizableColumns="true" columnResizeMode="expand">
-                            <p-column field="{{list}}" header="{{entry.value}}"></p-column>
-                            <p-column field="year" header="Year"></p-column>
-                            <p-column field="brand" header="Brand"></p-column>
-                            <p-column field="color" header="Color"></p-column>
-                        </p-dataTable> -->
+                    <!-- <div>
+                            <ngx-datatable
+                              [rows]="header_details"
+                              [columns]="tableDetails">
+                            </ngx-datatable>
+                    </div> -->
 
 
                   </div>    
