@@ -557,7 +557,7 @@ thead{
 .table thead th{
     border-bottom: 0px solid #dee2e6;
 }
-th.header-text{
+div.header-text{
     color: #000000;
     padding: 0.72rem  0.5rem !important;
     font-size: 12px;
