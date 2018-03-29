@@ -566,7 +566,7 @@ th.header-text{
     /* border: none; */
 }
 .table td, .table th {
-    padding: .65rem;
+    padding: .72rem;
     font-size:12px;
     border-radius: 0px;
 }
@@ -608,9 +608,19 @@ tr#first-row.active {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.common-header-text {
+    white-space: nowrap;
+    width: 79px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
-
-
+.Id{
+    display: none;
+}
+.checkboxClass{
+    padding: 10px 0px 0px 10px !important;
+}
 /* fiexd headaer table strats */
   
   /* .table-fixed {
@@ -638,7 +648,7 @@ tr#first-row.active {
     border-color: #f3f2f0;
   } */
   
-
+  
   /* Fixed Header Table Ends */
 
 /*-------------------Sorting Table Ends-------------------------- */

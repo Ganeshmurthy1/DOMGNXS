@@ -53,8 +53,8 @@ export class TodoService {
     });
   }
 
-  public toDoExportExcel(fileInfoId: number){
-    return window.location.href=environment.baseUrl+"/toDo/getToDoExporttoExcel/"+fileInfoId
+  public toDoExportExcel(fileInfoId: number, count_data:string){
+    return window.location.href=environment.baseUrl+"/toDo/getToDoExporttoExcel/"+fileInfoId+"/"+count_data
   }
   //for sorting table
   public toDoSortTable(fileInfoId: number, count_data:string, queryParams:any){
