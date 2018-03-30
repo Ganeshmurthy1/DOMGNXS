@@ -100,7 +100,7 @@
               </div>
               <!-- /.col -->
               <!-- col -->
-              <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+              <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 data-source-box">
                   <div class="white-box">
                        <div class="col-in">
                           <span class="text-common">Local</span>
@@ -120,7 +120,7 @@
                     <div class="list-items"  *ngFor="let list of taskDetails.To_Do_List_Time_Sensitive ">   
                         <a class="todo-links"  [routerLink]="['/todo', (list.fileInfoId || list.toDoId), time_duration]" [queryParams]="{ desc: list.sheetDescription }">  
                         <div class="list-common">
-                            <span>{{list.sheetDescription}}</span>
+                            <span class="commom-desc">{{list.sheetDescription}}</span>
                                 <span class="list-number">{{list.recordCount}}</span>
                                 <span style="display:none">{{list.fileInfoId}}</span>
                         </div>

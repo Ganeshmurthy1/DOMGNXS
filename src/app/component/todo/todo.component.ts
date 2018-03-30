@@ -60,7 +60,7 @@ export class TodoComponent implements OnInit {
     private modalService: BsModalService) { }
 
   ngOnInit() {
-    this.loaderService.display(true);
+    //this.loaderService.display(true);
     this.riskBlock = true;
     this.LoginDetails = JSON.parse(localStorage.getItem('LoginDetails'));  
    
@@ -69,7 +69,7 @@ export class TodoComponent implements OnInit {
       this.gettoDoTask();
       this.getGroupDefaultCount();
    //this.getOneDayCount();
-   this.loaderService.display(false);
+  
     }else{
       this.loaderService.display(false);
       this.router.navigate(['login']);
@@ -81,6 +81,7 @@ export class TodoComponent implements OnInit {
 
   getAllTasks() {
     this.todoInstance.getOverAllTask('allCount').subscribe(response =>{
+      this.loaderService.display(false);
       var obj={}
       _.map(response, function(value, key ){ 
         obj[key.toLowerCase()] =value;      
@@ -100,6 +101,7 @@ export class TodoComponent implements OnInit {
 
   getGroupDefaultCount() {
     this.todoInstance.getGroupCount().subscribe(response =>{
+      this.loaderService.display(false);
       var tmp:any ={}
       response.map((obj,i)=>{
         tmp[obj.groupName.replace(/\)/g,"").replace(/\(/g,"").replace(/ /g,"_")] = obj;
@@ -137,6 +139,7 @@ export class TodoComponent implements OnInit {
 
 gettoDoTask() {
 this.todoInstance.toDoTask().subscribe(response =>{
+  this.loaderService.display(false);
   var tmp={}
   for(let key in response){
     //console.log(key, response[key])
@@ -151,6 +154,7 @@ this.todoInstance.toDoTask().subscribe(response =>{
 //Get Filter data for Time and Interventions
 getFilterdata(filter,type){
   this.todoInstance.getFilterToDoList().subscribe(response =>{
+    this.loaderService.display(false);
     if(type == 'TimeSensitiveCounts'){
       response.TimeSensitiveCounts = _.map(response.TimeSensitiveCounts, function(obj){ obj["recordCount"]= obj[filter]; return obj});
       this.taskDetails.To_Do_List_Time_Sensitive=response.TimeSensitiveCounts

@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i|Monoton");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
+
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
 
@@ -60,39 +61,41 @@ body, html {
 }
 
 #page-wrapper {
-    position: absolute;
+    /* position: absolute;
     top: 0px;
     left: 35px;
     width: calc(100% - 35px);
-    height: calc(100% - 0px);
+    height: calc(100% - 0px); */
+    display: inline-block;
+    width: 100%;
+    min-height: 100vh;
 }
 
 #page-wrapper {
-    padding: 0 15px 12px 55px;
-     /*min-height: 913px;*/
-     background: #edf1f5 !important;
+    padding: 0 15px 12px 80px;
+    background: #edf1f5 !important;
  }
  .first-box-row {
-     padding-top: 10px;
-     margin-bottom: 20px;
+    padding-top: 10px;
+    margin-bottom: 20px;
  }
  .white-box {
-     background: #fff;
-     padding: 8px 5px 0px 20px;
-     margin-bottom: 15px;
-     height: 65px;
-     /*box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);*/
-     box-shadow: 0 0px 1px -2px rgba(0,0,0,.2), 0 0px 0px 0 rgba(0,0,0,.14), 0 1px 2px 0 rgba(0,0,0,.12)
+    background: #fff;
+    padding: 8px 5px 0px 20px;
+    margin-bottom: 15px;
+    height: 65px;
+    /*box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);*/
+    box-shadow: 0 0px 1px -2px rgba(0,0,0,.2), 0 0px 0px 0 rgba(0,0,0,.14), 0 1px 2px 0 rgba(0,0,0,.12)
  }
  .col-in {
-     padding: 0px;
-     margin-bottom: 5px;
+    padding: 0px;
+    margin-bottom: 5px;
  }
  .col-in h3 {
      /*font-size: 30px;*/
-     font-size: 55px;
-     font-weight: 400;
-     vertical-align: bottom;
+    font-size: 55px;
+    font-weight: 400;
+    vertical-align: bottom;
  }
  
  .top-header{
@@ -100,12 +103,41 @@ body, html {
      margin-bottom: 0px;
  }
  .text-common{
-     color: #1fdee5;
-     padding-bottom: 10px;
+    color: #1fdee5;
+    padding-bottom: 10px;
  }
  .common-header-box{
-     padding-right: 0px;
+    padding-right: 0px;
  }
+ .header{
+    height: 50px;
+    width: 100%;
+    background-color:cornflowerblue;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Arial;
+    line-height: 50px;
+    text-align: center;
+    border-bottom: 1px solid #666666;
+    position: fixed;
+    z-index: 1;
+    top: 0px;
+}
+p-dataTable{
+    margin-left: 20px;
+    margin-top: 50px;
+    margin-right: 20px;
+    display: block;
+}
+
+:host /deep/ p-datatable .stickyHeader{
+  box-shadow: 2px 2px 1px #888888;
+}
+
+
+
+
  .table{
      background-color: #fff;
      box-shadow: 0 0px 1px -2px rgba(0,0,0,.2), 0 0px 0px 0 rgba(0,0,0,.14), 0 1px 2px 0 rgba(0,0,0,.12);
