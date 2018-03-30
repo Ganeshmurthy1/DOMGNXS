@@ -145,7 +145,7 @@ nav{
 
 .sidebar {
     z-index: 10;
-    position: absolute;
+    position: fixed;
     width: 80px;
     padding-top: 0px;
     height: 100%;

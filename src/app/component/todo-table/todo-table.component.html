@@ -67,14 +67,14 @@
                   </h5>
           </div>
           <div class="white-box">
-            <div class="row-fluid">        
+            <div class="row">        
                  
                   <div class="table-responsive" *ngIf="tableDetails && tableDetails.length > 0">
-                      <table class="table table-fixed width-1" id="mytable">
+                      <!-- <table class="table table-fixed width-1" id="mytable">
                           <thead>  
                               <tr>
                                   <th scope="col" class="th-sm header-text checkboxClass"></th>
-                                  <th scope="col" class="th-sm  "  [class]="list" *ngFor="let list of header_details" (click)="getSortDetails(list)" [title]="list">    
+                                  <th scope="col" class="th-sm"  [class]="list" *ngFor="let list of header_details" (click)="getSortDetails(list)" [title]="list">    
                                    <div class="header-text">{{list}}
                                     <i class="fa" [ngClass]="{'fa-sort': queryparams.sortColumnname != list, 'fa-sort-asc': (queryparams.sortColumnname == list && isDesc), 'fa-sort-desc': (queryparams.sortColumnname == list && !isDesc) }" aria-hidden="true"> </i>
                                 </div>
@@ -95,16 +95,24 @@
                                   </td>                                 
                               </tr>
                           </tbody>
-                      </table>                    
+                      </table>                     -->
+                   
+                      <p-dataTable [value]="tableDetails" scrollable="true" [responsive]="true" resizableColumns="true" scrollHeight="800px" scrollWidth="100%" sortMode="multiple">
+                          <p-column selectionMode="multiple" [style]="{'width':'10px'}"></p-column>
+                          <div *ngFor="let list of header_details" style="display:inline-block">
+                              <!-- <p-column  field="{{list.prop}}" header="{{list.name}}" [sortable]="true" [style]="{'width':'250px'}"></p-column> -->
+                              <p-column  *ngIf="list.name != 'Id'" field="{{list.prop}}" header="{{list.name}}" [sortable]="true" [style]="{'width':'150px'}"></p-column>
+                          </div>
+                          
 
-                    <!-- <div>
-                            <ngx-datatable
-                              [rows]="header_details"
-                              [columns]="tableDetails">
-                            </ngx-datatable>
-                    </div> -->
+                      </p-dataTable>
 
-
+                <!-- <ngx-datatable-row-detail [rowHeight]="100" #myDetailRow (toggle)="onDetailToggle($event)">
+                        <ng-template let-row="tableDetails" let-entry="key" ngx-datatable-row-detail-template>
+                                
+                        </ng-template>    
+                </ngx-datatable-row-detail> -->
+           
                   </div>    
                   <div class="table-responsive" *ngIf="tableDetails && tableDetails.length==0" style="text-align: center;">
                       <br/><br/> <h4>No data</h4> <br/><br/></div>

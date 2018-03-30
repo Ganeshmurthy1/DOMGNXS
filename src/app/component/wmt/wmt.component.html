@@ -70,7 +70,7 @@
   <div id="page-wrapper">
         <div class="container-fluid">
             <div class="row top-header">
-                <h5 class="col-sm-6">Work Management Tool</h5>
+                <h5 class="col-sm-6">To do</h5>
             </div>
   
           <div class="row first-box-row">
@@ -106,97 +106,17 @@
                 </div><!-- /.col -->
             </div><!--/.row -->
   
-         <div class="row-fluid table-responsive">
-           
-          
-          <!-- <div>
-                            <ngx-datatable class="material fixed-header"
-                              [rows]="rows"
-                              [columns]="columns">
-                            </ngx-datatable>
-                    </div> -->
-          
-          <table class="table">
-                <thead>
-                  <tr>
-                   
-                    <th scope="col">Name</th>
-                    <th scope="col">Cases</th>
-                    <th scope="col">Volume</th>
-                    <th scope="col">FTE</th>
-                    <th scope="col">CM</th>
-                    <th scope="col">SCM</th>
-                    <th scope="col">Band 0</th>
-                    <th scope="col">Band 1</th>
-
-                    <th scope="col">Band 2</th>
-                    <th scope="col">Band 3</th>
-                    <th scope="col">Band 4</th>
-                    <th scope="col">Community</th>
-                    <th scope="col">Custody</th>
-                    <th scope="col">Dormant</th>
-                    
-
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr>
-                    
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    
-                  </tr>
-                  <tr>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                    <td>@twitter</td>
-                    <td>@twitter</td>
-                    <td>@twitter</td>
-                    <td>@twitter</td>
-                    <td>@twitter</td>
-                    <td>@twitter</td>
-                    <td>@twitter</td>
-                    <td>@twitter</td>
-                    <td>@twitter</td>
-                    <td>@twitter</td>
-                    <td>@mdo</td>
-                                                                                            
-                  </tr>
-                </tbody>
-              </table>
+         <div class="row">
 
 
+            <p-dataTable [value]="cars" [scrollable]="true" resizableColumns="true" scrollHeight="200px" frozenWidth="100px" scrollWidth="600px">
+                <p-header>List of Cars</p-header>
+                <p-footer>Choose from the list.</p-footer>
+                <p-column field="vin" header="Vin"></p-column>
+                <p-column field="year" header="Year"></p-column>
+                <p-column field="brand" header="Brand"></p-column>
+                <p-column field="color" header="Color"></p-column>
+            </p-dataTable>
          </div>
             
         </div>

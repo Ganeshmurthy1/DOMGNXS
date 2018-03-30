@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.loaderService.display(false);
+   
     this.loginBlock = true;
     // var rememberUser = JSON.parse(localStorage.getItem('rememberUser'));
     
