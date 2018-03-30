@@ -67,6 +67,8 @@ import { StickyHeaderDirective } from './directive/sticky-header.directive';
     SharedModule,
     NgxDatatableModule,
     AppRoutingModule
+ 
+    
   ],
   providers: [AppComponent, LoginService, GlobalService, TodoService, CookieService, LoaderService,GlobalPreferencesService],
   bootstrap: [AppComponent],
