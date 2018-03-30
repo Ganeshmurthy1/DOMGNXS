@@ -4,6 +4,7 @@ import { LoaderService } from './../../services/loader.service';
 import { Response } from '@angular/http';
 import { Router} from '@angular/router';
 import { BsModalService } from 'ngx-bootstrap/modal';
+declare var $: any;
 @Component({
   selector: 'app-global-preference',
   templateUrl: './global-preference.component.html',
@@ -13,6 +14,9 @@ export class GlobalPreferenceComponent implements OnInit {
   allData: any;
   providers:any;
   LoginDetails:any;
+  AllprovidersTemp:any;
+   Allproviders:any = [];
+  prop:any;
   constructor(private router: Router, private globalPreferService: GlobalPreferencesService, private loaderService: LoaderService,
   private modalService: BsModalService) { }
 
@@ -35,9 +39,32 @@ export class GlobalPreferenceComponent implements OnInit {
     this.globalPreferService.getGlobalPreferences().subscribe(response =>{
      // this.loaderService.display(false);
      console.log("response",response);
+     console.log("this.providers",this.providers);
       this.allData = response.Preferences;
       this.providers = this.allData.EventProviders;
-      console.log("this.providers",this.providers);
+
+
+      // this.AllprovidersTemp = Object.keys(this.providers);       
+      // for(this.prop of this.AllprovidersTemp){
+      //   console.log("props",this.prop);
+      //   this.Allproviders.push(this.AllprovidersTemp[this.prop])
+      //   console.log("Allprovider-IN",this.Allproviders);
+      // }
+      // console.log("Allprovider-out",this.Allproviders);
+  
+     
     })
   }
+
+
+
+
+// Checkboxes
+ 
+
+
+
+
+
+  
 }
