@@ -41,21 +41,25 @@ export class TodoTableComponent implements OnInit {
   public isDesc: boolean = false;
   public column: string = 'CategoryName';
   public direction: number;
+  public allowSelectAll:boolean;
   constructor(private route: ActivatedRoute, private todoInstance: TodoService, private router:Router, private loaderService: LoaderService) { }
 
   ngOnInit() {
-   
+    this.loaderService.display(true); 
+    this.allowSelectAll = true;
     this.addBlock = true;
     //this.orgService.getOrgDetails(this.org_id).subscribe(response => {
       //this.orgDetails=response;
       //console.log(this.orgDetails);
 
     let sub = this.route.params.subscribe(params =>{
+      this.loaderService.display(false);
       this.file_Id=params.fileInfoId
       this.path=params.path
     });
    
     let flds = this.route.queryParams.subscribe(params =>{
+      this.loaderService.display(false);
       //debugger;
       this.file_desc=params['desc'];
       });
@@ -76,41 +80,63 @@ export class TodoTableComponent implements OnInit {
       
   }
 
-  public checkingField(indx){
-   var newIndex = indx + 1;
-    if( $('#first-row'+newIndex).hasClass('disableColor')){
-      $('#first-row'+newIndex).removeClass('disableColor');
-      $('#content-checkbox-'+newIndex).attr('checked', false);
-    }else{
-      $('#first-row'+newIndex).addClass('disableColor');
-      $('#content-checkbox-'+newIndex).attr('checked', true);
-    }
+  // public checkingField(indx){
+  //  var newIndex = indx + 1;
+  //   if( $('#first-row'+newIndex).hasClass('disableColor')){
+  //     $('#first-row'+newIndex).removeClass('disableColor');
+  //     $('#content-checkbox-'+newIndex).attr('checked', false);
+  //   }else{
+  //     $('#first-row'+newIndex).addClass('disableColor');
+  //     $('#content-checkbox-'+newIndex).attr('checked', true);
+  //   }
     
     
-  }
+  // }
+
+  // public getTodoListItem(){
+  //   this.loaderService.display(true); 
+  //   this.todoInstance.toDoSortTable(this.file_Id,this.path, this.queryparams).subscribe(response =>{  
+  //     var header_data:any = [];
+  //    this.tableDetails = [];
+  //     response.map((obj,i)=>{
+  //       var tmp:any ={};
+  //       for(let key in obj){
+  //         if(i==0)
+  //           header_data.push(key)
+  //           tmp[key.replace(/\)/g,"").replace(/\(/g,"").replace(/ /g,"_").replace(/:/g,"")] = obj[key];
+  //       }
+  //       this.tableDetails.push(tmp);
+  //     })
+  //    console.log(this.tableDetails);
+  //     this.header_details=header_data;
+  //     this.loaderService.display(false);
+  //   });
+  // }
 
   public getTodoListItem(){
-    this.loaderService.display(true); 
-    this.todoInstance.toDoSortTable(this.file_Id,this.path, this.queryparams).subscribe(response =>{  
+    this.todoInstance.toDoSortTable(this.file_Id,this.path, this.queryparams).subscribe(response =>{
+      this.loaderService.display(false);  
       var header_data:any = [];
      //debugger;
      this.tableDetails = [];
       response.map((obj,i)=>{
         var tmp:any ={};
-        console.log("obj",obj);
         for(let key in obj){
-          console.log("key",key);
           if(i==0)
-            header_data.push(key)
+          
+            header_data.push({"name":key, "prop":key.replace(/\)/g,"").replace(/\(/g,"").replace(/ /g,"_").replace(/:/g,"")})
             tmp[key.replace(/\)/g,"").replace(/\(/g,"").replace(/ /g,"_").replace(/:/g,"")] = obj[key];
         }
         this.tableDetails.push(tmp);
       })
-      console.log("headerData",header_data);
+     console.log(header_data,this.tableDetails);
       this.header_details=header_data;
       this.loaderService.display(false);
     });
   }
+
+
+
 
   public getExportExcel(file_Id){
     this.todoInstance.toDoExportExcel(file_Id, this.path);

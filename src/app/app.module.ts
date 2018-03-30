@@ -1,6 +1,4 @@
 
-
-
 import 'materialize-css';
 import { MaterializeModule } from 'angular2-materialize';
 import { BrowserModule } from '@angular/platform-browser';
@@ -29,11 +27,13 @@ import { CookieService } from 'ngx-cookie-service';
 import { WmtComponent } from './component/wmt/wmt.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';  
 import { ToastrModule } from 'ngx-toastr'; 
-import { DataTableModule } from 'angular-4-data-table-bootstrap-4';
+import { DataTableModule, SharedModule } from 'primeng/primeng';
 import { GlobalPreferenceModalComponent } from './component/global-preference-modal/global-preference-modal.component';
 import { GlobalPreferenceComponent } from './component/global-preference/global-preference.component';
 import { GlobalPreferencesService } from './services/global-preferences.service'; 
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+
+import { StickyHeaderDirective } from './directive/sticky-header.directive';
  
 
 @NgModule({
@@ -48,8 +48,9 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     NavbarComponent,
     WmtComponent,
     GlobalPreferenceModalComponent,
-    GlobalPreferenceComponent
-    
+    GlobalPreferenceComponent,
+    StickyHeaderDirective
+        
   ],
   imports: [
     BrowserModule,
@@ -62,7 +63,8 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     ModalModule.forRoot(),
     BrowserAnimationsModule, 
     ToastrModule.forRoot( ),
-     
+    DataTableModule,
+    SharedModule,
     NgxDatatableModule,
     AppRoutingModule
   ],

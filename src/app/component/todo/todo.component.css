@@ -1267,14 +1267,20 @@ input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        width: 230px;
+        width: 200px;
     }
 }
     
 
 
 @media (max-width: 1199px) and (min-width: 992px) {
-    
+    .commom-desc{
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 200px;
+    }
     .hidden-md {
         display: none!important;
     }
@@ -1292,6 +1298,23 @@ input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly
 }
 
 @media (max-width: 991px) and (min-width: 768px){
+    .commom-desc{
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 200px;
+    }
+    .common-box[_ngcontent-c2] {
+        width: calc((100% - 30px)/2);
+        height: auto;
+        padding: 8px 0px 50px 0px;
+        margin-right: 10px;
+        float: left;
+    }
+    .data-source-box{
+        padding-right: 0;
+    }
     .hidden-sm {
         display: none!important;
     }
