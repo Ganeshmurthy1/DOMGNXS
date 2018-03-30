@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i|Monoton");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+/* @import '~@swimlane/ngx-datatable/release/index.css';
+@import '~@swimlane/ngx-datatable/release/themes/material.css';
+@import '~@swimlane/ngx-datatable/release/assets/icons.css'; */
+.waves-effect .waves-ripple{
+    background:none !important;
+}
+
+body{
+    background-color:#edf1f5  !important
+}
+
+
+td, th {
+    text-align: center !important;
+}
+  /* tr.ui-widget-content td:nth-child(2) {
+    display: none;
+}
+
+th.ui-state-default.ui-unselectable-text.ui-sortable-column.ui-resizable-column:nth-child(2) {
+    display: none;
+}
+*/
+.ui-chkbox.ui-widget {
+    height: 29px;
+} 
+
+.ui-datatable .ui-datatable-thead>tr>th, .ui-datatable .ui-datatable-tfoot>tr>td, .ui-datatable .ui-datatable-data>tr>td {
+    padding: .65em .5em !important;
+    border-style: unset !important;
+}
+.ui-datatable-thead tr th:first-child .ui-chkbox-box{
+   
+    display: none !important; 
+}
