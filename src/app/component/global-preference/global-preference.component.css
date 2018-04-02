@@ -14,29 +14,138 @@
     width: 100%;
  }
 
+ /* open and closing check boxes */
  
- .cd-accordion-menu input[type=checkbox] {
-    /* hide native checkbox */
-    position: absolute;
-    opacity: 0;
-  }
-    .cd-accordion-menu label, .cd-accordion-menu a {
-        position: relative;
-        display: block;
-        padding: 0px 0px 0px 30px;
-        color: #000;
-        font-size: 16px;
-        font-size: 0.6rem;
+  .buttonShow {
+    display: inline-block;
+   
+}
+.buttonHide {
+    display: inline-block;   
+    
+}
+.plus-icon{
+  width: 20px;
+  height: 20px;
+}
+.paddLeft60px{
+  padding-left: 60px !important;
+}
+  
+ 
+ 
+
+ 
+  /* End of checkbox options */
+
+  .pad25px{
+    padding: 25px;
   }
 
-  .cd-accordion-menu ul {
-    /* by default hide all sub menus */
-    display: none;
-  }
-  
-  .cd-accordion-menu input[type=checkbox]:checked + label + ul,
-  .cd-accordion-menu input[type=checkbox]:checked + label:nth-of-type(n) + ul {
+
+  /* New open close checkbox css */
  
-    display: block;
-    padding-left: 60px;
-  }
+/* end of icon */
+
+.marginRight20px{
+  margin-right: 20px;
+}
+
+
+
+/*-----------------Preference UI Starts---------------------------*/
+li.common-list:before{
+  content: "";
+   display: block; 
+  width: unset;
+  height: unset;
+   border-top: 0px solid gray; 
+}
+
+.pref-box{
+  max-height: 700px;
+  overflow-y: auto;
+}
+
+ul {
+  padding: 0em;
+}
+
+ul li, ul li ul li {
+  position:relative;
+  top:0;
+  bottom:0;
+  padding-bottom: 7px;
+
+}
+
+ul li ul {
+  margin-left: 4em;
+}
+
+li {
+  list-style-type: none;
+}
+li a.toogle{
+  padding: 0 0 0 8px;
+  position: relative;
+  top: 13px;
+  color: #428bca;
+}
+li a.pref-link {
+  padding: 0 0 0 8px;
+  position: relative;
+  top: 13px;
+  color: #428bca;
+}
+
+li a.pref-link:hover {
+  text-decoration: none;
+}
+
+a.addBorderBefore:before {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 28px;
+  position: absolute;
+  left: -45px;
+  top:-16px;
+  border-left: 1px solid gray;
+}
+
+li.pref-list:before {
+  content: "";
+  display: inline-block;
+  width: 25px;
+  height: 0;
+  position: relative;
+  left: 0em;
+  top:.7em;
+  border-top: 1px solid gray;
+}
+
+
+li.hasSubmenu:before {
+  content: "";
+  display: inline-block;
+  width: 25px;
+  height: 0;
+  position: relative;
+  left: 0em;
+  top:.7em;
+  border-top: 1px solid gray;
+}
+
+ul li ul li:last-child:after, ul li:last-child:after {
+  content: '';
+  display: block;
+  width: 1em;
+  height: 1em;
+  position: relative;
+  background: #fff;
+  top: 9px;
+  left: -1px;
+}
+
+/*-----------------Preference UI Ends----------------------------*/

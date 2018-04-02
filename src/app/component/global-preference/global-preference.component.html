@@ -1,23 +1,4 @@
-<!-- <div class="preloader">
-    <div class="cssload-speeding-wheel"></div>
-  </div>
-
-  <div id="page-wrapper">
-      <div class="container-fluid">
-          <div class="col-sm-12 top-header">
-              <div class="row first-box-row">
-                Global Preferences
-              </div>              
-           </div>
-            <div class="row padding25px">
-                <div class="white-box">
-                     
-                 
-                </div>
-            </div>
-        </div>
-  </div> -->
- 
+  
   <div class="preloader">
     <div class="cssload-speeding-wheel"></div>
   </div>
@@ -30,89 +11,133 @@
               </div>              
            </div>
             <div class="row padding25px">
-                <div class="white-box">
-                     
-<!--                     
-                    <ul>
-                      <li><span class="country">Mexico</span>
-                        <ul>
-                          <li>Chiapas</li>
-                          <li>Durango</li>
-                          <li>Hidalgo</li>
-                        </ul>
-                      </li>
-                      <li><span class="country">Pakistan</span>
-                        <ul>
-                          <li>&#x67e;&#x646;&#x62c;&#x627;&#x628;</li>
-                          <li>&#x633;&#x646;&#x62f;&#x6be;</li>
-                          <li>&#x628;&#x644;&#x648;&#x686;&#x633;&#x62a;&#x627;&#x646;</li>
-                        </ul>
-                      </li>
-                      <li><span class="country">Brasil</span>
-                        <ul>
-                          <li>Par&aacute;</li>
-                          <li>Sergipe</li>
-                          <li>Maranh&atilde;o</li>
-                        </ul>
-                      </li>
-                    </ul> -->
+                <div  id="globalPreference" class="white-box pad25px">
+ 
+ 
+                   <!-- <ul class="cd-accordion-menu" >
+                    <li class="has-children" *ngFor="let allprovdr of providers; let i = index">
+                       <input type="checkbox" name ="group-{{i}}" id="group-{{i}}" (click)="parentCheckboxClicked(allprovdr.levelId)">
+                       <label for="group-{{i}}">{{allprovdr.levelValue}}</label>
+                      
+                       <ul>
+                          <li class="has-children" *ngFor="let cluster of sortedClusterArray">
+                             <input type="checkbox" name ="sub-group-{{i}}" id="sub-group-{{i}}">
+                             <label for="sub-group-{{i}}">{{cluster.eventProvider}}</label>
+                 
+                             <ul>
+                                <li><a href="#0">Image</a></li>
+                                <li><a href="#0">Image</a></li>
+                                <li><a href="#0">Image</a></li>
+                             </ul>
+                          </li>                            
+                       </ul>
+                    </li> 
+                 </ul>  -->
+                
+                 
+                 <!-- <div class="browseFields">
+                    <ul id="branches">
+                        <li>
+                          <div class="form-checkbox buttonShow"><span><img class="plus-icon" src="./assets/images/plus.png"/></span> </div>
+                              <input class="input-checkbox" id="ckb1" type="checkbox" >
+                              <label class="label-checkbox" for="ckb1"> Group 1 </label> 
+                            <ul class="subField paddLeft60px">
+                                <li><a href="#">a</a></li>
+                                <li><a href="#">b</a></li>
+                                <li> 
 
-                    <ul class="cd-accordion-menu">
-                      <li class="has-children">
-                         <input type="checkbox" name ="group-1" id="group-1" >
-                         <label for="group-1">Group 1</label>
-                   
-                         <ul>
-                            <li class="has-children">
-                               <input type="checkbox" name ="sub-group-1" id="sub-group-1">
-                               <label for="sub-group-1">Sub Group 1</label>
-                   
-                               <ul>
-                                  <li><a href="#0">Image</a></li>
-                                  <li><a href="#0">Image</a></li>
-                                  <li><a href="#0">Image</a></li>
-                               </ul>
-                            </li>                            
-                         </ul>
-                      </li>
-                      <li class="has-children">
-                        <input type="checkbox" name ="group-2" id="group-2" >
-                        <label for="group-2">Group 1</label>
-                  
-                        <ul>
-                           <li class="has-children">
-                              <input type="checkbox" name ="sub-group-2" id="sub-group-2">
-                              <label for="sub-group-2">Sub Group 1</label>
-                  
-                              <ul>
-                                 <li><a href="#0">Image</a></li>
-                                 <li><a href="#0">Image</a></li>
-                                 <li><a href="#0">Image</a></li>
-                              </ul>
-                           </li>                            
-                        </ul>
-                     </li>
-                     <li class="has-children">
-                      <input type="checkbox" name ="group-3" id="group-3" >
-                      <label for="group-3">Group 1</label>
-                
-                      <ul>
-                         <li class="has-children">
-                            <input type="checkbox" name ="sub-group-3" id="sub-group-3">
-                            <label for="sub-group-3">Sub Group 1</label>
-                
-                            <ul>
-                               <li><a href="#0">Image</a></li>
-                               <li><a href="#0">Image</a></li>
-                               <li><a href="#0">Image</a></li>
+                                    <div class="buttonShow"><span><img class="plus-icon" src="./assets/images/plus.png"/></span> </div>
+                                    <input class="input-checkbox" id="ckb2" type="checkbox" >
+                                    <label class="label-checkbox" for="ckb2"> Group 1 </label> 
+                            <ul class="subField paddLeft60px">
+                                <li><a href="#">a</a></li>
+                                <li><a href="#">b</a></li>
+                                <li><a href="#">c</a>
+                                <div class="buttonShow"></div> 
+                                    <ul class="subField">
+                                        <li><a href="#">i</a></li>
+                                        <li><a href="#">ii</a></li>
+                                        <li><a href="#">iii</a></li>
+                                    </ul>
+                                    
+                                </li>
                             </ul>
-                         </li>                            
-                      </ul>
-                   </li>
-                   
-                      <!-- <li><a href="#0">Image</a></li>
-                      <li><a href="#0">Image</a></li> -->
-                   </ul> <!-- cd-accordion-menu -->
+                                    
+                                </li>
+                            </ul>
+                        </li>
+                        <li><div class="buttonShow"></div><a href="#">1</a>
+                          <ul class="subField">
+                              <li><a href="#">a</a></li>
+                              <li><a href="#">b</a></li>
+                              <li><a href="#">c</a>
+                              <div class="buttonShow"></div> 
+                                  <ul class="subField">
+                                      <li><a href="#">i</a></li>
+                                      <li><a href="#">ii</a></li>
+                                      <li><a href="#">iii</a></li>
+                                  </ul>
+                                  
+                              </li>
+                          </ul>
+                      </li>
+                      <li><div class="buttonShow"></div><a href="#">1</a>
+                        <ul class="subField">
+                            <li><a href="#">a</a></li>
+                            <li><a href="#">b</a></li>
+                            <li><a href="#">c</a>
+                            <div class="buttonShow"></div> 
+                                <ul class="subField">
+                                    <li><a href="#">i</a></li>
+                                    <li><a href="#">ii</a></li>
+                                    <li><a href="#">iii</a></li>
+                                </ul>
+                                
+                            </li>
+                        </ul>
+                    </li>
+                         
+                    </ul>
+                </div>  -->
+
+
+
+                <div class="white-box pref-box">
+                    <div class="container">
+                        <ul class="main-list">
+                            <li class="pref-list"><a class="pref-link"><input class="input-checkbox" id="ckb1" type="checkbox" >
+                                    <label class="label-checkbox" for="ckb1"> Group 1 </label> </a>
+                                <ul>
+                                    <li class="pref-list"><a href="#" class="pref-link">Magazine</a>
+                                        <ul>
+                                            <li class="pref-list"><a href="#" class="pref-link">Spiral Scratch</a></li>
+                                            <li class="pref-list"><a href="#" class="pref-link">Real Life</a></li>
+                                            <li class="pref-list"><a href="#" class="pref-link">Secondhand Daylight</a></li>
+                                            <li class="pref-list"><a href="#" class="pref-link">The Correct Use</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="pref-list"><a href="#" class="pref-link">Buzzcocks</a>
+                                        <ul>
+                                            <li class="pref-list"><a href="#" class="pref-link">Time's Up</a></li>
+                                            <li class="pref-list"><a href="#" class="pref-link">Another Music in A Different Kitchen</a></li>
+                                            <li class="pref-list"><a href="#" class="pref-link">Love Bites</a></li>
+                                            <li class="pref-list"><a href="#" class="pref-link">A Different Kind Of Tension</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#" class="pref-link">Joy Division</a>
+                                        <ul>
+                                            <li class="pref-list"><a href="#" class="pref-link">Unknown Pleasures</a></li>
+                                            <li class="pref-list"><a href="#" class="pref-link">Closer</a></li>
+                                            <li class="pref-list"><a href="#" class="pref-link">Still</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                             
+                        </ul>
+                    </div>
+                    
+                </div>
                 </div>
             </div>
         </div>

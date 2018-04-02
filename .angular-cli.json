@@ -37,6 +37,7 @@
         "../node_modules/hammerjs/hammer.js",
         "../node_modules/materialize-css/dist/js/materialize.js",
         "../node_modules/moment/min/moment.min.js"
+        
    
       
       ],

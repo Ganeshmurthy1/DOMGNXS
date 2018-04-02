@@ -677,7 +677,7 @@ label:hover:before {
     border-radius: 0px;
     background-color: #ffffff;
     -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
-    /* transition: border 0.15s ease-in-out, color 0.15s ease-in-out; */
+     
     transition: 0s;
     transform: unset;
 }
