@@ -105,32 +105,24 @@
                 <div class="white-box pref-box">
                     <div class="container">
                         <ul class="main-list">
-                            <li class="pref-list"><a class="pref-link"><input class="input-checkbox" id="ckb1" type="checkbox" >
-                                    <label class="label-checkbox" for="ckb1"> Group 1 </label> </a>
-                                <ul>
-                                    <li class="pref-list"><a href="#" class="pref-link">Magazine</a>
-                                        <ul>
+                            <li class="pref-list" *ngFor="let provd of providers; let i=index">
+                              <a class="pref-link">
+                                <input class="input-checkbox" id="providerCheck{{i}}" type="checkbox" (click)="providerClicked(provd.levelId)">
+                                    <label class="label-checkbox" for="providerCheck{{i}}">{{provd.levelValue}}</label> </a>
+                                <ul><div *ngFor="let clust of allEventCluster; let i=index"  >                                  
+                                    <li class="pref-list" *ngIf="clust.providerId == provd.levelId">                                       
+                                      
+                                      <a class="pref-link" >
+                                          <input class="input-checkbox" id="clustCheck{{i}}" type="checkbox" (click)="clusterClicked(provd.levelId,clust.levelId)">
+                                              <label class="label-checkbox" for="clustCheck{{i}}">{{clust.providerId}}-{{clust.eventProvider}}</label> </a>
+                                        <!-- <ul>
                                             <li class="pref-list"><a href="#" class="pref-link">Spiral Scratch</a></li>
                                             <li class="pref-list"><a href="#" class="pref-link">Real Life</a></li>
                                             <li class="pref-list"><a href="#" class="pref-link">Secondhand Daylight</a></li>
                                             <li class="pref-list"><a href="#" class="pref-link">The Correct Use</a></li>
-                                        </ul>
+                                        </ul> -->
                                     </li>
-                                    <li class="pref-list"><a href="#" class="pref-link">Buzzcocks</a>
-                                        <ul>
-                                            <li class="pref-list"><a href="#" class="pref-link">Time's Up</a></li>
-                                            <li class="pref-list"><a href="#" class="pref-link">Another Music in A Different Kitchen</a></li>
-                                            <li class="pref-list"><a href="#" class="pref-link">Love Bites</a></li>
-                                            <li class="pref-list"><a href="#" class="pref-link">A Different Kind Of Tension</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#" class="pref-link">Joy Division</a>
-                                        <ul>
-                                            <li class="pref-list"><a href="#" class="pref-link">Unknown Pleasures</a></li>
-                                            <li class="pref-list"><a href="#" class="pref-link">Closer</a></li>
-                                            <li class="pref-list"><a href="#" class="pref-link">Still</a></li>
-                                        </ul>
-                                    </li>
+                                  </div>
                                 </ul>
                             </li>
                              
