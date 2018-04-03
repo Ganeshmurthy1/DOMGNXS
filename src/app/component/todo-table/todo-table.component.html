@@ -98,7 +98,7 @@
                       </table>                     -->
                    
                       <p-dataTable [value]="tableDetails" scrollable="true" [responsive]="true" resizableColumns="true" scrollHeight="800px" scrollWidth="100%" sortMode="multiple">
-                          <p-column selectionMode="multiple" [style]="{'width':'10px'}"></p-column>
+                          <p-column selectionMode="multiple" [style]="{'width':'35px'}"></p-column>
                           <div *ngFor="let list of header_details" style="display:inline-block">
                               <!-- <p-column  field="{{list.prop}}" header="{{list.name}}" [sortable]="true" [style]="{'width':'250px'}"></p-column> -->
                               <p-column  *ngIf="list.name != 'Id'" field="{{list.prop}}" header="{{list.name}}" [sortable]="true" [style]="{'width':'150px'}"></p-column>
