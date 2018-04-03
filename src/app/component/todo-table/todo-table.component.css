@@ -543,6 +543,10 @@ thead{
 .table-responsive{
     max-height: calc(100vh - 80px);
 }
+
+td, th{
+    border-radius: unset;
+}
 .excel-link{
     cursor: pointer;
 }
