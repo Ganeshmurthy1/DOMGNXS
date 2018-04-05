@@ -33,7 +33,7 @@
                             </g>
                           </svg>
                     </a>
-                      <a  (click)="getCheckedRecord()" class="excel-link">
+                      <a   (click)="hidden = !hidden" class="excel-link">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="4160 24 24 24" width="20px" height="20px">
                                 <defs>
                                   <style>
@@ -97,14 +97,12 @@
                           </tbody>
                       </table>                     -->
                    
-                      <p-dataTable [value]="tableDetails" scrollable="true" [responsive]="true" resizableColumns="true" scrollHeight="800px" scrollWidth="100%" sortMode="multiple">
-                          <p-column selectionMode="multiple" [style]="{'width':'35px'}"></p-column>
+                      <p-dataTable [value]="tableDetails" scrollable="true" [responsive]="true" (onRowSelect)="onRowSelectd($event)" (onRowUnselect)="onRowUnselected($event)" resizableColumns="true" scrollHeight="800px" scrollWidth="100%" sortMode="multiple">
+                          <p-column selectionMode="multiple" [style]="{'width':'35px'}" ></p-column>
                           <div *ngFor="let list of header_details" style="display:inline-block">
-                              <!-- <p-column  field="{{list.prop}}" header="{{list.name}}" [sortable]="true" [style]="{'width':'250px'}"></p-column> -->
-                              <p-column  *ngIf="list.name != 'Id'" field="{{list.prop}}" header="{{list.name}}" [sortable]="true" [style]="{'width':'150px'}"></p-column>
+                              <p-column  broken [hidden]="hidden" *ngIf="list.name != 'Id' && list.name != 'CheckedStatus'" field="{{list.prop}}" header="{{list.name}}" [sortable]="true" [style]="{'width':'100px'}"></p-column>
                           </div>
                           
-
                       </p-dataTable>
 
                 <!-- <ngx-datatable-row-detail [rowHeight]="100" #myDetailRow (toggle)="onDetailToggle($event)">

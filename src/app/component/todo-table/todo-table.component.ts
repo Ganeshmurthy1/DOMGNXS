@@ -42,6 +42,13 @@ export class TodoTableComponent implements OnInit {
   public column: string = 'CategoryName';
   public direction: number;
   public allowSelectAll:boolean;
+  public checkedCount: any;  
+  public fileInfo:any;
+  public fileId:any;
+  checkListParam:any = {}
+  selectedItems = [];
+  public  hidden:boolean = false;
+
   constructor(private route: ActivatedRoute, private todoInstance: TodoService, private router:Router, private loaderService: LoaderService) { }
 
   ngOnInit() {
@@ -114,22 +121,27 @@ export class TodoTableComponent implements OnInit {
   // }
 
   public getTodoListItem(){
+    //debugger;
     this.todoInstance.toDoSortTable(this.file_Id,this.path, this.queryparams).subscribe(response =>{
       this.loaderService.display(false);  
       var header_data:any = [];
-     //debugger;
+    
      this.tableDetails = [];
       response.map((obj,i)=>{
+        //debugger;
         var tmp:any ={};
         for(let key in obj){
-          if(i==0)
-          
-            header_data.push({"name":key, "prop":key.replace(/\)/g,"").replace(/\(/g,"").replace(/ /g,"_").replace(/:/g,"")})
+          console.log(obj.CheckedStatus == "0")
+          if(obj.CheckedStatus == "0"){
+            if(i==0)
+              header_data.push({"name":key, "prop":key.replace(/\)/g,"").replace(/\(/g,"").replace(/ /g,"_").replace(/:/g,"")})
             tmp[key.replace(/\)/g,"").replace(/\(/g,"").replace(/ /g,"_").replace(/:/g,"")] = obj[key];
+          }          
         }
-        this.tableDetails.push(tmp);
+        if(Object.keys(tmp).length > 0)
+         this.tableDetails.push(tmp);
       })
-     console.log(header_data,this.tableDetails);
+     //console.log(header_data,this.tableDetails);
       this.header_details=header_data;
       this.loaderService.display(false);
     });
@@ -141,18 +153,54 @@ export class TodoTableComponent implements OnInit {
   public getExportExcel(file_Id){
     this.todoInstance.toDoExportExcel(file_Id, this.path);
   }
+  //hide selected Checked Records
   public getCheckedRecord(){
-     this.tableDetails = _.filter(this.tableDetails, function(obj:any){ return !obj.isChecked});
-  
+    debugger;
+  //   this.selectedItems.forEach(function(list) {
+  //     const index = this.tableDetails.indexOf(list);
+  //     this.tableDetails.splice(index, 1);
+  // });
+   
+    this.checkListParam.checkStatus = "1";
+
+
+    this.tableDetails = _.filter(this.tableDetails, function(obj:any){ return !obj.isChecked});
+     console.log(this.tableDetails);
   }
 
- public getSortDetails(property){
-  
-    
+  onRowSelectd(evet){
+    this.checkListParam.fileInfoId = this.file_Id;
+    this.checkListParam.FileId = evet.data.Id;
+    this.checkListParam.checkStatus = "1";
+
+    //console.log("evet",evet);
+    console.log(" this.checkListParam", this.checkListParam);
+     this.getRowCheckStatus( this.checkListParam);
+
+
+  }
+  onRowUnselected(unEvent){
+    this.checkListParam.fileInfoId = this.file_Id;
+    this.checkListParam.FileId = unEvent.data.Id;
+    this.checkListParam.checkStatus = "0";
+    this.getRowCheckStatus( this.checkListParam);
+    //console.log("unEvent",unEvent);
+  }
+
+  public getRowCheckStatus(eventIndx){
+    var params;
+     params = eventIndx;
+    //debugger;
+    this.todoInstance.toDoCheckedCount(params).subscribe(response =>{
+      this.checkedCount = response;
+      //console.log("checkedresponse",this.checkedCount);
+    })
+  }
+
+ public getSortDetails(property){    
   this.isDesc = !this.isDesc; //change the direction    
     // this.column = property.replace(/\)/g,"").replace(/\(/g,"").replace(/ /g,"_").replace(/:/g,"");
-    this.direction = this.isDesc ? 1 : -1;
-      
+    this.direction = this.isDesc ? 1 : -1;  
     this.queryparams.sortOrder =  this.isDesc ? "desc" : "asc"
     this.queryparams.sortColumnname =  property
     this.getTodoListItem()

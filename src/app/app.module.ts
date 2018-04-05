@@ -1,4 +1,5 @@
 
+
 import 'materialize-css';
 import { MaterializeModule } from 'angular2-materialize';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,6 +15,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './component/login/login.component';
 import { LoginService } from './services/login.service';
 import { LoaderService } from './services/loader.service';
+import { WmtService } from './services/wmt.service';
 import { TodoService } from './services/todo.service';
 import { AppRoutingModule } from './app-routing.module';
 import { GlobalService } from './services/global.service';
@@ -68,7 +70,7 @@ import { StickyHeaderDirective } from './directive/sticky-header.directive';
     NgxDatatableModule,
     AppRoutingModule
   ],
-  providers: [AppComponent, LoginService, GlobalService, TodoService, CookieService, LoaderService,GlobalPreferencesService],
+  providers: [AppComponent, LoginService, GlobalService, TodoService, WmtService, CookieService, LoaderService,GlobalPreferencesService],
   bootstrap: [AppComponent],
   entryComponents: [
     GlobalPreferenceModalComponent

@@ -3,51 +3,6 @@
 
 
 /*//////////////////////////////////////////////////////////////////
-[ FONT ]*/
-
-/*@font-face {
-  font-family: Poppins-Regular;
-  src: url('../fonts/poppins/Poppins-Regular.ttf'); 
-}*/
-
-/*@font-face {
-  font-family: Poppins-Medium;
-  src: url('../fonts/poppins/Poppins-Medium.ttf'); 
-}*/
-
-/*@font-face {
-  font-family: Poppins-Bold;
-  src: url('../fonts/poppins/Poppins-Bold.ttf'); 
-}
-
-@font-face {
-  font-family: Poppins-SemiBold;
-  src: url('../fonts/poppins/Poppins-SemiBold.ttf'); 
-}*/
-
-
-/*@font-face {
-  font-family: ProximaNova-Regular;
-  src: url('../fonts/proxima-nova/PROXIMANOVA-REGULAR_3.ttf'); 
-}
-
-@font-face {
-  font-family: ProximaNova-Regular;
-  src: url('../fonts/proxima-nova/PROXIMANOVA-REGULAR_3.ttf'); 
-}
-
-@font-face {
-  font-family: Chicagogonf-Regular;
-  src: url('../fonts/Chicagogonf/CHICAGOGONF_0.ttf'); 
-}
-
-
-@font-face {
-  font-family: Chicagogonf-Bold;
-  src: url('../fonts/Chicagogonf/CHICAGOGONF-BOLD_1.ttf'); 
-}*/
-
-/*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
 
 
@@ -72,8 +27,11 @@ body, html {
 }
 
 #page-wrapper {
-    padding: 0 15px 12px 80px;
+    padding: 0 0px 12px 77px;
     background: #edf1f5 !important;
+ }
+ .ui-datatable-scrollable-body{
+     overflow-x: hidden !important; 
  }
  .first-box-row {
     padding-top: 10px;
@@ -87,6 +45,13 @@ body, html {
     /*box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);*/
     box-shadow: 0 0px 1px -2px rgba(0,0,0,.2), 0 0px 0px 0 rgba(0,0,0,.14), 0 1px 2px 0 rgba(0,0,0,.12)
  }
+ .custom-staff-box{
+    background: #fff;
+    padding: 8px 0px 0px 0px;
+    margin-bottom: 15px;
+    height: 65px;
+    box-shadow: 0 0px 1px -2px rgba(0,0,0,.2), 0 0px 0px 0 rgba(0,0,0,.14), 0 1px 2px 0 rgba(0,0,0,.12)
+ }
  .col-in {
     padding: 0px;
     margin-bottom: 5px;
@@ -97,19 +62,46 @@ body, html {
     font-weight: 400;
     vertical-align: bottom;
  }
- 
+ .excel-link{
+    cursor: pointer;
+}
+.cls-1 {
+    fill: #1fdee5;
+    display: inline-block;
+}
+  .cls-2 {
+    fill: #fff;
+  }
  .top-header{
      margin-top: 15px;
      margin-bottom: 0px;
  }
- .text-common{
+ .icon-box{
+     float: right;
+ }
+ 
+.staff-box{
+    padding-top:10px;
+}
+.staff-text{
+     display: inline-block;
+     padding-left: 20px;
+}
+.text-common{
     color: #1fdee5;
     padding-bottom: 10px;
- }
- .common-header-box{
+    font-size: 16px;
+}
+.staff-dropdown-icon{
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+    display: inline-block;
+}
+.common-header-box{
     padding-right: 0px;
- }
- .header{
+}
+.header{
     height: 50px;
     width: 100%;
     background-color:cornflowerblue;
@@ -124,21 +116,117 @@ body, html {
     z-index: 1;
     top: 0px;
 }
-p-dataTable{
-    margin-left: 20px;
-    margin-top: 50px;
-    margin-right: 20px;
-    display: block;
-}
 
-:host /deep/ p-datatable .stickyHeader{
-  box-shadow: 2px 2px 1px #888888;
-}
-
-
-
-
- .table{
+.table{
      background-color: #fff;
      box-shadow: 0 0px 1px -2px rgba(0,0,0,.2), 0 0px 0px 0 rgba(0,0,0,.14), 0 1px 2px 0 rgba(0,0,0,.12);
- }
+}
+.custom-table{
+    max-height: 300px;
+}
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0px solid rgba(0,0,0,.125);
+    border-radius: .0rem;
+}
+
+/*---------------Custom Dropdown Starts------------------*/
+li{
+    list-style: none;
+}
+
+
+.dropdown-menu{
+    /*transform: translate3d(1420px, 48px, 0px) !important;*/
+    padding: .0rem  0 !important;
+    font-size: 15px !important;
+    font-weight: 400;
+    background-color: #4d4f5c;
+}
+.dropdown-menu>li>a {
+    display: block;
+    padding: 10px 10px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #fff;
+    white-space: nowrap;
+}
+
+.dropdown-menu .divider {
+    height: 1px;
+    margin: 9px 0;
+    overflow: hidden;
+    background-color: #e5e5e5;
+}
+.dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
+    color: #31e0e7;
+    text-decoration: none;
+  /*  background-color: unset;*/
+}
+.custom-dropdown{
+    width: 100% !important;
+    padding: .0rem 0 10px !important;
+    border: 1px solid #4d4f5c !important;
+    border-radius: 0px !important;
+    margin-top: 14px;
+}
+/*.custom-dropdown li.access{
+   background: #ececec;
+} */
+.dropdown-menu > li.active > a{
+    color:#31e0e7 !important
+}
+a{
+    cursor: pointer;
+}
+.dropdown-menu>li.active{
+    background-color:#303139;
+}
+.dropdown-menu>li.active>a{
+    color:#31e0e7;
+}
+/* a.add-img{
+    background: url('../assets/images/ic_add.png') no-repeat right;
+    margin-right: 10px;
+
+}
+a.add-img:hover{
+    background: url('../assets/images/ic_add_hover.png') no-repeat right;
+    margin-right: 10px;
+
+}
+a.export-img {
+    background: url('../assets/images/ic_json.png') no-repeat right;
+    margin-right: 10px;
+}
+a.export-img:hover {
+    background: url('../assets/images/ic_json_hover.png') no-repeat right;
+    margin-right: 10px;
+}
+a.export-img-csv.inactive {
+    background: url('../assets/images/ic_csv.png') no-repeat right;
+    margin-right: 10px;
+}
+a.export-img-csv.inactive:hover  {
+    background: url('../assets/images/ic_csv_hover.png') no-repeat right;
+    margin-right: 10px;
+}
+a.delete-img{
+    background: url('../assets/images/ic_delete.png') no-repeat right;
+    margin-right: 10px;
+}
+a.delete-img:hover{
+    background: url('../assets/images/ic_delete_hover.png') no-repeat right;
+    margin-right: 10px;
+} */
+
+/*-----------------------Custom Dropdown Ends-------------------------------*/

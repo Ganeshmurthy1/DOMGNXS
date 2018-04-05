@@ -9,6 +9,14 @@ body{
     background-color:#edf1f5  !important
 }
 
+.ui-widget-content {
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-top:0 !important;
+    border-bottom:0 !important;
+
+}
+
 
 td, th {
     text-align: center !important;
@@ -19,6 +27,11 @@ td, th {
     background-color: #186ba0;
     color: #FFFFFF;
 }
+
+
+/* .ui-datatable-resizable{
+    overflow: unset !important;
+} */
 /* .ui-chkbox{
     cursor: pointer;   
 } */
