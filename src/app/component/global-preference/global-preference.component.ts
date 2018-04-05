@@ -70,6 +70,9 @@ export class GlobalPreferenceComponent implements OnInit {
   providers:any;
   LoginDetails:any;
   allEventCluster:any;
+  allEventLDUS:any;
+  allEventManagers:any;
+  allEventTeams:any;
    sortedClusterArray:any = [];
   
   prop:any;
@@ -134,7 +137,7 @@ export class GlobalPreferenceComponent implements OnInit {
       // Add margin in the first level of the list
       $(this).closest('ul').css("margin-top","20px");
       // Add margin in other levels of the list
-      $(this).closest('ul').find("li").children("ul").css("margin-top","20px");
+      $(this).closest('ul').find("li").children("ul").css("margin-top","20px").css("border-left","1px solid gray");
     };
   });
   // Add bold in li and levels above
@@ -169,38 +172,38 @@ export class GlobalPreferenceComponent implements OnInit {
  
     this.globalPreferService.getGlobalPreferences().subscribe(response =>{
      // this.loaderService.display(false);
-
-      this.allData = response.Preferences;
-      this.providers = this.allData.EventProviders; 
-      this.allEventCluster = this.allData.EventClusters;
      console.log("response",response);
-      console.log("this.providers",this.providers);
-      console.log("this.allEventCluster",this.allEventCluster);
+      this.allData = response.EventProviders;
+       this.providers = this.allData.EventProviders.providerLists; 
+       //this.allEventCluster = this.allData.EventProviders.providerLists; 
+      // this.allEventCluster = this.allData.EventClusters;
+      // this.allEventLDUS = this.allData.EventLDUS;     
+      // this.allEventTeams = this.allData.EventTeams;
+      // this.allEventManagers = this.allData.EventManagers;
+ 
+     
     })
   }
-//   parentCheckboxClicked(indx){
-// console.log("index",indx);
-
-// // this.providers.forEach(providerElement => {
-// //   this.allEventCluster.forEach(clusterElement => {
-// //     if(providerElement.levelId == clusterElement.providerId){
-// //       this.sortedClusterArray.push(clusterElement.providerId);      
-// //     }          
-// //   });
-// // });
-// this.allEventCluster.forEach(clusterElement => {
-//   if(clusterElement.providerId == indx){
-//     this.sortedClusterArray.push(clusterElement); 
-//     console.log('this.sortedClusterArray',this.sortedClusterArray);
-//   }
-// });
-//   }
+ 
 providerClicked(provdrId){
   console.log("provdrId",provdrId);
 }
 clusterClicked(provdrId,clusterId){
   console.log("provdrId",provdrId);
   console.log("clusterId",clusterId);
+}
+
+ldusClicked(provdr,clustr,ldus){
+  console.log("provdrId",provdr);
+  console.log("clusterId",clustr);
+  console.log("provdrId",ldus);
+  
+}
+evTeamClicked(provdr,clustr,ldus,team){
+  console.log("provdrId",provdr);
+  console.log("clusterId",clustr);
+  console.log("provdrId",ldus);
+  console.log("provdrId",team);
 }
 }
 
