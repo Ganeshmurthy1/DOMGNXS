@@ -114,13 +114,38 @@
                                       
                                       <a class="pref-link" >
                                           <input class="input-checkbox" id="clustCheck{{i}}" type="checkbox" (click)="clusterClicked(provd.levelId,clust.levelId)">
-                                              <label class="label-checkbox" for="clustCheck{{i}}">{{clust.providerId}}-{{clust.eventProvider}}</label> </a>
-                                        <!-- <ul>
-                                            <li class="pref-list"><a href="#" class="pref-link">Spiral Scratch</a></li>
-                                            <li class="pref-list"><a href="#" class="pref-link">Real Life</a></li>
-                                            <li class="pref-list"><a href="#" class="pref-link">Secondhand Daylight</a></li>
-                                            <li class="pref-list"><a href="#" class="pref-link">The Correct Use</a></li>
-                                        </ul> -->
+                                              <label class="label-checkbox" for="clustCheck{{i}}">{{clust.providerId}}-{{clust.clusterId}}-{{clust.eventProvider}}</label> </a>
+                                         
+                                        <ul><div *ngFor="let ldus of allEventLDUS; let i=index"  >                                  
+                                            <li class="pref-list" *ngIf="clust.providerId == provd.levelId && clust.clusterId == ldus.clusterId">                                       
+                                              
+                                              <a class="pref-link" >
+                                                  <input class="input-checkbox" id="ldusCheck{{i}}" type="checkbox" (click)="ldusClicked(provd.levelId,clust.levelId,ldus.lduId)">
+                                                      <label class="label-checkbox" for="ldusCheck{{i}}">{{ldus.providerId}}-{{ldus.clusterId}}-{{ldus.lduId}}-{{ldus.eventLDU}}</label> </a>
+                                                 
+                                                <ul><div *ngFor="let evTeam of allEventTeams; let i=index"  >                                  
+                                                    <li class="pref-list" *ngIf="clust.providerId == provd.levelId && clust.clusterId == ldus.clusterId && ldus.lduId == evTeam.lduId">                                       
+                                                      
+                                                      <a class="pref-link" >
+                                                          <input class="input-checkbox" id="evTeamCheck{{i}}" type="checkbox" (click)="evTeamClicked(provd.levelId,clust.levelId,ldus.lduId,evTeam.teamId)">
+                                                              <label class="label-checkbox" for="evTeamCheck{{i}}">{{evTeam.providerId}}-{{evTeam.clusterId}}-{{evTeam.lduId}}-{{evTeam.teamId}}-{{evTeam.eventTeam}}</label> </a>
+                                                       
+                                                        <!-- <ul><div *ngFor="let allManager of allEventManagers; let i=index"  >                                  
+                                                            <li class="pref-list" *ngIf="clust.providerId == provd.levelId && clust.clusterId == ldus.clusterId && ldus.lduId == evTeam.lduId">                                       
+                                                              
+                                                              <a class="pref-link" >
+                                                                  <input class="input-checkbox" id="evTeamCheck{{i}}" type="checkbox" (click)="evTeamClicked(provd.levelId,clust.levelId,ldus.lduId,evTeam.teamId)">
+                                                                      <label class="label-checkbox" for="evTeamCheck{{i}}">{{evTeam.providerId}}-{{evTeam.clusterId}}-{{evTeam.lduId}}-{{evTeam.teamId}}-{{evTeam.eventTeam}}</label> </a>
+                                                                 
+                                                            </li>
+                                                          </div>
+                                                        </ul> -->
+                                                    </li>
+                                                  </div>
+                                                </ul>
+                                            </li>
+                                          </div>
+                                        </ul>
                                     </li>
                                   </div>
                                 </ul>
