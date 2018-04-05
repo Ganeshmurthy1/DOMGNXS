@@ -25,29 +25,20 @@ export class TodoComponent implements OnInit {
   public taskResp:any = [];
   public taskDetails:any = {};
   public taskFilterDetails:any = [];
-  // public hideBlock:boolean;
-  // public dayBlock:boolean;
+
   public riskBlock:boolean;
   public timeCount:any = "0";
   public interCount: any = "0";
   public allTasksInfo:any = {}
 
 
-  public dayCount:boolean;
-  public weekCount:boolean;
-  public dueCount:boolean;
-  public overAllCount:boolean;
-  public overAllGroupCount:boolean;
-  //Time filters 
-  public timeGroupCount:number;
-  public timeOneDayCount:number;
-  public timeOneWeekCount:number;
-  public timeDueCount:number;
-  //Interventions Filters
-  public interGroupCount:number;
-  public interLowRiskCount:number;
-  public interHighRiskCount:number;
-  public interFailingCount:number;
+  // public dayCount:boolean;
+  // public weekCount:boolean;
+  // public dueCount:boolean;
+  // public overAllCount:boolean;
+  // public overAllGroupCount:boolean;
+
+  
   
   public infoGroupCount:number;
   public heteGroupCount:number;
