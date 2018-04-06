@@ -148,5 +148,7 @@ ul li ul li:last-child:after, ul li:last-child:after {
   left: -1px;
 }
  
-
+.padLeftRight20px{
+  padding: 0px 20px;
+}
 /*-----------------Preference UI Ends----------------------------*/

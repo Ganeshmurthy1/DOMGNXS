@@ -74,15 +74,21 @@ export class GlobalPreferenceComponent implements OnInit {
   allEventManagers:any;
   allEventTeams:any;
    sortedClusterArray:any = [];
-  
+   sortedLdusArray:any = [];
+    
+   showHide: boolean;
   prop:any;
+  public indx:any = null;
+  public jIndx:any = null;
+  
   constructor(private router: Router, private globalPreferService: GlobalPreferencesService, private loaderService: LoaderService,
   private modalService: BsModalService) { 
+     
  
   }
-
+  showId = false;
   ngOnInit() {
-
+     
     // this.loaderService.display(true);
     this.LoginDetails = JSON.parse(localStorage.getItem('LoginDetails'));  
    
@@ -94,116 +100,105 @@ export class GlobalPreferenceComponent implements OnInit {
       this.router.navigate(['login']);
     } 
    
-//   $(document).ready(function () {
-//     $('.subField').hide();
-//     //use event delegation since classes are changed dynamically
-//     $('#branches').on('click', '.buttonShow', function () {
-//         //remove the show class and assign hidden
-//         $(this).toggleClass('buttonHide buttonShow');
-//         //the subfield is a child of the parent not the next sibling
-//         $(this).siblings('.subField').show('slow');
-//     });
-//     $('#branches').on('click', '.buttonHide', function () {
-//         $(this).toggleClass('buttonHide buttonShow');
-//         $(this).siblings('.subField').hide('slow');
-
-//     });
-// });
-
-
+  
   }
 
-  ngAfterViewInit(){
-    setTimeout(()=>{     
-      $(document).ready(function () {
- 
-  // Select the main list and add the class hasSubmenu" in each LI that contains an UL
-  $('ul').each(function(){  
+//   ngAfterViewInit(){
+//     setTimeout(()=>{     
+//       $(document).ready(function () {
+      
+//   // Select the main list and add the class hasSubmenu" in each LI that contains an UL
+//   $('ul').each(function(){  
     
-    $(this).find("li").has("ul").addClass("hasSubmenu");
-  });
-  // Find the last li in each level
-  $('li:last-child').each(function(){ 
-    // Check if LI has children
-    if ( $(this).children('ul').length === 0){
+//     $(this).find("li").has("ul").addClass("hasSubmenu");
+//   });
+//   // Find the last li in each level
+//   $('li:last-child').each(function(){ 
+//     // Check if LI has children
+//     if ( $(this).children('ul').length === 0){
 
-      // Add border-left in every UL where the last LI has not children
-      $(this).closest('ul').css("border-left", "1px solid gray");
-    } else {
-      // Add border in child LI, except in the last one
-      $(this).closest('ul').children("li").not(":last").css("border-left","1px solid gray");
-      // Add the class "addBorderBefore" to create the pseudo-element :defore in the last li
-      $(this).closest('ul').children("li").last().children("a").addClass("addBorderBefore");
-      // Add margin in the first level of the list
-      $(this).closest('ul').css("margin-top","20px");
-      // Add margin in other levels of the list
-      $(this).closest('ul').find("li").children("ul").css("margin-top","20px").css("border-left","1px solid gray");
-    };
-  });
-  // Add bold in li and levels above
-  $('ul li').each(function(){
+//       // Add border-left in every UL where the last LI has not children
+//       $(this).closest('ul').css("border-left", "1px solid gray");
+//     } else {
+//       // Add border in child LI, except in the last one
+//       $(this).closest('ul').children("li").not(":last").css("border-left","1px solid gray");
+//       // Add the class "addBorderBefore" to create the pseudo-element :defore in the last li
+//       $(this).closest('ul').children("li").last().children("a").addClass("addBorderBefore");
+//       // Add margin in the first level of the list
+//       $(this).closest('ul').css("margin-top","20px");
+//       // Add margin in other levels of the list
+//       $(this).closest('ul').find("li").children("ul").css("margin-top","20px").css("border-left","1px solid gray");
+//     };
+//   });
+//   // Add bold in li and levels above
+//   $('ul li').each(function(){
      
-    $(this).mouseenter(function(){
-      $( this ).children("a").css({"font-weight":"bold","color":"#336b9b"});
-    });
-    $(this).mouseleave(function(){
-      $( this ).children("a").css({"font-weight":"normal","color":"#428bca"});
-    });
-  });
-  // Add button to expand and condense - Using FontAwesome
-  $('ul li.hasSubmenu').each(function(){
+//     $(this).mouseenter(function(){
+//       $( this ).children("a").css({"font-weight":"bold","color":"#336b9b"});
+//     });
+//     $(this).mouseleave(function(){
+//       $( this ).children("a").css({"font-weight":"normal","color":"#428bca"});
+//     });
+//   });
+//   // Add button to expand and condense - Using FontAwesome
+//   $('ul li.hasSubmenu').each(function(){
     
-    $(this).prepend("<a href='#'><i class='fa fa-minus-circle'></i><i style='display:none;' class='fa fa-plus-circle'></i></a>");
-    $(this).children("a").not(":last").removeClass().addClass("toogle");
-  });
-  // Actions to expand and consense
-  $('ul li.hasSubmenu a.toogle').click(function(){
+//     $(this).prepend("<a href='#'><i class='fa fa-minus-circle'></i><i style='display:none;' class='fa fa-plus-circle'></i></a>");    
+//     // $(this).children("a").not(":last").removeClass().addClass("toogle");
+//     $(this).children("a").not(":last").removeClass().addClass("toogle");
+//   });
+//   // Actions to expand and consense
+//   $('ul li.hasSubmenu a.toogle').click(function(){
      
-    $(this).closest("li").children("ul").toggle("slow");
-    $(this).children("i").toggle();
-    return false;
-  });
-    });
- },3000);    
+//     $(this).closest("li").children("ul").toggle("slow");
+//     $(this).children("i").toggle();
+//     return false;
+//   });
+//     });
+//  },3000);    
    
 
-  }
+//     }
+
   getAllGlobalPreferences(){
  
     this.globalPreferService.getGlobalPreferences().subscribe(response =>{
      // this.loaderService.display(false);
      console.log("response",response);
       this.allData = response.EventProviders;
-       this.providers = this.allData.EventProviders.providerLists; 
-       //this.allEventCluster = this.allData.EventProviders.providerLists; 
-      // this.allEventCluster = this.allData.EventClusters;
-      // this.allEventLDUS = this.allData.EventLDUS;     
-      // this.allEventTeams = this.allData.EventTeams;
-      // this.allEventManagers = this.allData.EventManagers;
- 
-     
+      this.providers =this.allData.providerLists
+    
     })
   }
  
-providerClicked(provdrId){
-  console.log("provdrId",provdrId);
-}
-clusterClicked(provdrId,clusterId){
-  console.log("provdrId",provdrId);
-  console.log("clusterId",clusterId);
-}
+ 
+ providerClicked(provdr, indx){ 
+   console.log("indx",indx);
+     this.indx= indx   
+      this.providers.forEach((keys : any, vals :any) => {
+        if(vals == indx){         
+          provdr.sortedClusterArray = keys.clustersList;
+        }
+      })   
+ 
+  }
+  clustersClicked(cluster,jIndex){    
+    // this.jIndx= jIndex
+    // this.sortedClusterArray.forEach((keys : any, vals :any) => {     
+    //   if(vals == jIndex){
+    //     this.sortedLdusArray = keys.ldusList;
+    //   }
+    // }); 
+    this.jIndx= jIndex
+    this.sortedClusterArray.forEach((keys : any, vals :any) => {
+      if(vals == jIndex){         
+        cluster.sortedClusterArray = keys.clustersList;
+      }
+    })  
 
-ldusClicked(provdr,clustr,ldus){
-  console.log("provdrId",provdr);
-  console.log("clusterId",clustr);
-  console.log("provdrId",ldus);
-  
+ }
+ 
 }
-evTeamClicked(provdr,clustr,ldus,team){
-  console.log("provdrId",provdr);
-  console.log("clusterId",clustr);
-  console.log("provdrId",ldus);
-  console.log("provdrId",team);
-}
-}
+ 
+ 
 
