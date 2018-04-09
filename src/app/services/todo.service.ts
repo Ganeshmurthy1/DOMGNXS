@@ -7,6 +7,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import * as _ from 'underscore';
+import { URLSearchParams } from '@angular/http';
 
 
 @Injectable()
@@ -44,7 +45,7 @@ export class TodoService {
 
   public getFilterToDoList(){
     var queryParams = "1"
-    return this.http.post(environment.baseUrl+"/toDo/groupFilterCounts",queryParams,  this.globalService.getHeaders("json")).map(res => res.json()).map((response: any) => {
+    return this.http.post(environment.baseUrl+"/toDo/groupFilterCounts",queryParams,  this.globalService.getHeaders("form")).map(res => res.json()).map((response: any) => {
       return response.data ? response.data : [];
     });
   }
@@ -62,6 +63,7 @@ export class TodoService {
   
   public toDoTableDetails(fileInfoId: number, count_data:string){
    // debugger;
+   
     var formData = new FormData();
     formData.append('preferenceDetails', "1");
     // formData.append('sortColumnname', "1");
@@ -72,7 +74,12 @@ export class TodoService {
   }
 
   public toDoExportExcel(fileInfoId: number, count_data:string){
-    return window.location.href=environment.baseUrl+"/toDo/getToDoExporttoExcel/"+fileInfoId+"/"+count_data
+    debugger;
+    var formData = new FormData();
+    formData.append('preferenceDetails', "1");
+     return window.location.href=environment.baseUrl+"/toDo/getToDoExporttoExcel/"+fileInfoId+"/"+count_data,formData, this.globalService.getHeaders("form")
+
+    //return this.http.post(environment.baseUrl+"/toDo/getToDoExporttoExcel/"+fileInfoId+"/"+count_data, this.globalService.getHeaders("json"))
   }
 
   //for sorting table
@@ -93,10 +100,12 @@ export class TodoService {
 
 // For Checked Count
   public toDoCheckedCount(queryParams:any){
-    //console.log("queryParams",queryParams);
-    //debugger;
-    
-    return this.http.post(environment.baseUrl+"/toDo/saveCheckList",queryParams, this.globalService.getHeaders("json")).map(res => res.json()).map((response: any) => {
+   // debugger;
+    let urlSearchParams = new URLSearchParams();
+    urlSearchParams.append('fileInfoId', queryParams.fileInfoId);
+    urlSearchParams.append('FileId', queryParams.FileId);
+    urlSearchParams.append('checkStatus', queryParams.checkStatus);
+    return this.http.post(environment.baseUrl+"/toDo/saveCheckList",urlSearchParams, this.globalService.getHeaders("form")).map(res => res.json()).map((response: any) => {
       return response.data ? response.data : [];
     });
   }

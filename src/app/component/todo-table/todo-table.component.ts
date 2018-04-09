@@ -4,10 +4,8 @@ import { TodoComponent } from './../todo/todo.component';
 import { TodoService } from './../../services/todo.service';
 import { Component, OnInit, PipeTransform, Pipe, Directive } from '@angular/core';
 import { ActivatedRoute,Router} from '@angular/router';
-//import { DataTableResource } from 'angular-4-data-table-bootstrap-4';
-
-//import _ from 'underscore';
 import * as _ from 'underscore';
+import { ToastrService } from 'ngx-toastr';
 //import { reverse } from 'dns';
 declare var jquery:any;
 declare var $ :any;
@@ -45,14 +43,21 @@ export class TodoTableComponent implements OnInit {
   public checkedCount: any;  
   public fileInfo:any;
   public fileId:any;
+  public toRemoveCheckedList:any = [];
   checkListParam:any = {}
   selectedItems = [];
-  public  hidden:boolean = false;
-
-  constructor(private route: ActivatedRoute, private todoInstance: TodoService, private router:Router, private loaderService: LoaderService) { }
+  public show:boolean;
+  selected:any[]=[]
+  public checkList:any = [];
+  public hideEle:boolean;
+  hiddenItems:any=[];
+  tempData:any=[];
+  constructor(private route: ActivatedRoute, private todoInstance: TodoService, private router:Router, private loaderService: LoaderService, private toastr: ToastrService) { }
 
   ngOnInit() {
-    this.loaderService.display(true); 
+    this.loaderService.display(true);
+    this.hideEle=false;
+    // this.loaderService.display(true); 
     this.allowSelectAll = true;
     this.addBlock = true;
     //this.orgService.getOrgDetails(this.org_id).subscribe(response => {
@@ -60,15 +65,16 @@ export class TodoTableComponent implements OnInit {
       //console.log(this.orgDetails);
 
     let sub = this.route.params.subscribe(params =>{
-      this.loaderService.display(false);
+      // this.loaderService.display(true);
       this.file_Id=params.fileInfoId
       this.path=params.path
+      this.loaderService.display(false); 
     });
    
     let flds = this.route.queryParams.subscribe(params =>{
-      this.loaderService.display(false);
-      //debugger;
+      // this.loaderService.display(true);
       this.file_desc=params['desc'];
+      this.loaderService.display(false); 
       });
 
       // let allCnt = this.route.queryParams.subscribe(params =>{
@@ -83,7 +89,7 @@ export class TodoTableComponent implements OnInit {
       //   });
     //let sub1 = this.route.queryParams.subscribe(params =>this.usrnm=params.username)
     
-    this.getTodoListItem()
+    this.getTodoListItem();
       
   }
 
@@ -122,64 +128,110 @@ export class TodoTableComponent implements OnInit {
 
   public getTodoListItem(){
     //debugger;
+   this.loaderService.display(true);  
     this.todoInstance.toDoSortTable(this.file_Id,this.path, this.queryparams).subscribe(response =>{
-      this.loaderService.display(false);  
+     
       var header_data:any = [];
     
      this.tableDetails = [];
       response.map((obj,i)=>{
         //debugger;
+       //console.log("outer",obj)
         var tmp:any ={};
+       
         for(let key in obj){
-          console.log(obj.CheckedStatus == "0")
-          if(obj.CheckedStatus == "0"){
+         
             if(i==0)
               header_data.push({"name":key, "prop":key.replace(/\)/g,"").replace(/\(/g,"").replace(/ /g,"_").replace(/:/g,"")})
             tmp[key.replace(/\)/g,"").replace(/\(/g,"").replace(/ /g,"_").replace(/:/g,"")] = obj[key];
-          }          
+         // }          
         }
-        if(Object.keys(tmp).length > 0)
-         this.tableDetails.push(tmp);
+        //if(Object.keys(tmp).length > 0){
+         // console.log("data",this.tableDetails);
+          //if(this.tableDetails.CheckedStatus != 0)
+          this.selected.push(tmp);
+          
+          
+       // }
+        //console.log( this.tableDetails);
       })
-     //console.log(header_data,this.tableDetails);
+     // debugger;
+      this.tableDetails=JSON.parse(JSON.stringify(this.selected))
+      for (let i = 0; i < this.tableDetails.length; i++) { 
+        if(this.tableDetails[i].CheckedStatus=="1"){
+          this.tableDetails[i].CheckedStatus=true;
+          
+        }
+        else{
+          this.tableDetails[i].CheckedStatus=false;
+        }
+    }
+      this.tempData=this.tableDetails;
       this.header_details=header_data;
-      this.loaderService.display(false);
+     this.loaderService.display(false);
     });
   }
-
-
-
 
   public getExportExcel(file_Id){
     this.todoInstance.toDoExportExcel(file_Id, this.path);
   }
+ 
+//   public hightlightRow(keys: any, index: number) {
+//     return rowData.LeadTimeRemaining + '-hightliting';
+// }
+
   //hide selected Checked Records
-  public getCheckedRecord(){
+  public hideCheckedRow(){
     debugger;
-  //   this.selectedItems.forEach(function(list) {
-  //     const index = this.tableDetails.indexOf(list);
-  //     this.tableDetails.splice(index, 1);
-  // });
-   
-    this.checkListParam.checkStatus = "1";
-
-
-    this.tableDetails = _.filter(this.tableDetails, function(obj:any){ return !obj.isChecked});
-     console.log(this.tableDetails);
+    if(!this.hideEle){
+      // this.checkList.forEach(evet=>{
+      //   this.tableDetails.forEach((keys : any,index) => {
+      //     // id= keys.Id
+      //         if(evet == keys.Id){
+      //           console.log("splice",index,'-',keys.Id);
+      //           this.hiddenItems.push( this.tableDetails[index])
+      //           var x =    this.tableDetails.splice(index, 1); 
+      //           console.log("spliced",this.tableDetails);
+      //         }
+           
+      //      })
+      //     })
+      var tmp=this.tableDetails
+      // for (let i = 0; i >tmp.length;  i++) { 
+      //   if(this.tableDetails[i].CheckedStatus == false){
+      //     console.log(i);
+      //     this.selected[i].CheckedStatus=false;
+      //     this.tableDetails.splice(i, 1); 
+      //   }
+      // }
+      this.tableDetails= this.tableDetails.filter(val=>
+        val.CheckedStatus==false)
+        console.log(this.tableDetails)
+    }
+    else{
+      this.tableDetails= this.tempData
+    }
+    
+    this.hideEle=! this.hideEle
+  
+    
   }
 
   onRowSelectd(evet){
+    //console.log("evet",evet.data.Id);
     this.checkListParam.fileInfoId = this.file_Id;
-    this.checkListParam.FileId = evet.data.Id;
-    this.checkListParam.checkStatus = "1";
+    this.checkListParam.FileId = evet.Id;
+    this.checkListParam.checkStatus = evet.CheckedStatus;
+    //this.style.backgroundColor = '#000000';  
 
-    //console.log("evet",evet);
+    console.log("evet",evet);
+    this.checkList.push(evet.Id)
     console.log(" this.checkListParam", this.checkListParam);
-     this.getRowCheckStatus( this.checkListParam);
-
+    this.getRowCheckStatus( this.checkListParam);
+    this.toRemoveCheckedList.push(evet.Id);
 
   }
-  onRowUnselected(unEvent){
+  onRowUnselected(unEvent, index){
     this.checkListParam.fileInfoId = this.file_Id;
     this.checkListParam.FileId = unEvent.data.Id;
     this.checkListParam.checkStatus = "0";
@@ -189,10 +241,22 @@ export class TodoTableComponent implements OnInit {
 
   public getRowCheckStatus(eventIndx){
     var params;
+  
      params = eventIndx;
+     if(params.checkStatus==true){
+      params.checkStatus="1"
+    }
+    else{
+      params.checkStatus="0"
+    }
     //debugger;
     this.todoInstance.toDoCheckedCount(params).subscribe(response =>{
       this.checkedCount = response;
+      console.log(response);
+      //check respionse status , if it 200 , success 
+      
+
+
       //console.log("checkedresponse",this.checkedCount);
     })
   }
@@ -205,6 +269,30 @@ export class TodoTableComponent implements OnInit {
     this.queryparams.sortColumnname =  property
     this.getTodoListItem()
   }
-  
-  
+public highlightRow(rowData){
+
+  return rowData.CheckedStatus ? 'disabled' : ''
+}
+ 
+public dblclick(data)
+{
+
+    let selBox = document.createElement('textarea');
+    selBox.style.position = 'fixed';
+    selBox.style.left = '0';
+    selBox.style.top = '0';
+    selBox.style.opacity = '0';
+    selBox.value = JSON.stringify(data.data.CRN_Event_No).replace(/\)/g,"").replace(/\(/g,"");
+    var crn_box = String(selBox.value).split(':');
+    var crn_val = String(crn_box[0]).replace('"','');
+    selBox.value = crn_val;
+    console.log(selBox.value);
+    document.body.appendChild(selBox);
+    selBox.focus();
+    selBox.select();
+    document.execCommand('copy');
+    document.body.removeChild(selBox);
+    this.toastr.success(selBox.value,"CRN Number Copied:");
+}
+
 }
