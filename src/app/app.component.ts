@@ -15,13 +15,14 @@ export class AppComponent {
   public isLogin : boolean = true;
   public show: boolean;
   public showLoader: boolean;
-  constructor(private router:Router, private globalService: GlobalService, cdRef: ChangeDetectorRef, private loaderService: LoaderService){
+  constructor(private router:Router, private globalService: GlobalService, public cdRef: ChangeDetectorRef, private loaderService: LoaderService){
 
   }
 
   ngOnInit(){
     this.loaderService.status.subscribe((val: boolean) => {
       this.showLoader = val;
+      this.cdRef.detectChanges()
     })
     this.router.events.subscribe((event) =>{
       if(event instanceof NavigationEnd){

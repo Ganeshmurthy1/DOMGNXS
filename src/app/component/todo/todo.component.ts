@@ -51,7 +51,7 @@ export class TodoComponent implements OnInit {
     private modalService: BsModalService) { }
 
   ngOnInit() {
-    //this.loaderService.display(true);
+    this.loaderService.display(true);
     this.riskBlock = true;
     this.LoginDetails = JSON.parse(localStorage.getItem('LoginDetails'));  
    
@@ -59,6 +59,7 @@ export class TodoComponent implements OnInit {
       this.getAllTasks();
       this.gettoDoTask();
       this.getGroupDefaultCount();
+      this.loaderService.display(true);
    //this.getOneDayCount();
   
     }else{
@@ -71,14 +72,16 @@ export class TodoComponent implements OnInit {
 
 
   getAllTasks() {
+    
     this.todoInstance.getOverAllTask('allCount').subscribe(response =>{
-      this.loaderService.display(false);
+      this.loaderService.display(true);
       var obj={}
       _.map(response, function(value, key ){ 
         obj[key.toLowerCase()] =value;      
       });
       this.allTasksInfo=obj
       this.totalCount = this.allTasksInfo.allcount
+      this.loaderService.display(false);
     });
   }
 
@@ -91,8 +94,9 @@ export class TodoComponent implements OnInit {
   
 
   getGroupDefaultCount() {
+    this.loaderService.display(true);
     this.todoInstance.getGroupCount().subscribe(response =>{
-      this.loaderService.display(false);
+      
       var tmp:any ={}
       response.map((obj,i)=>{
         tmp[obj.groupName.replace(/\)/g,"").replace(/\(/g,"").replace(/ /g,"_")] = obj;
@@ -123,14 +127,15 @@ export class TodoComponent implements OnInit {
       this.heteGroupCount = this.groupCount.To_Do_List_HETE_and_Curfew.allCount;
       //Outstanding Group Count
       this.outGroupCount = this.groupCount.OutStanding_Pending_Transfer.allCount;
-      
+      this.loaderService.display(false);
     });
 
 }
 
 gettoDoTask() {
+  this.loaderService.display(true);
 this.todoInstance.toDoTask().subscribe(response =>{
-  this.loaderService.display(false);
+  //this.loaderService.display(false);
   var tmp={}
   for(let key in response){
     //console.log(key, response[key])

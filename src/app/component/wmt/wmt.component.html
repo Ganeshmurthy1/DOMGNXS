@@ -174,10 +174,30 @@
                 
             </tbody>
         </table> -->
-        <p-dataTable  [(value)]="wmtTable" scrollable="true" [responsive]="true" resizableColumns="true" scrollHeight="800px" scrollWidth="100%" sortMode="multiple">
+        <p-dataTable  [(value)]="wmtTable" scrollable="true" [responsive]="true" resizableColumns="true" scrollHeight="270px"  sortMode="multiple">        
+          <!-- <p-column  field="{{list.prop}}" header="{{list.name}}" [sortable]="true" [style]="{'width':'250px'}"></p-column> -->
+          <p-column  field="Name" header="Name" [sortable]="true" [style]="{'width':'200px'}"  ></p-column>
+          <p-column  field="Cases" header="Cases" [sortable]="true" [style]="{'width':'100px'}"></p-column>
+          <p-column  field="Volume" header="Volume" [sortable]="true"  [style]="{'width':'100px'}"></p-column>
+          <p-column  field="FTE" header="FTE" [sortable]="true" [style]="{'width':'100px'}" ></p-column>
+          <p-column  field="CM" header="CM" [sortable]="true"  [style]="{'width':'100px'}"></p-column>
+          <p-column  field="SCM" header="SCM" [sortable]="true" [style]="{'width':'100px'}" ></p-column>
+          <p-column  field="Band_0" header="Band 0" [sortable]="true"  [style]="{'width':'100px'}"></p-column>
+          <p-column  field="Band_1" header="Band 1" [sortable]="true"  [style]="{'width':'100px'}"></p-column>
+          <p-column  field="Band_2" header="Band 2" [sortable]="true"  [style]="{'width':'100px'}"></p-column>
+          <p-column  field="Band_3" header="Band 3" [sortable]="true"  [style]="{'width':'100px'}"></p-column>
+          <p-column  field="Band_4" header="Band 4" [sortable]="true" [style]="{'width':'100px'}"></p-column>
+          <p-column  field="Comunity" header="Community" [sortable]="true" [style]="{'width':'100px'}"></p-column>
+          <p-column  field="Custody" header="Custody" [sortable]="true" [style]="{'width':'100px'}"></p-column>
+          <p-column  field="Dormant" header="Dormant" [sortable]="true" [style]="{'width':'100px'}"></p-column>
+        </p-dataTable>  
+      </div>
+    </div>
 
-              
-            <!-- <p-column  field="{{list.prop}}" header="{{list.name}}" [sortable]="true" [style]="{'width':'250px'}"></p-column> -->
+
+
+    <!-- <div class="" style="padding-right:0">
+        <p-dataTable  [(value)]="wmtTable" scrollable="true" [responsive]="true" resizableColumns="true" scrollHeight="800px" scrollWidth="100%" sortMode="multiple">
             <p-column  field="Name" header="Name" [sortable]="true" [style]="{'width':'200px'}"  ></p-column>
             <p-column  field="Cases" header="Cases" [sortable]="true" [style]="{'width':'100px'}"></p-column>
             <p-column  field="Volume" header="Volume" [sortable]="true"  [style]="{'width':'100px'}"></p-column>
@@ -192,14 +212,7 @@
             <p-column  field="Comunity" header="Community" [sortable]="true" [style]="{'width':'100px'}"></p-column>
             <p-column  field="Custody" header="Custody" [sortable]="true" [style]="{'width':'100px'}"></p-column>
             <p-column  field="Dormant" header="Dormant" [sortable]="true" [style]="{'width':'100px'}"></p-column>
-              
-    
-    </p-dataTable>
-       
-        </div>
-
-       
-
-    </div>
+          </p-dataTable>
+    </div> -->
   </div>  
 </div>    
