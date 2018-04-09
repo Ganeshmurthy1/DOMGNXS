@@ -19,7 +19,7 @@
                                 <img [src]="allprovdr.active?'./assets/images/minus.png':'./assets/images/plus.png'" width="20px" height="20px"/></a></span>
                             <span>
                              <input type="checkbox" name ="provdr" id="provdr-{{i+1}}">
-                       <label for="provdr-{{i+1}}">{{i}}-{{allprovdr.levelValue}} {{allprovdr.active}}</label>
+                       <label for="provdr-{{i+1}}">{{allprovdr.levelValue}}</label>
                     </span>
                     <ng-container *ngIf="allprovdr.active">                          
                        <ul>
@@ -28,38 +28,41 @@
                                         <img [src]="cluster.active?'./assets/images/minus.png':'./assets/images/plus.png'" width="20px" height="20px"/></a></span>
                                     <span>
                                      <input type="checkbox" name ="cluster" id="cluster-{{j+1}}">
-                               <label for="cluster-{{j+1}}">{{i}}-{{j}}-{{cluster.levelValue}} {{j==indx}}</label>
+                               <label for="cluster-{{j+1}}">{{cluster.levelValue}}</label>
                             </span>
-                            <ng-container *ngIf="cluster.active">
-                               <!-- <ul>
-                                  <li class="has-children" *ngFor="let ldus of sortedLdusArray; let k = index">
-                                     <input type="checkbox" name ="ldus" id="ldus-{{k+1}}">
-                                     <label for="ldus-{{k+1}}">{{i}}-{{j}}-{{k}}-{{ldus.levelValue}}</label>
-                          
-                                  </li>                            
-                               </ul> -->
-                               <ul>
+                            <ng-container *ngIf="cluster.active">                               
+                                 <ul>
                                     <li class="has-children" *ngFor="let ldus of cluster.sortedLdusArray||[]; let k = index">
                                           <span><a (click)="ldus.active=!ldus.active; ldusClicked(ldus,k)">
                                                   <img [src]="ldus.active?'./assets/images/minus.png':'./assets/images/plus.png'" width="20px" height="20px"/></a></span>
                                               <span>
-                                               <input type="checkbox" name ="ldus" id="ldus-{{j+1}}">
-                                         <label for="ldus-{{j+1}}">{{i}}-{{j}}-{{ldus.levelValue}} {{j==indx}}</label>
+                                               <input type="checkbox" name ="ldus" id="ldus-{{k+1}}">
+                                         <label for="ldus-{{k+1}}">{{ldus.levelValue}}</label>
                                       </span>
                                       <ng-container *ngIf="ldus.active">
-                                         <ul>
-                                            <li class="has-children" *ngFor="let ldus of sortedLdusArray; let k = index">
-                                               <input type="checkbox" name ="ldus" id="ldus-{{k+1}}">
-                                               <label for="ldus-{{k+1}}">{{i}}-{{j}}-{{k}}-{{ldus.levelValue}}</label>
-                                    
-                                            </li>                            
+                                         <ul>                                            
+                                            <li class="has-children" *ngFor="let team of ldus.sortedTeamList; let t = index">
+                                                    <span><a (click)="team.active=!team.active; teamClicked(team,t)">
+                                                            <img [src]="team.active?'./assets/images/minus.png':'./assets/images/plus.png'" width="20px" height="20px"/></a></span>
+                                                        <span>
+                                                         <input type="checkbox" name ="team" id="team-{{t+1}}">
+                                                   <label for="team-{{t+1}}">{{team.levelValue}}</label>
+                                                </span>
+                                                <ng-container *ngIf="team.active">
+                                                   <ul>
+                                                      <li class="has-children" *ngFor="let managr of team.sortedManagerList; let m = index">
+                                                         <input type="checkbox" name ="managr" id="managr-{{m+1}}" >
+                                                         <label for="managr-{{m+1}}">{{managr.levelValue}}</label>
+                                                          
+                                                      </li>                            
+                                                   </ul>
+                                                </ng-container>                                      
+                                              </li>
                                          </ul>
-                                      </ng-container>
-                            
+                                      </ng-container>                            
                                     </li>                            
                                  </ul>
-                            </ng-container>
-                  
+                            </ng-container>                  
                           </li>                            
                        </ul>
                     </ng-container>
@@ -67,59 +70,6 @@
                 
                  </ul> 
                 
-                  
-                
-
-
-
-                <div class="white-box pref-box">
-                    <div class="container">
-                     <!-- <ul class="main-list">
-                            <li class="pref-list" *ngFor="let provd of providers; let i=index">
-                              <a class="pref-link">
-                                <input class="input-checkbox" id="providerCheck{{i}}" type="checkbox" (click)="providerClicked()">
-                                    <label class="label-checkbox" for="providerCheck{{i}}">{{provd.levelValue}}</label> </a>
-                                <ul><div *ngFor="let clust of provd.clustersList; let i=index"  >                                        
-                                    <li class="pref-list">                                      
-                                      <a class="pref-link" >
-                                          <input class="input-checkbox" id="clustCheck{{i}}" type="checkbox" (click)="clusterClicked()">
-                                              <label class="label-checkbox" for="clustCheck{{i}}">{{clust.levelValue}}</label> </a>  
-                                                                                
-                                        <ul><div *ngFor="let ldus of clust.ldusList; let i=index" >  
-                                                                           
-                                            <li class="pref-list">                                    
-                                              <a class="pref-link" >
-                                                  <input class="input-checkbox" id="ldusCheck{{i}}" type="checkbox" (click)="ldusClicked()">
-                                                      <label class="label-checkbox" for="ldusCheck{{i}}">{{ldus.levelValue}}</label> </a>                                                 
-                                                <ul><div *ngFor="let evTeam of ldus.teamsList; let i=index"  >                                  
-                                                    <li class="pref-list">                                     
-                                                      <a class="pref-link" >
-                                                          <input class="input-checkbox" id="evTeamCheck{{i}}" type="checkbox" (click)="evTeamClicked()">
-                                                              <label class="label-checkbox" for="evTeamCheck{{i}}">{{evTeam.levelValue}}</label> </a>
-                                                       
-                                                        <ul><div *ngFor="let allManager of evTeam.managersList; let i=index"  >                                  
-                                                            <li class="pref-list">                                       
-                                                               <a class="pref-link" >
-                                                                  <input class="input-checkbox" id="evTeamCheck{{i}}" type="checkbox" (click)="evTeamClicked()">
-                                                                      <label class="label-checkbox" for="evTeamCheck{{i}}">{{evTeam.levelValue}}</label> </a>
-                                                             </li>
-                                                          </div>
-                                                        </ul>
-                                                    </li>
-                                                  </div>
-                                                </ul>
-                                            </li>  
-                                          </div>
-                                        </ul>
-                                    </li>
-                                  </div>
-                                </ul>
-                            </li>                             
-                        </ul>    -->
-                         
-                     </div>
-                    
-                </div>
                 </div>
             </div>
         </div>

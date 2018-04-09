@@ -75,12 +75,15 @@ export class GlobalPreferenceComponent implements OnInit {
   allEventTeams:any;
    sortedClusterArray:any = [];
    sortedLdusArray:any = [];
-    
+   sortedTeamList:any = [];
+   sortedManagerList:any = [];
    showHide: boolean;
   prop:any;
   public indx:any = null;
   public jIndx:any = null;
-  
+  public kIndx:any = null;
+  public tIndx:any = null;
+  public mIndx:any = null;
   constructor(private router: Router, private globalPreferService: GlobalPreferencesService, private loaderService: LoaderService,
   private modalService: BsModalService) { 
      
@@ -182,22 +185,24 @@ export class GlobalPreferenceComponent implements OnInit {
       })   
  
   }
-  clustersClicked(cluster,jIndex){    
-    // this.jIndx= jIndex
-    // this.sortedClusterArray.forEach((keys : any, vals :any) => {     
-    //   if(vals == jIndex){
-    //     this.sortedLdusArray = keys.ldusList;
-    //   }
-    // }); 
-    this.jIndx= jIndex
-    this.sortedClusterArray.forEach((keys : any, vals :any) => {
-      if(vals == jIndex){         
-        cluster.sortedClusterArray = keys.clustersList;
-      }
-    })  
-
- }
- 
+  clustersClicked(cluster,jIndex){
+     this.jIndx= jIndex
+    cluster.sortedLdusArray = cluster.ldusList;
+  }
+  ldusClicked(ldus,kIndex){
+    this.kIndx = kIndex;
+    ldus.sortedTeamList = ldus.teamsList;
+    
+  }
+  teamClicked(teamData,tIndex){
+   
+    this.tIndx = tIndex;
+    teamData.sortedManagerList = teamData.managersList;
+  
+  }
+  // managerClicked(managerData,mIndex){
+  //   this.mIndx = mIndex
+  // }
 }
  
  
