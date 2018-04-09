@@ -1,19 +1,28 @@
 <div class="preloader">
   <div class="cssload-speeding-wheel"></div>
 </div>
-
+<div  *ngIf="visible" [@slideInOut]="modalState" >
+             
+        <div id="ZIndex2" class="modalContainer container-fluid" [style.height.px]="totalHeight" >
+           <div class="head">
+                <a class="excel-link" (click)="openRightDialogModal()"><img src="assets/images/globalPreferences.png" width="20px" height="20px"></a>  
+           </div>
+        </div>
+        
+ </div>
 <div id="page-wrapper">
-      <div class="container-fluid">
-          <div class="col-sm-12 top-header">
-              <h5 class="todo-text">To do</h5>
-            <div class="todo-icon-box">
-                    <a class="excel-link" (click)="openConfirmDialog()"><img src="assets/images/globalPreferences.png" width="20px" height="20px"></a>  
+      <div id="ZIndex1" class="container-fluid" >
+          <div class="width100per top-header">
+              <span class="todoFont">To do</span>
+            <span class="float-right">
+                    <a class="excel-link" (click)="openRightDialogModal()"><img src="assets/images/globalPreferences.png" width="20px" height="20px"></a>  
                     <a class="excel-link"><img src="assets/images/ic_preferences.svg" width="20px" height="20px"></a>
-              </div>
+                   
+            </span>
           </div>
 
         <div class="row first-box-row">
-              <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 common-header-box">
+              <div class="widt60per common-header-box">
                   <div class="white-box">
                       <div class="col-in">
                           <span class="text-common">CPA Cashire and GTR Manchester(CPA Cashire and GTR Manchister)</span>
@@ -25,7 +34,7 @@
               
               <!-- /.col -->
               <!-- col -->
-              <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 common-header-box">
+              <div class=" widt20per common-header-box">
                   <div class="white-box">
                        <div class="col-in">
                           <span class="text-common">{{totalCount}}</span>
@@ -35,7 +44,7 @@
               </div>
               <!-- /.col -->
               <!-- col -->
-              <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 data-source-box">
+              <div class="widt20per data-source-box">
                   <div class="white-box">
                        <div class="col-in">
                           <span class="text-common">Local</span>
@@ -178,4 +187,8 @@
               </div>
           </div>
       </div>
+     
   </div>
+
+
+  

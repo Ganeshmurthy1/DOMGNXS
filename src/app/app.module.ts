@@ -30,7 +30,6 @@ import { WmtComponent } from './component/wmt/wmt.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';  
 import { ToastrModule } from 'ngx-toastr'; 
 import { DataTableModule, SharedModule } from 'primeng/primeng';
-import { GlobalPreferenceModalComponent } from './component/global-preference-modal/global-preference-modal.component';
 import { GlobalPreferenceComponent } from './component/global-preference/global-preference.component';
 import { GlobalPreferencesService } from './services/global-preferences.service'; 
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
@@ -48,8 +47,7 @@ import { StickyHeaderDirective } from './directive/sticky-header.directive';
     OrderPipe,
     MegaPreferenceComponent,
     NavbarComponent,
-    WmtComponent,
-    GlobalPreferenceModalComponent,
+    WmtComponent,   
     GlobalPreferenceComponent,
     StickyHeaderDirective
         
@@ -75,7 +73,7 @@ import { StickyHeaderDirective } from './directive/sticky-header.directive';
   providers: [AppComponent, LoginService, GlobalService, TodoService, WmtService, CookieService, LoaderService,GlobalPreferencesService],
   bootstrap: [AppComponent],
   entryComponents: [
-    GlobalPreferenceModalComponent
+  
 ]
 })
 export class AppModule { }

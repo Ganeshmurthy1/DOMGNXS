@@ -1384,5 +1384,33 @@ input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly
     }
    /*-----------------Contact form ends-------------------*/ 
 }
-
-
+.todoFont{
+    font-size: 18px;
+    font-weight: 600;
+}
+.width100per{
+    width:100%;
+}
+.widt60per{
+    width: 50%;
+    padding: 0px 5px 0px 15px;
+}
+.widt20per{
+    width: 24.6%;
+    padding: 0px 5px;
+     
+}
+.modalContainer{
+    
+    background-color: #ffffff;
+    width:30%;
+    right:0px;
+    top:0px;
+    position: absolute;
+}
+#ZIndex1{
+    z-index: -1;
+}
+#ZIndex2{
+    z-index: inherit 10;
+}

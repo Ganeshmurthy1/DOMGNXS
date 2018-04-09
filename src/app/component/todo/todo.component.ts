@@ -5,14 +5,39 @@ import { TodoService } from './../../services/todo.service';
 import { Component, OnInit } from '@angular/core';
 import { Router} from '@angular/router';
 import * as _ from 'underscore';
+import {trigger, state, style, transition, animate} from '@angular/animations';
 import { BsModalService } from 'ngx-bootstrap/modal';
 //import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
-import { GlobalPreferenceModalComponent } from '../../component/global-preference-modal/global-preference-modal.component';
+ 
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
-  styleUrls: ['./todo.component.css']
+  styleUrls: ['./todo.component.css'],
+  animations: [
+    trigger('slideInOut', [
+      state('in', style({
+        transform: 'translate3d(0, 0, 0)'
+         
+      })),
+      state('out', style({
+        transform: 'translate3d(100%, 0, 0)'
+      })),
+      transition('in => out', animate('400ms ease-in-out')),
+      transition('out => in', animate('400ms ease-in-out'))
+    ]),
+  ]
+  // animations: [
+  //   trigger('slideInOut', [
+  //     transition(':enter', [
+  //       style({transform: 'translateY(-100%)'}),
+  //       animate('200ms ease-in', style({transform: 'translateY(0%)'}))
+  //     ]),
+  //     transition(':leave', [
+  //       animate('200ms ease-in', style({transform: 'translateY(-100%)'}))
+  //     ])
+  //   ])
+  // ]
 })
 export class TodoComponent implements OnInit {
   public modalRef: BsModalRef;
@@ -29,9 +54,10 @@ export class TodoComponent implements OnInit {
   public riskBlock:boolean;
   public timeCount:any = "0";
   public interCount: any = "0";
-  public allTasksInfo:any = {}
-
-
+  public allTasksInfo:any = {}; 
+  visible:boolean;
+  totalHeight: any;
+  totalWidth: any;
   // public dayCount:boolean;
   // public weekCount:boolean;
   // public dueCount:boolean;
@@ -44,11 +70,12 @@ export class TodoComponent implements OnInit {
   public heteGroupCount:number;
   public outGroupCount:number;
   LoginDetails:any;
+ 
   // public fileInfoId: number;
   // public tableDetails: any = {};
   
   constructor(private router: Router, private todoInstance: TodoService, private loaderService: LoaderService,
-    private modalService: BsModalService) { }
+    private modalService: BsModalService) {}
 
   ngOnInit() {
     //this.loaderService.display(true);
@@ -162,6 +189,7 @@ getFilterdata(filter,type){
    });
 }
 
+
 // getOneDayCount() {
 // this.todoInstance.getGroupCount().subscribe(response =>{
 //   var tmp=[]
@@ -173,11 +201,21 @@ getFilterdata(filter,type){
 //  });
 // }
 
-openConfirmDialog() {
-  this.modalRef = this.modalService.show(GlobalPreferenceModalComponent);
-  // this.modalRef.content.onClose.subscribe(result => {
-  //     console.log('results', result);
-  // })
+modalState:string = 'out';
+openRightDialogModal(){
+ 
+  this.totalHeight = (window.screen.height);
+  this.totalWidth = (window.screen.width);
+ 
+  
+  this.modalState = this.modalState === 'out' ? 'in' : 'out';
+  if(this.modalState === 'in'){
+    this.visible = true;
+  }else{
+    this.visible = false;
+  }
+ 
+  console.log("this.modalState",this.modalState);
 }
 
 }
