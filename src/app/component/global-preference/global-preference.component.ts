@@ -117,9 +117,18 @@ export class GlobalPreferenceComponent implements OnInit {
   // }
 
 
-  ischecked:boolean;
+  
   savePreferences(){
-    console.log("ischecked",this.ischecked);
+    this.providers.forEach((keys : any, vals :any) => {
+
+      if(keys.ischecked == true){
+        this.saveglobalPReferenceArray.push(keys);
+      }
+      console.log("keys",keys);
+      console.log("vals",vals);
+     console.log("this.saveglobalPReferenceArray",this.saveglobalPReferenceArray);
+    }) 
+    
    // this.saveglobalPReferenceArray.push(tosave);
     
     
