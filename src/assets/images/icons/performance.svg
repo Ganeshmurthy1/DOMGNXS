@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="11632 2283 22.5 24.124">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #fff;
+      }
+
+      .cls-1, .cls-3 {
+        fill-rule: evenodd;
+      }
+
+      .cls-2, .cls-3 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="performance" transform="translate(11560.45 1470)">
+    <g id="Group_6552" data-name="Group 6552" transform="translate(3.549 853)">
+      <g id="Group_6551" data-name="Group 6551" transform="translate(68 -40)">
+        <path id="Path_417" data-name="Path 417" class="cls-1" d="M1356,1919h.042c1.167,1.273,2.4,2.5,3.686,3.654V1937.7H1356V1919Z" transform="translate(-1354.492 -1914.083)"/>
+        <path id="Path_418" data-name="Path 418" class="cls-1" d="M2570.727,3061.763v10.679H2567V3059a45.217,45.217,0,0,0,3.727,2.759Z" transform="translate(-2559.905 -3048.823)"/>
+        <path id="Path_419" data-name="Path 419" class="cls-1" d="M3781.728,3912.9v7.616H3778V3911A34.7,34.7,0,0,0,3781.728,3912.9Z" transform="translate(-3765.319 -3896.893)"/>
+        <path id="Path_420" data-name="Path 420" class="cls-1" d="M4993.728,4484.038v5.84H4990V4483A26.763,26.763,0,0,0,4993.728,4484.038Z" transform="translate(-4971.727 -4466.254)"/>
+        <path id="Path_421" data-name="Path 421" class="cls-2" d="M1356.139,940c.028.037,8.816,11.685,20.353,14.305v1.462c-9.863-2.1-17.788-10.5-20.491-13.673v-1.988Z" transform="translate(-1354.492 -939.599)"/>
+        <path id="Path_422" data-name="Path 422" class="cls-3" d="M1029.47,853l3.806.475L1029,856.806Z" transform="translate(-1029 -853)"/>
+      </g>
+    </g>
+  </g>
+</svg>

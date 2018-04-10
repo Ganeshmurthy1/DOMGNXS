@@ -1,53 +1,8 @@
-// import { Component, OnInit } from '@angular/core';
-// import { GlobalPreferencesService } from '../../services/global-preferences.service';
-// import { LoaderService } from './../../services/loader.service';
-// import { Response } from '@angular/http';
-// import { Router} from '@angular/router';
-// import { BsModalService } from 'ngx-bootstrap/modal';
-// declare var $: any;
-// @Component({
-//   selector: 'app-global-preference',
-//   templateUrl: './global-preference.component.html',
-//   styleUrls: ['./global-preference.component.css']
-// })
-// export class GlobalPreferenceComponent implements OnInit {
-//   allData: any;
-//   providers:any;
-//   LoginDetails:any;
-//   AllprovidersTemp:any;
-//    Allproviders:any = [];
-//   prop:any;
-//   constructor(private router: Router, private globalPreferService: GlobalPreferencesService, private loaderService: LoaderService,
-//   private modalService: BsModalService) { }
-
-//   ngOnInit() {
-//    // this.loaderService.display(true);
-//     this.LoginDetails = JSON.parse(localStorage.getItem('LoginDetails'));  
-   
-//     if(this.LoginDetails != null){
-//       this.getAllGlobalPreferences();
-      
-//     }else{
-//       //this.loaderService.display(false);
-//       this.router.navigate(['login']);
-//     }    
-//   }
-//   getAllGlobalPreferences(){
  
-//     this.globalPreferService.getGlobalPreferences().subscribe(response =>{
-//      // this.loaderService.display(false);
-//      console.log("response",response);
-//      console.log("this.providers",this.providers);
-//       this.allData = response.Preferences;
-//       this.providers = this.allData.EventProviders; 
-//     })
-//   }
-
-  
-// }
 
 import { Component, OnInit, ViewContainerRef, ViewChild, ViewEncapsulation } from '@angular/core';
 import { GlobalPreferencesService } from '../../services/global-preferences.service';
+
 import { LoaderService } from './../../services/loader.service';
 import { Response } from '@angular/http';
 import { Router} from '@angular/router';
@@ -77,8 +32,11 @@ export class GlobalPreferenceComponent implements OnInit {
    sortedLdusArray:any = [];
    sortedTeamList:any = [];
    sortedManagerList:any = [];
+
    showHide: boolean;
   prop:any;
+  clickedObjects:any = {};
+  saveglobalPReferenceArray:any = [];
   public indx:any = null;
   public jIndx:any = null;
   public kIndx:any = null;
@@ -91,8 +49,8 @@ export class GlobalPreferenceComponent implements OnInit {
   }
   showId = false;
   ngOnInit() {
-     
-    // this.loaderService.display(true);
+    this.loaderService.display(false);
+   
     this.LoginDetails = JSON.parse(localStorage.getItem('LoginDetails'));  
    
     if(this.LoginDetails != null){
@@ -115,10 +73,11 @@ export class GlobalPreferenceComponent implements OnInit {
 
 //     }
 
+
   getAllGlobalPreferences(){
- 
+    this.loaderService.display(true);
     this.globalPreferService.getGlobalPreferences().subscribe(response =>{
-     // this.loaderService.display(false);
+      this.loaderService.display(false);
  
       this.allData = response.EventProviders;
       this.providers =this.allData.providerLists
@@ -152,9 +111,19 @@ export class GlobalPreferenceComponent implements OnInit {
     teamData.sortedManagerList = teamData.managersList;
   
   }
+ 
   // managerClicked(managerData,mIndex){
   //   this.mIndx = mIndex
   // }
+
+
+  ischecked:boolean;
+  savePreferences(){
+    console.log("ischecked",this.ischecked);
+   // this.saveglobalPReferenceArray.push(tosave);
+    
+    
+  }
 }
  
  

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="17235.926 3122.925 14.148 14.15">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        stroke: #fff;
+        stroke-width: 0.15px;
+      }
+    </style>
+  </defs>
+  <g id="print" transform="translate(17236 3123)">
+    <path id="Path_468" data-name="Path 468" class="cls-1" d="M46.167,24.333A1.167,1.167,0,1,0,45,23.167,1.168,1.168,0,0,0,46.167,24.333Zm0-1.867a.7.7,0,1,1-.7.7A.7.7,0,0,1,46.167,22.467Z" transform="translate(-34.5 -16.867)"/>
+    <path id="Path_469" data-name="Path 469" class="cls-1" d="M22.833,43h-5.6a.233.233,0,1,0,0,.467h5.6a.233.233,0,1,0,0-.467Z" transform="translate(-13.033 -32.967)"/>
+    <path id="Path_470" data-name="Path 470" class="cls-1" d="M22.833,48h-5.6a.233.233,0,1,0,0,.467h5.6a.233.233,0,1,0,0-.467Z" transform="translate(-13.033 -36.8)"/>
+    <path id="Path_471" data-name="Path 471" class="cls-1" d="M11.9,3.967V0H2.1V3.967H0V11.9H1.4v.7h.7V14h9.8V12.6h.7v-.7H14V3.967ZM2.567.467h8.867v3.5H2.567ZM2.1,4.433H13.533V8.167H.467V4.433Zm-.233,7.7V10.5a.233.233,0,1,0-.467,0v.933H.467v-2.8H2.1v3.5Zm9.567,1.4H2.567v-4.9h8.867v4.9Zm1.167-2.1V10.5a.233.233,0,1,0-.467,0v1.633H11.9v-3.5h1.633v2.8Z"/>
+  </g>
+</svg>
