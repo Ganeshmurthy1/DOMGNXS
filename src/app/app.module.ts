@@ -33,8 +33,9 @@ import { DataTableModule, SharedModule } from 'primeng/primeng';
 import { GlobalPreferenceComponent } from './component/global-preference/global-preference.component';
 import { GlobalPreferencesService } from './services/global-preferences.service'; 
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
-
+import {NgxChartsModule} from '@swimlane/ngx-charts';
 import { StickyHeaderDirective } from './directive/sticky-header.directive';
+import { StackedVerticalChartComponent } from './component/stacked-vertical-chart/stacked-vertical-chart.component';
  
 
 @NgModule({
@@ -49,7 +50,8 @@ import { StickyHeaderDirective } from './directive/sticky-header.directive';
     NavbarComponent,
     WmtComponent,   
     GlobalPreferenceComponent,
-    StickyHeaderDirective
+    StickyHeaderDirective,
+    StackedVerticalChartComponent
         
   ],
   imports: [
@@ -66,7 +68,8 @@ import { StickyHeaderDirective } from './directive/sticky-header.directive';
     DataTableModule,
     SharedModule,
     NgxDatatableModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxChartsModule
  
     
   ],

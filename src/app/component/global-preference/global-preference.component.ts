@@ -37,6 +37,8 @@ export class GlobalPreferenceComponent implements OnInit {
   prop:any;
   clickedObjects:any = {};
   saveglobalPReferenceArray:any = [];
+  savingApiData:any = [];
+  preferenceDetails:string;
   public indx:any = null;
   public jIndx:any = null;
   public kIndx:any = null;
@@ -119,19 +121,55 @@ export class GlobalPreferenceComponent implements OnInit {
 
   
   savePreferences(){
-    this.providers.forEach((keys : any, vals :any) => {
-
-      if(keys.ischecked == true){
-        this.saveglobalPReferenceArray.push(keys);
-      }
-      console.log("keys",keys);
-      console.log("vals",vals);
-     console.log("this.saveglobalPReferenceArray",this.saveglobalPReferenceArray);
+    this.saveglobalPReferenceArray = [];
+    console.log("this.providers",this.providers);
+    this.providers.forEach((keys : any, vals :any) => { 
+          if(keys.ischecked == true){          
+            this.saveglobalPReferenceArray.push(keys);
+          }
+          keys.clustersList.forEach((clusterkeys : any, clusterVals :any) => {        
+              if(clusterkeys.ischecked == true){         
+              this.saveglobalPReferenceArray.push(clusterkeys);            
+              }
+              clusterkeys.ldusList.forEach((lduskeys : any, ldusVals :any) => {
+                 if(lduskeys.ischecked == true){            
+                    this.saveglobalPReferenceArray.push(lduskeys);        
+                  }
+                 lduskeys.teamsList.forEach((teamkeys : any, teamVals :any) => {
+                    if(teamkeys.ischecked == true){            
+                      this.saveglobalPReferenceArray.push(teamkeys);          
+                    }
+                    teamkeys.managersList.forEach((managerkeys : any, managerVals :any) => {
+        
+                          if(managerkeys.ischecked == true){            
+                            this.saveglobalPReferenceArray.push(managerkeys);          
+                          }
+               
+                    })
+                 })
+              })
+         })   
     }) 
+     this.saveglobalPReferenceArray.forEach((key:any, vals:any)=>{
+   
+     this.clickedObjects = {};
+     this.clickedObjects.EventProvider = key.eventProvider;
+     this.clickedObjects.EventCluster = key.eventCluster;
+     this.clickedObjects.EventLDU = key.eventLDU;
+     this.clickedObjects.EventTeam = key.eventTeam;
+     this.clickedObjects.EventManager = key.eventManager;
+      this.savingApiData.push(this.clickedObjects);
     
-   // this.saveglobalPReferenceArray.push(tosave);
-    
-    
+     
+    })
+  
+   console.log("this.savingApiData",this.savingApiData);
+   
+    this.preferenceDetails = JSON.stringify(this.savingApiData);
+   this.globalPreferService.toSaveGlobalPreferences(this.preferenceDetails).subscribe(response =>{
+    console.log("this.response",response);
+
+   })
   }
 }
  

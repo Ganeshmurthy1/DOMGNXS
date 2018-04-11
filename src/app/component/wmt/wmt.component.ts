@@ -14,6 +14,7 @@ import { WmtService } from '../../services/wmt.service';
 })
 
 export class WmtComponent implements OnInit {
+  
   public wmtTable: any = [];
   public queryparams:any = {}
   public isDesc: boolean = false;
