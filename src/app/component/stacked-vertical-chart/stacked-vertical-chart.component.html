@@ -1,0 +1,30 @@
+ 
+  <div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row top-header">
+             
+        </div>
+        <div class="white-box">
+          <div class="row">        
+            <div *ngIf="chartDataNGX.length">
+              <ngx-charts-bar-vertical-stacked
+                [view]="view"
+                [scheme]="colorScheme"
+                [results]="chartDataNGX"
+                [gradient]="gradient"
+                [xAxis]="showXAxis"
+                [yAxis]="showYAxis"
+                [legend]="showLegend"
+                [showXAxisLabel]="showXAxisLabel"
+                [showYAxisLabel]="showYAxisLabel"
+                [xAxisLabel]="xAxisLabel"
+                [yAxisLabel]="yAxisLabel"
+                (select)="onSelect($event)">
+              </ngx-charts-bar-vertical-stacked>
+             </div>
+            </div> 
+      </div>
+    </div>
+</div>  
+
+

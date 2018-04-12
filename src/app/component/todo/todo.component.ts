@@ -27,17 +27,6 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
       transition('out => in', animate('400ms ease-in-out'))
     ]),
   ]
-  // animations: [
-  //   trigger('slideInOut', [
-  //     transition(':enter', [
-  //       style({transform: 'translateY(-100%)'}),
-  //       animate('200ms ease-in', style({transform: 'translateY(0%)'}))
-  //     ]),
-  //     transition(':leave', [
-  //       animate('200ms ease-in', style({transform: 'translateY(-100%)'}))
-  //     ])
-  //   ])
-  // ]
 })
 export class TodoComponent implements OnInit {
   public modalRef: BsModalRef;
@@ -58,6 +47,13 @@ export class TodoComponent implements OnInit {
   visible:boolean;
   totalHeight: any;
   totalWidth: any;
+// todoPArams
+  allTodoData: any;
+  allProviders:any;
+  indx:any;
+jIndx:any;
+kIndx:any;
+tIndx:any;
   // public dayCount:boolean;
   // public weekCount:boolean;
   // public dueCount:boolean;
@@ -194,7 +190,6 @@ getFilterdata(filter,type){
    });
 }
 
-
 // getOneDayCount() {
 // this.todoInstance.getGroupCount().subscribe(response =>{
 //   var tmp=[]
@@ -207,20 +202,54 @@ getFilterdata(filter,type){
 // }
 
 modalState:string = 'out';
+todoTreeHeight:any;
 openRightDialogModal(){
- 
+  
   this.totalHeight = (window.screen.height);
   this.totalWidth = (window.screen.width);
- 
+  this.todoTreeHeight = (window.screen.height) - 50;
   
   this.modalState = this.modalState === 'out' ? 'in' : 'out';
   if(this.modalState === 'in'){
     this.visible = true;
+    this.loaderService.display(true);
   }else{
     this.visible = false;
   }
- 
-  console.log("this.modalState",this.modalState);
+    
+  this.todoInstance.getTodoPreferences().subscribe(response =>{
+    // this.loaderService.display(false);
+    this.loaderService.display(false);
+     this.allTodoData = response.EventProviders;
+     this.allProviders =this.allTodoData.providerLists
+   
+   })
 }
 
+
+providerClicked(provdr, indx){ 
+  console.log("indx",indx);
+    this.indx= indx   
+     this.allProviders.forEach((keys : any, vals :any) => {
+       if(vals == indx){         
+         provdr.sortedClusterArray = keys.clustersList;
+       }
+     })   
+
+ }
+ clustersClicked(cluster,jIndex){
+    this.jIndx= jIndex
+   cluster.sortedLdusArray = cluster.ldusList;
+ }
+ ldusClicked(ldus,kIndex){
+   this.kIndx = kIndex;
+   ldus.sortedTeamList = ldus.teamsList;
+   
+ }
+ teamClicked(teamData,tIndex){
+  
+   this.tIndx = tIndex;
+   teamData.sortedManagerList = teamData.managersList;
+ 
+ }
 }

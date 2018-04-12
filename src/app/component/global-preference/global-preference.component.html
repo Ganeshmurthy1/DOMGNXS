@@ -1,13 +1,15 @@
-  
-  <div class="preloader">
-    <div class="cssload-speeding-wheel"></div>
-  </div>
+ 
 
   <div id="page-wrapper">
       <div class="container-fluid">
           <div class="col-sm-12 top-header">
-              <div class="row first-box-row">
-                Global Preferences
+              <div class="row padding25px-top">
+               <div class="col-md-6 ">User Preferences</div>
+               <div class="col-md-6 ">
+                    <a class="cyanBackground-btn" (click)="savePreferences()"><span><img class="globalIcons" src="./assets/images/icons/save.svg" /></span></a>
+                   <a class="cyanBackground-btn"><span><img class="globalIcons" src="./assets/images/icons/print.svg" /></span></a>
+                   
+               </div>
               </div>              
            </div>
             <div class="row padding25px">
@@ -18,7 +20,8 @@
                             <span><a (click)="allprovdr.active=!allprovdr.active; providerClicked(allprovdr,i)">
                                 <img [src]="allprovdr.active?'./assets/images/minus.png':'./assets/images/plus.png'" width="20px" height="20px"/></a></span>
                             <span>
-                             <input type="checkbox" name ="provdr" id="provdr-{{i+1}}">
+                             <!-- <input type="checkbox" name ="provdr" id="provdr-{{i+1}}" [checked]="allprovdr.ischecked" (change)="allprovdr.ischecked = !allprovdr.ischecked" > -->
+                             <input type="checkbox" name ="provdr" id="provdr-{{i+1}}"  [(ngModel)]="allprovdr.ischecked">
                        <label for="provdr-{{i+1}}">{{allprovdr.levelValue}}</label>
                     </span>
                     <ng-container *ngIf="allprovdr.active">                          
@@ -27,7 +30,7 @@
                                 <span><a (click)="cluster.active=!cluster.active; clustersClicked(cluster,j)">
                                         <img [src]="cluster.active?'./assets/images/minus.png':'./assets/images/plus.png'" width="20px" height="20px"/></a></span>
                                     <span>
-                                     <input type="checkbox" name ="cluster" id="cluster-{{j+1}}">
+                                     <input type="checkbox" name ="cluster" id="cluster-{{j+1}}" [(ngModel)]="cluster.ischecked">
                                <label for="cluster-{{j+1}}">{{cluster.levelValue}}</label>
                             </span>
                             <ng-container *ngIf="cluster.active">                               
@@ -36,7 +39,7 @@
                                           <span><a (click)="ldus.active=!ldus.active; ldusClicked(ldus,k)">
                                                   <img [src]="ldus.active?'./assets/images/minus.png':'./assets/images/plus.png'" width="20px" height="20px"/></a></span>
                                               <span>
-                                               <input type="checkbox" name ="ldus" id="ldus-{{k+1}}">
+                                               <input type="checkbox" name ="ldus" id="ldus-{{k+1}}" [(ngModel)]="ldus.ischecked">
                                          <label for="ldus-{{k+1}}">{{ldus.levelValue}}</label>
                                       </span>
                                       <ng-container *ngIf="ldus.active">
@@ -45,13 +48,13 @@
                                                     <span><a (click)="team.active=!team.active; teamClicked(team,t)">
                                                             <img [src]="team.active?'./assets/images/minus.png':'./assets/images/plus.png'" width="20px" height="20px"/></a></span>
                                                         <span>
-                                                         <input type="checkbox" name ="team" id="team-{{t+1}}">
+                                                         <input type="checkbox" name ="team" id="team-{{t+1}}" [(ngModel)]="team.ischecked">
                                                    <label for="team-{{t+1}}">{{team.levelValue}}</label>
                                                 </span>
                                                 <ng-container *ngIf="team.active">
                                                    <ul>
                                                       <li class="has-children" *ngFor="let managr of team.sortedManagerList; let m = index">
-                                                         <input type="checkbox" name ="managr" id="managr-{{m+1}}" >
+                                                         <input type="checkbox" name ="managr" id="managr-{{m+1}}" [(ngModel)]="managr.ischecked">
                                                          <label for="managr-{{m+1}}">{{managr.levelValue}}</label>
                                                           
                                                       </li>                            

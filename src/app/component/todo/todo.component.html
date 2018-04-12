@@ -2,8 +2,67 @@
 <div  *ngIf="visible" [@slideInOut]="modalState" >
              
         <div id="ZIndex2" class="modalContainer container-fluid" [style.height.px]="totalHeight" >
-           <div class="head">
-                <a class="excel-link" (click)="openRightDialogModal()"><img src="assets/images/globalPreferences.png" width="20px" height="20px"></a>  
+           <div class="todoTreehead">
+                <a class="excel-link float-right" (click)="openRightDialogModal()"><img src="assets/images/icons/internet.svg" width="20px" height="20px"></a>  
+           </div>
+           <div class="todoTree" [style.height.px]="todoTreeHeight">
+            <ul class="cd-accordion-menu" >                       
+                <li class="has-children" *ngFor="let allprovdr of allProviders; let i = index">
+                        <span><a (click)="allprovdr.active=!allprovdr.active; providerClicked(allprovdr,i)">
+                            <img [src]="allprovdr.active?'./assets/images/minus.png':'./assets/images/plus.png'" width="20px" height="20px"/></a></span>
+                        <span>
+                         <input type="checkbox" name ="provdr" id="provdr-{{i+1}}">
+                   <label for="provdr-{{i+1}}">{{allprovdr.levelValue}}</label>
+                </span>
+                <ng-container *ngIf="allprovdr.active">                          
+                   <ul>
+                      <li class="has-children" *ngFor="let cluster of allprovdr.sortedClusterArray||[]; let j = index">
+                            <span><a (click)="cluster.active=!cluster.active; clustersClicked(cluster,j)">
+                                    <img [src]="cluster.active?'./assets/images/minus.png':'./assets/images/plus.png'" width="20px" height="20px"/></a></span>
+                                <span>
+                                 <input type="checkbox" name ="cluster" id="cluster-{{j+1}}">
+                           <label for="cluster-{{j+1}}">{{cluster.levelValue}}</label>
+                        </span>
+                        <ng-container *ngIf="cluster.active">                               
+                             <ul>
+                                <li class="has-children" *ngFor="let ldus of cluster.sortedLdusArray||[]; let k = index">
+                                      <span><a (click)="ldus.active=!ldus.active; ldusClicked(ldus,k)">
+                                              <img [src]="ldus.active?'./assets/images/minus.png':'./assets/images/plus.png'" width="20px" height="20px"/></a></span>
+                                          <span>
+                                           <input type="checkbox" name ="ldus" id="ldus-{{k+1}}">
+                                     <label for="ldus-{{k+1}}">{{ldus.levelValue}}</label>
+                                  </span>
+                                  <ng-container *ngIf="ldus.active">
+                                     <ul>                                            
+                                        <li class="has-children" *ngFor="let team of ldus.sortedTeamList; let t = index">
+                                                <span><a (click)="team.active=!team.active; teamClicked(team,t)">
+                                                        <img [src]="team.active?'./assets/images/minus.png':'./assets/images/plus.png'" width="20px" height="20px"/></a></span>
+                                                    <span>
+                                                     <input type="checkbox" name ="team" id="team-{{t+1}}">
+                                               <label for="team-{{t+1}}">{{team.levelValue}}</label>
+                                            </span>
+                                            <ng-container *ngIf="team.active">
+                                               <ul>
+                                                  <li class="has-children" *ngFor="let managr of team.sortedManagerList; let m = index">
+                                                     <input type="checkbox" name ="managr" id="managr-{{m+1}}" >
+                                                     <label for="managr-{{m+1}}">{{managr.levelValue}}</label>
+                                                      
+                                                  </li>                            
+                                               </ul>
+                                            </ng-container>                                      
+                                          </li>
+                                     </ul>
+                                  </ng-container>                            
+                                </li>                            
+                             </ul>
+                        </ng-container>                  
+                      </li>                            
+                   </ul>
+                </ng-container>
+                </li> 
+            
+             </ul> 
+
            </div>
         </div>
         
