@@ -224,9 +224,9 @@ export class TodoTableComponent implements OnInit {
     this.checkListParam.checkStatus = evet.CheckedStatus;
     //this.style.backgroundColor = '#000000';  
 
-    console.log("evet",evet);
+   // console.log("evet",evet);
     this.checkList.push(evet.Id)
-    console.log(" this.checkListParam", this.checkListParam);
+   // console.log(" this.checkListParam", this.checkListParam);
     this.getRowCheckStatus( this.checkListParam);
     this.toRemoveCheckedList.push(evet.Id);
 
@@ -252,7 +252,7 @@ export class TodoTableComponent implements OnInit {
     //debugger;
     this.todoInstance.toDoCheckedCount(params).subscribe(response =>{
       this.checkedCount = response;
-      console.log(response);
+    //  console.log(response);
       //check respionse status , if it 200 , success 
       
 
@@ -282,17 +282,23 @@ public dblclick(data)
     selBox.style.left = '0';
     selBox.style.top = '0';
     selBox.style.opacity = '0';
-    selBox.value = JSON.stringify(data.data.CRN_Event_No).replace(/\)/g,"").replace(/\(/g,"");
-    var crn_box = String(selBox.value).split(':');
-    var crn_val = String(crn_box[0]).replace('"','');
-    selBox.value = crn_val;
-    console.log(selBox.value);
+    if(data.data.CRN_Event_No == undefined){
+      var crn_box =  data.data.CRN.split(" ")[0];
+      selBox.value = crn_box
+    }else{
+      var new_box = data.data.CRN_Event_No.split(" ")[0].search(":");
+      selBox.value = data.data.CRN_Event_No.split(" ")[0].slice(0,new_box);
+      //console.log(selBox.value);
+    }
+    
+
+   // console.log(selBox.value);
     document.body.appendChild(selBox);
     selBox.focus();
     selBox.select();
     document.execCommand('copy');
     document.body.removeChild(selBox);
-    this.toastr.success(selBox.value,"CRN Number Copied:");
+    this.toastr.success(selBox.value,"CRN Number Copied:", {timeOut: 500});
 }
 
 }

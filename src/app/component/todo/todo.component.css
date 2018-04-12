@@ -79,12 +79,12 @@ span.tooltiptext.custom-tooltip{
 
 #page-wrapper {
    /* padding: 0 15px 12px 55px; */
-    padding: 0 15px 12px 80px;
+    padding: 0 15px 0px 80px;
     background: #edf1f5 !important;
 }
 .first-box-row {
     padding-top: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 .white-box {
     background: #fff;
@@ -107,7 +107,7 @@ span.tooltiptext.custom-tooltip{
 
 .top-header{
     margin-top: 15px;
-    margin-bottom: 25px;
+    margin-bottom: 2px;
 }
 .todo-text{
     position: absolute;
