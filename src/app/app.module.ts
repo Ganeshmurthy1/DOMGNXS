@@ -36,7 +36,8 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import {NgxChartsModule} from '@swimlane/ngx-charts';
 import { StickyHeaderDirective } from './directive/sticky-header.directive';
 import { StackedVerticalChartComponent } from './component/stacked-vertical-chart/stacked-vertical-chart.component';
- 
+import { GraphChartsComponent } from './component/graph-charts/graph-charts.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { StackedVerticalChartComponent } from './component/stacked-vertical-char
     WmtComponent,   
     GlobalPreferenceComponent,
     StickyHeaderDirective,
-    StackedVerticalChartComponent
+    StackedVerticalChartComponent,
+    GraphChartsComponent
         
   ],
   imports: [
@@ -69,7 +71,8 @@ import { StackedVerticalChartComponent } from './component/stacked-vertical-char
     SharedModule,
     NgxDatatableModule,
     AppRoutingModule,
-    NgxChartsModule
+    NgxChartsModule,
+    ChartsModule
  
     
   ],

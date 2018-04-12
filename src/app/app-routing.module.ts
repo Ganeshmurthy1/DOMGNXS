@@ -10,6 +10,7 @@ import { WmtComponent } from './component/wmt/wmt.component';
 import { MegaPreferenceComponent } from './component/mega-preference/mega-preference.component';
 import { GlobalPreferenceComponent } from './component/global-preference/global-preference.component';
 import { StackedVerticalChartComponent } from './component/stacked-vertical-chart/stacked-vertical-chart.component';
+import { GraphChartsComponent } from './component/graph-charts/graph-charts.component';
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -29,6 +30,7 @@ const appRoutes: Routes = [
   { path: '', redirectTo: '/mega-preference', pathMatch: 'full'},
   { path: 'global-preference', component: GlobalPreferenceComponent },
   { path: 'stackedChart', component: StackedVerticalChartComponent},
+  { path: 'graphChart', component: GraphChartsComponent},
 ]
 
 @NgModule({
