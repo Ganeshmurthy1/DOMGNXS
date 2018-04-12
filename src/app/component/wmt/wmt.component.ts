@@ -29,12 +29,14 @@ export class WmtComponent implements OnInit {
   memberValue: string;
   public hiddenTable:boolean;
   HeaderValue:string;
+  public isActive:boolean;
   constructor(private route: ActivatedRoute, private wmtInstance: WmtService, private router: Router, private loaderService: LoaderService) {
 
   }
 
   ngOnInit() {
     this.hiddenTable = false;
+    this.isActive = false;
     //this.loaderService.display(true);
     this.getWmtTableDetails();
     this.grade = [
@@ -102,7 +104,7 @@ export class WmtComponent implements OnInit {
     });
   }
 
-  changemember(value: string) {
+  changeMember(value: string) {
     debugger;
     if(value=="All")
     {
@@ -110,9 +112,11 @@ export class WmtComponent implements OnInit {
     }
     else if(value=="CM"){
       this.HeaderValue="Cash Manager"
+    
     }
    else if(value=="SCM"){
     this.HeaderValue=" Senior Cash Manager"
+    
     }
     this.memberValue = value;
   }

@@ -77,12 +77,15 @@
                           </div>
                       
                    
+                      
+
+
                       <ul id="export-text"  *dropdownMenu class="dropdown-menu custom-dropdown pull-right" role="menu">
-                          <ng-container   *ngFor="let drop of grade">
-                          <li class="active">
-                              <a id="insert-more"  class="add-img" (click)="changemember(drop.value)">{{drop.text}}</a>
+                        <ng-container   *ngFor="let drop of grade">
+                          <li  [ngClass]="{'active': drop.value===currentIndex}">
+                              <a id="insert-more" class="add-img"   (click)="changeMember(drop.value);currentIndex=drop.value">{{drop.text}}</a>
                           </li>
-                          </ng-container>
+                        </ng-container>
                       </ul>
                     </li> 
                  </div>
