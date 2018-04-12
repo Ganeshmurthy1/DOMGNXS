@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="12975 4229 15 15">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="svae" transform="translate(12974.5 4229)">
+    <path id="Path_400" data-name="Path 400" class="cls-1" d="M12.817,0H.5V15h15V2.628ZM11.438.612V4.9h-7.5V.612ZM3.313,14.388V8.571h9.062v5.816Zm11.563,0H13V7.959H2.688v6.429H1.125V.612H3.313v4.9h8.75V.612h.5l2.317,2.27Z"/>
+    <path id="Path_401" data-name="Path 401" class="cls-1" d="M12.813,31.612H15A.306.306,0,1,0,15,31H12.813a.306.306,0,1,0,0,.612Z" transform="translate(-8.25 -21.51)"/>
+    <path id="Path_402" data-name="Path 402" class="cls-1" d="M15.937,35H12.813a.306.306,0,1,0,0,.612h3.125a.306.306,0,1,0,0-.612Z" transform="translate(-8.25 -24.286)"/>
+    <path id="Path_403" data-name="Path 403" class="cls-1" d="M25.591,35.1a.306.306,0,0,0,0,.435.325.325,0,0,0,.222.089.332.332,0,0,0,.222-.089.306.306,0,0,0,0-.435A.332.332,0,0,0,25.591,35.1Z" transform="translate(-17.188 -24.294)"/>
+    <path id="Path_404" data-name="Path 404" class="cls-1" d="M29.375,4H27.5V7.061h1.875ZM28.75,6.449h-.625V4.612h.625Z" transform="translate(-18.563 -2.776)"/>
+  </g>
+</svg>

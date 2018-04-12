@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="5594.433 30.478 14.53 14.177">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #fff;
+        stroke-width: 0.75px;
+      }
+    </style>
+  </defs>
+  <g id="view_adjustment" data-name="view adjustment" transform="translate(5591.902 27)">
+    <path id="Path_425" data-name="Path 425" class="cls-1" d="M15.081,26.392l2.975,2.8,5.73-5.715-2.975-2.8Z" transform="translate(-9.958 -13.99)"/>
+    <path id="Path_426" data-name="Path 426" class="cls-1" d="M4.231,73.332l-2.975-2.8L0,74.478Z" transform="translate(3.098 -57.365)"/>
+    <path id="Path_427" data-name="Path 427" d="M0,100.869" transform="translate(3.098 -83.756)"/>
+    <path id="Path_428" data-name="Path 428" class="cls-1" d="M65.425,0,63.5,1.92l2.975,2.8L68.4,2.8Z" transform="translate(-51.877 4)"/>
+  </g>
+</svg>

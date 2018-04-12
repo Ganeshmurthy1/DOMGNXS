@@ -152,3 +152,16 @@ ul li ul li:last-child:after, ul li:last-child:after {
   padding: 0px 20px;
 }
 /*-----------------Preference UI Ends----------------------------*/
+.cyanBackground-btn{
+  background-color: #1fdee5;
+  padding: 5px 5px 10px 5px;
+  float: right;
+  margin-left: 10px;
+}
+.globalIcons{
+  width: 20px;
+  height: 20px;
+}
+.padding25px-top{
+  padding-top: 20px;
+}

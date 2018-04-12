@@ -1,0 +1,42 @@
+<p>
+  graph-charts works!
+</p>
+
+
+
+ 
+<div id="page-wrapper">
+  <div class="container-fluid">
+      <div class="row top-header">
+           
+      </div>
+      <div class="white-box">
+        <div class="row">  
+            <div class="col-md-12 text-center" style="margin-top: 10px;height: 50%">
+                <button (click)="randomizeType()" style="display: inline-block"><span>Line Chart</span><span>Bar Chart</span></button>
+              </div>      
+          <div class="col-md-6">
+ 
+            <canvas baseChart
+                        [data]="lineChartData"
+                        [labels]="lineChartLabels"
+                        [options]="lineChartOptions"
+                        [chartType]="lineChartType"
+                        (chartHover)="chartHovered($event)"
+                        (chartClick)="chartClicked($event)"></canvas>
+          </div>
+          <!-- <div class="col-md-6">
+            <canvas baseChart
+                        [data]="pieChartData"
+                        [labels]="pieChartLabels"
+                        [chartType]="pieChartType"
+                        (chartHover)="chartHovered($event)"
+                        (chartClick)="chartClicked($event)"></canvas>
+          </div> -->
+         
+        </div> 
+    </div>
+  </div>
+</div>  
+
+

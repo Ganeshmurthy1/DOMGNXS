@@ -363,9 +363,9 @@ a.delete-img:hover{
 
 
 /*---------Checkbox starts here----------*/
-label:hover:before {
+/* label:hover:before {
     border: 0px solid #e5ebf2 !important;
-}
+} */
 
 
 .checkbox input[type="checkbox"]{
@@ -404,7 +404,7 @@ label:hover:before {
     width: 16px;
     height: 16px;
     margin: 0px 28px 0 0px;
-    border: 0px solid #e5ebf2;
+    
     border-radius: 0px;
     background-color: #ffffff;
     -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
@@ -421,7 +421,7 @@ label:hover:before {
     width: 18px;
     height: 18px;
     margin: 0px 3px 0px 0px;
-    border: 0px solid #e5ebf2;
+    
     border-radius: 0px;
     background-color: #ffffff;
     -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
@@ -1113,7 +1113,7 @@ input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly
      
 }
 .modalContainer{
-    
+    padding: 0px;
     background-color: #ffffff;
     width:30%;
     right:0px;
@@ -1125,4 +1125,118 @@ input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly
 }
 #ZIndex2{
     z-index: inherit 10;
+}
+
+
+
+/*-----------------Preference UI Starts---------------------------*/
+li.common-list:before{
+    content: "";
+     display: block; 
+    width: unset;
+    height: unset;
+     border-top: 0px solid gray; 
+  }
+  
+  .pref-box{
+    max-height: 700px;
+    overflow-y: auto;
+  }
+  
+  ul {
+    padding: 0em;
+  }
+  
+  ul li, ul li ul li {
+    position:relative;
+    top:0;
+    bottom:0;
+    padding-bottom: 7px;
+  
+  }
+  
+  ul li ul {
+    margin-left: 4em;
+  }
+  
+  li {
+    list-style-type: none;
+  }
+  li a.toogle{
+    padding: 0 0 0 8px;
+    position: relative;
+    top: 13px;
+    color: #428bca;
+  }
+  li a.pref-link {
+    padding: 0 0 0 8px;
+    position: relative;
+    top: 13px;
+    color: #428bca;
+  }
+  
+  li a.pref-link:hover {
+    text-decoration: none;
+  }
+  
+  a.addBorderBefore:before {
+    content: "";
+    display: inline-block;
+    width: 2px;
+    height: 28px;
+    position: absolute;
+    left: -47px;
+    top:-16px;
+    border-left: 1px solid gray;
+  }
+  
+  li.pref-list:before {
+    content: "";
+    display: inline-block;
+    width: 25px;
+    height: 0;
+    position: relative;
+    left: 0em;
+    top:.7em;
+    border-top: 1px solid gray;
+  }
+  
+  
+  li.hasSubmenu:before {
+    content: "";
+    display: inline-block;
+    width: 25px;
+    height: 0;
+    position: relative;
+    left: 0em;
+    top:.7em;
+    border-top: 1px solid gray;
+  }
+  
+  ul li ul li:last-child:after, ul li:last-child:after {
+    content: '';
+    display: block;
+    width: 1em;
+    height: 1em;
+    position: relative;
+    background: #fff;
+    top: 9px;
+    left: -1px;
+  }
+   
+  .padLeftRight20px{
+    padding: 0px 20px;
+  }
+  /*-----------------Preference UI Ends----------------------------*/
+.todoTree{
+    padding: 30px 20px;
+    width:100%;
+    overflow-y: auto;
+
+}
+.todoTreehead{
+    background-color: #edf1f5;
+    min-height: 70px;
+    width: 100%;
+    padding: 18px;
 }

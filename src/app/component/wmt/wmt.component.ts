@@ -15,6 +15,7 @@ import {TooltipModule} from 'primeng/tooltip';
 })
 
 export class WmtComponent implements OnInit {
+  
   public wmtTable: any = [];
   public caseTable: any = [];
   public queryparams: any = {}

@@ -123,4 +123,10 @@ export class TodoService {
       }
   }
 
+  public getTodoPreferences(){
+    return this.http.get(environment.baseUrl+'/toDo/getToDoPreferences',this.globalService.getHeaders('json')).map(res => res.json()).map((response:any)=>{
+      return response.data ? response.data : [];
+    })
+  }
+
 }
