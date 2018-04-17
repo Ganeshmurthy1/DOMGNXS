@@ -1,0 +1,117 @@
+<div id="page-wrapper">
+  <div class="container-fluid">
+    <div class="row top-header">
+        <h5 class="col-sm-12">Work Management Tool
+            <div class="icon-box">
+              <a (click)="getExportExcel(file_Id)" class="common-link">
+                    <!-- <img src="assets/images/export_excel.svg" width="20px" height="20px"> -->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="5554.125 31.625 14.75 11.75" width="30" height="30" style="background: #1fdee5;
+                    padding: 6px;stroke: #fff;">
+                      <defs>
+                        <style>
+                         
+                        </style>
+                      </defs>
+                      <rect id="bg" class="cls-1" width="50" height="50" rx="3" transform="translate(1320 16)"/>
+                      <path id="view_case_list" data-name="view case list" class="cls-1" d="M12.833,16a1,1,0,0,0-1,1v1H8.667A.665.665,0,0,0,8,18.667v.818l.208.177A11.255,11.255,0,0,0,15,21.667a11.255,11.255,0,0,0,6.792-2.005L22,19.484v-.818A.665.665,0,0,0,21.333,18H18.167V17a1,1,0,0,0-1-1Zm0,.667h4.333A.326.326,0,0,1,17.5,17v1h-5V17A.326.326,0,0,1,12.833,16.667ZM8,20.344v5.99A.665.665,0,0,0,8.667,27H21.333A.665.665,0,0,0,22,26.333v-5.99a11.461,11.461,0,0,1-5.833,1.943v.547a.333.333,0,0,1-.333.333H14.167a.333.333,0,0,1-.333-.333v-.547A11.461,11.461,0,0,1,8,20.344Z" transform="translate(5546.5 16)"/>
+                    </svg>
+              </a>
+                <a  class="common-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="5594.433 30.478 14.53 14.177" width="30" height="30" style="background: #1fdee5;
+                    padding: 6px;stroke: #fff;">
+                      <defs>
+                        <style>
+                          
+                        </style>
+                      </defs>
+                      <g id="view_adjustment" data-name="view adjustment" transform="translate(5591.902 27)">
+                        <path id="Path_425" data-name="Path 425" class="cls-1" d="M15.081,26.392l2.975,2.8,5.73-5.715-2.975-2.8Z" transform="translate(-9.958 -13.99)"/>
+                        <path id="Path_426" data-name="Path 426" class="cls-1" d="M4.231,73.332l-2.975-2.8L0,74.478Z" transform="translate(3.098 -57.365)"/>
+                        <path id="Path_427" data-name="Path 427" d="M0,100.869" transform="translate(3.098 -83.756)"/>
+                        <path id="Path_428" data-name="Path 428" class="cls-1" d="M65.425,0,63.5,1.92l2.975,2.8L68.4,2.8Z" transform="translate(-51.877 4)"/>
+                      </g>
+                    </svg>
+                  </a>
+
+                  <a class="pref-link common-link">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="4199 1014 15 15" width="30" height="30" style="background: #1fdee5;
+                      padding: 6px;stroke: #fff;stroke-width: 0.70px;">
+                        <defs>
+                          <style>
+                           
+                          </style>
+                        </defs>
+                        <path id="preferences" class="cls-1" d="M13.109,12.471a7.48,7.48,0,0,0-.145-10.1h0l0,0A7.479,7.479,0,0,0,7.76.007h0L7.614,0,7.5,0,7.386,0l-.146,0h0a7.479,7.479,0,0,0-5.2,2.36l0,0h0a7.479,7.479,0,0,0-.145,10.1s0,0,0,.007.011.01.016.016a7.483,7.483,0,0,0,5.33,2.5h0l.146,0L7.5,15l.114,0,.146,0h0a7.483,7.483,0,0,0,5.334-2.5s.009-.006.012-.01S13.107,12.474,13.109,12.471ZM.524,7.759h3.1a9.558,9.558,0,0,0,.625,3.16,9.536,9.536,0,0,0-2.1,1.068A6.951,6.951,0,0,1,.524,7.759ZM2.3,2.851a9.513,9.513,0,0,0,2.043,1,9.55,9.55,0,0,0-.711,3.387H.524A6.952,6.952,0,0,1,2.3,2.851Zm12.18,4.391h-3.1a9.55,9.55,0,0,0-.711-3.387,9.513,9.513,0,0,0,2.043-1A6.952,6.952,0,0,1,14.476,7.241ZM7.241,3.87a9.041,9.041,0,0,1-2.191-.332A9.049,9.049,0,0,1,7.241.684Zm0,.517V7.241h-3.1a9.033,9.033,0,0,1,.689-3.226A9.556,9.556,0,0,0,7.241,4.387Zm.517,0a9.548,9.548,0,0,0,2.407-.372,9.033,9.033,0,0,1,.689,3.226h-3.1Zm0-.517V.684A9.049,9.049,0,0,1,9.949,3.538,9.041,9.041,0,0,1,7.759,3.87Zm2.692-.489a9.551,9.551,0,0,0-2.04-2.8,6.963,6.963,0,0,1,3.927,1.893A9,9,0,0,1,10.451,3.381Zm-5.9,0a8.987,8.987,0,0,1-1.886-.91A6.962,6.962,0,0,1,6.59.579,9.547,9.547,0,0,0,4.549,3.381Zm-.4,4.378h3.1v2.6a9.539,9.539,0,0,0-2.5.4A9.032,9.032,0,0,1,4.145,7.759Zm3.1,3.113v3.444a9.044,9.044,0,0,1-2.3-3.082A9.017,9.017,0,0,1,7.241,10.872Zm.517,3.444V10.872a9.017,9.017,0,0,1,2.3.362A9.043,9.043,0,0,1,7.759,14.316Zm0-3.962v-2.6h3.1a9.029,9.029,0,0,1-.6,2.995A9.525,9.525,0,0,0,7.759,10.355Zm3.613-2.6h3.1a6.949,6.949,0,0,1-1.631,4.228,9.536,9.536,0,0,0-2.1-1.068A9.551,9.551,0,0,0,11.372,7.759ZM2.506,12.374A9.013,9.013,0,0,1,4.45,11.4a9.543,9.543,0,0,0,2.139,3.025A6.968,6.968,0,0,1,2.506,12.374Zm5.9,2.047A9.537,9.537,0,0,0,10.55,11.4a9.019,9.019,0,0,1,1.944.978A6.968,6.968,0,0,1,8.411,14.421Z" transform="translate(4199 1014)"/>
+                      </svg>
+                  </a>
+
+                <!-- <a class="excel-link"><img src="assets/images/ic_preferences.svg" width="20px" height="20px"></a> -->
+            </div>
+            </h5>
+    </div>
+    <div class="row first-box-row">
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 common-header-box">
+            <div class="white-box">
+                <div class="col-in">
+                    <span class="text-common">Monday 05 FEB 2018</span>
+                    <p class="sub-text">Data was last updated:</p>
+                </div>
+            </div>
+        </div><!-- /.col -->
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 common-header-box">
+            <div class="white-box">
+                 <div class="col-in">
+                    <span class="text-common">Local</span>
+                    <p class="sub-text">Data Source</p>   
+                 </div>
+            </div>
+        </div><!-- /.col -->
+      
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 data-source-box">
+            <div class="custom-staff-box">
+                 <div class="col-in staff-box">
+                    <div class="text-common staff-text">{{HeaderValue}}</div>
+                        <li class="dropdown side-list" dropdown>
+                          <div class="staff-dropdown-icon">
+                            <a class=""  dropdownToggle><i class="fa fa-angle-down fa-2x"></i></a>
+                          </div>
+                      
+                     <ul id="export-text"  *dropdownMenu class="dropdown-menu custom-dropdown pull-right" role="menu">
+                        <ng-container   *ngFor="let drop of grade">
+                          <li  [ngClass]="{'active': drop.value===currentIndex}">
+                              <a id="insert-more" class="add-img"   (click)="changeMember(drop.value);currentIndex=drop.value">{{drop.text}}</a>
+                          </li>
+                        </ng-container>
+                      </ul>
+                    </li> 
+                 </div>
+                 
+            </div>
+        </div><!-- /.col -->
+    </div><!--/.row -->
+    <div class="card">
+        <div class="" style="padding-right:0px;">
+       
+        <p-dataTable  [(value)]="wmtTable" scrollable="true" [responsive]="true" scrollWidth="100%"  resizableColumns="true"  selectionMode="single" (onRowSelect)="onRowSelect($event)"  scrollHeight="270px"  sortMode="multiple">        
+          <!-- <p-column  field="{{list.prop}}" header="{{list.name}}" [sortable]="true" [style]="{'width':'250px'}"></p-column> -->
+          <p-column  field="name" header="Name" [sortable]="true" [style]="{'width':'100px'}"  ></p-column>
+          <p-column  field="cases" header="Cases" [sortable]="true" [style]="{'width':'100px'}"></p-column>
+          <p-column  field="volume" header="Volume" [sortable]="true"  [style]="{'width':'100px'}"></p-column>
+          <p-column  field="capacity" header="Capacity" [sortable]="true"  [style]="{'width':'100px'}"></p-column>adj
+          <p-column  field="adj" header="Adj" [sortable]="true"  [style]="{'width':'100px'}"></p-column>
+          <p-column  field="fte" header="FTE" [sortable]="true" [style]="{'width':'100px'}" ></p-column>
+          <p-column  field="cm" header="CM" [sortable]="true"  [style]="{'width':'100px'}"></p-column>
+          <p-column  field="scm" header="SCM" [sortable]="true" [style]="{'width':'100px'}" ></p-column>
+          <p-column  field="band0" header="Band 0" [sortable]="true"  [style]="{'width':'100px'}"></p-column>
+          <p-column  field="band1" header="Band 1" [sortable]="true"  [style]="{'width':'100px'}"></p-column>
+          <p-column  field="band2" header="Band 2" [sortable]="true"  [style]="{'width':'100px'}"></p-column>
+          <p-column  field="band3" header="Band 3" [sortable]="true"  [style]="{'width':'100px'}"></p-column>
+          <p-column  field="band4" header="Band 4" [sortable]="true" [style]="{'width':'100px'}"></p-column>
+          <p-column  field="community" header="Community" [sortable]="true" [style]="{'width':'100px'}"></p-column>
+          <p-column  field="custody" header="Custody" [sortable]="true" [style]="{'width':'100px'}"></p-column>
+          <p-column  field="dormant" header="Dormant" [sortable]="true" [style]="{'width':'100px'}"></p-column>
+        </p-dataTable>  
+      </div>
+    </div>
+  </div>
+</div>    

@@ -5,8 +5,8 @@
 
 export const environment = {
   production: false,
-  //baseUrl: 'http://172.30.255.69:7070/Meganexus'
-baseUrl: 'http://172.30.241.123:8080/Meganexus'
+  baseUrl: 'http://172.30.255.69:7070/Meganexus'
+//baseUrl: 'http://172.30.241.123:8080/Meganexus'
 //baseUrl:'http://demo5022981.mockable.io/'
  
  

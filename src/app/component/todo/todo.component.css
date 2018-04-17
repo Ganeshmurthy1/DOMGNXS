@@ -1115,10 +1115,11 @@ input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly
 .modalContainer{
     padding: 0px;
     background-color: #ffffff;
-    width:30%;
-    right:0px;
-    top:0px;
+    width: 30%;
+    right: 0px;
+    top: 0px;
     position: absolute;
+    box-shadow: 0 0 16px #ccc;
 }
 #ZIndex1{
     z-index: -1;
@@ -1240,3 +1241,9 @@ li.common-list:before{
     width: 100%;
     padding: 18px;
 }
+.cyanBackground-btn{
+    background-color: #1fdee5;
+    padding: 5px 5px 10px 5px;
+    float: right;
+    margin-left: 10px;
+  }
